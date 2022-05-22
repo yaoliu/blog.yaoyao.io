@@ -1,11 +1,11 @@
-FROM node:14-alpine as builder
+FROM node:15-alpine as builder
 LABEL maintainer="YaoYao<liuyao@163.com>"
 
 WORKDIR /home/node/app
 COPY package.json /home/node/app/
 RUN yarn install
 COPY . /home/node/app
-RUN rm -rf /home/node/app/docs/.vuepress/dist
+RUN yarn clean
 RUN yarn docs:build
 
 
