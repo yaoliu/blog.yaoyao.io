@@ -1,0 +1,1 @@
+import{_ as e,o as l,a as o}from"./app.34202fb8.js";const r={};function t(_,c){return l(),o("p",null,"\u8FD9\u662F\u5185\u5BB9....")}var n=e(r,[["render",t],["__file","hello-world.html.vue"]]);export{n as default};
