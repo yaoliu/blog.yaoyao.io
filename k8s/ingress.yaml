@@ -1,0 +1,19 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: yaoyaoio
+  namespace: home-work
+spec:
+  tls:
+    - hosts:
+        - yaoyao.io
+      secretName: yaoyaoio
+  rules:
+    - host: yaoyao.io
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: blog-v2
+              servicePort: 8080

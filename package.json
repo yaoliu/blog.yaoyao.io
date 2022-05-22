@@ -1,0 +1,35 @@
+{
+  "name": "yaoyao-blog-v2",
+  "private": true,
+  "description": "this is blog",
+  "license": "Apache-2.0",
+  "author": "YaoYao<liuyao@163.com>",
+  "devDependencies": {
+    "vuepress": "2.0.0-beta.45",
+    "@vuepress/cli": "2.0.0-beta.45",
+    "@vuepress/client": "2.0.0-beta.45",
+    "vuepress-theme-gungnir": "2.0.0-alpha.23",
+    "vue": "^3.2.33",
+    "anywhere": "^1.6.0",
+    "oh-vue-icons": "^1.0.0-rc3",
+    "sass-loader": "^12.6.0",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "clean": "rimraf docs/.vuepress/.temp docs/.vuepress/.cache dist",
+    "start": "yarn run docs:dev",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "d": "sh sctipts/deploy.sh",
+    "dev": "vuepress-cli dev docs --clean-cache",
+    "build": "pnpm clean && vuepress-cli build docs --clean-cache",
+    "serve": "anywhere -s -h localhost -d docs/.vuepress/dist"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "webpack"
+      ]
+    }
+  }
+}

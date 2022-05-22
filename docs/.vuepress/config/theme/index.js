@@ -1,0 +1,101 @@
+const {gungnirTheme} = require("vuepress-theme-gungnir");
+const isProd = process.env.NODE_ENV === "production";
+
+module.exports = gungnirTheme({
+  navbarTitle: "YaoYao's Blog",
+  repo: "yaoliu/blog-v2.github.io",
+  docsDir: "docs",
+  docsBranch: "master",
+
+  hitokoto: "https://v1.hitokoto.cn?c=i", // enable hitokoto (一言) or not?
+  searchText: "Search",
+  catalog: true,
+  blogNumPerPage: 20, // 可选：每页的博客数量，默认：10
+  // personal information
+  personalInfo: {
+    name: "YaoYao",
+    avatar: "/img/avatar.jpg",
+    description: "Have a great day.",
+    sns: {
+      github: "yaoliu",
+      twitter: "yaoyaoio",
+      email: "liuyao@163.com",
+      rss: "/rss.xml"
+    }
+  },
+
+  // header images on home page
+  homeHeaderImages: [
+    {
+      path: "/img/home-bg/1.jpg",
+      mask: "rgba(40, 57, 101, .4)"
+    },
+    {
+      path: "/img/home-bg/2.jpg",
+      mask: "rgba(196, 176, 131, .1)"
+    },
+    {
+      path: "/img/home-bg/4.jpg",
+      mask: "rgba(19, 75, 50, .2)"
+    },
+  ],
+
+  // other pages
+  pages: {
+    tags: {
+      subtitle: "Black Sheep Wall",
+      bgImage: {
+        path: "/img/pages/tags.jpg",
+        mask: "rgba(211, 136, 37, .5)"
+      }
+    }
+  },
+
+  themePlugins: {
+    // only enable git plugin in production mode
+    git: isProd,
+    katex: true,
+    giscus: {
+      repo: "yaoliu/blog-comments",
+      repoId: "R_kgDOHX02Ew",
+      category: "Announcements",
+      categoryId: "DIC_kwDOHX02E84CPN8T",
+      darkTheme: "light"
+    },
+    ga: "",
+    ba: "",
+    mdPlus: {
+      all: true
+    },
+    rss: {
+      siteURL: "https://yaoyao.io",
+      title: "YaoYao's Blog",
+      copyright: "YaoYao 2015-2022"
+    }
+  },
+
+  navbar: [
+    {
+      text: "Home",
+      link: "/",
+      icon: "fa-fort-awesome"
+    },
+    {
+      text: "Tags",
+      link: "/tags/",
+      icon: "fa-tag"
+    },
+    {
+      text: "About",
+      link: "/about/",
+      icon: "fa-paw"
+    },
+  ],
+
+  footer: `
+      &copy; <a href="https://github.com/yaoliu" target="_blank">YaoYao</a> 2015-2022
+      <br>
+      Powered by <a href="https://v2.vuepress.vuejs.org" target="_blank">VuePress</a> &
+      <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
+    `
+})
