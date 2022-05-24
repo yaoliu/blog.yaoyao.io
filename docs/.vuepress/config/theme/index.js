@@ -60,7 +60,7 @@ module.exports = gungnirTheme({
       repoId: "R_kgDOHX02Ew",
       category: "Announcements",
       categoryId: "DIC_kwDOHX02E84CPN8T",
-      darkTheme: "light"
+      lazyLoad: true
     },
     ga: "",
     ba: "",
