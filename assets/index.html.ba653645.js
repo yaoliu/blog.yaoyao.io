@@ -1,0 +1,1 @@
+const t={key:"v-74bc627b",path:"/about/",title:"About Me",lang:"zh-CN",frontmatter:{title:"About Me",date:"2015-11-16T00:00:00.000Z",author:"\u8000\u8000"},excerpt:"",headers:[],git:{updatedTime:1653491291e3},readingTime:{minutes:1,words:7},filePathRelative:"about/README.md"};export{t as data};
