@@ -59,7 +59,7 @@ module.exports = gungnirTheme({
   // other pages
   pages: {
     tags: {
-      subtitle: "Black Sheep Wall",
+      subtitle: "Even the best make mistakes sometimes.",
       bgImage: {
         path: "/img/pages/tags.jpg",
         mask: "rgba(211, 136, 37, .5)"
