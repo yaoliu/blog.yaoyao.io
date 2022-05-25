@@ -146,7 +146,7 @@ systemctl enable containerd --now
 
 ## 使用kubelet初始化集群
 
-****在master上执行****
+### 在master上执行
 
 ```bash
 sudo kubeadm init --pod-network-cidr 172.16.0.0/16  \
@@ -163,7 +163,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 初始化成功后会生成节点加入集群的命令 在其他节点上执行该命令
 
-****在node上执行****
+### 在node上执行
 
 ```bash
 kubeadm join 10.211.55.9:6443 --token mldghy.xtf4a0u9bw8ltsvu --discovery-token-ca-cert-hash sha256:2b0f87c543d77e0b8f843db47c95985febe17a19de747b064720097db9b9535c
@@ -179,7 +179,7 @@ kubeadm join 10.211.55.9:6443 --token mldghy.xtf4a0u9bw8ltsvu --discovery-token-
 # wget https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 ```
 
-修改配置文件 只修改Network和Backend Type
+修改配置文件 只修改 Network 和 Backend Type
 
 ```bash
 data:
