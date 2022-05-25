@@ -1,0 +1,1 @@
+const e={key:"v-633a9ca8",path:"/tags/kubernetes/",title:"kubernetes | Tags",lang:"zh-CN",frontmatter:{title:"kubernetes | Tags",layout:"Tags",blog:{type:"category",name:"kubernetes",key:"tag"}},excerpt:"",headers:[],git:{},filePathRelative:null};export{e as data};
