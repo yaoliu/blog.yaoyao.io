@@ -2,6 +2,7 @@ const {viteBundler} = require("@vuepress/bundler-vite");
 const themeConfig = require('./config/theme')
 
 module.exports = {
+  base: '/',
   title: "YaoYao's Blog",
   description: 'Have a great day.',
   // 最后更新时间

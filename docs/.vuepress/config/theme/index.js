@@ -3,9 +3,9 @@ const isProd = process.env.NODE_ENV === "production";
 
 module.exports = gungnirTheme({
   navbarTitle: "YaoYao's Blog",
-  repo: "yaoliu/blog-v2.github.io",
+  repo: "yaoliu/blog-v2",
   docsDir: "docs",
-  docsBranch: "master",
+  docsBranch: "main",
 
   hitokoto: "https://v1.hitokoto.cn?c=i", // enable hitokoto (一言) or not?
   searchText: "Search",
@@ -105,7 +105,7 @@ module.exports = gungnirTheme({
       text: "About",
       link: "/about/",
       icon: "fa-paw"
-    },
+    }
   ],
 
   footer: `
