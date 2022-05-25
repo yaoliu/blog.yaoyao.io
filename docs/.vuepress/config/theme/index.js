@@ -35,8 +35,24 @@ module.exports = gungnirTheme({
       mask: "rgba(196, 176, 131, .1)"
     },
     {
-      path: "/img/home-bg/4.jpg",
+      path: "/img/home-bg/3.jpeg",
       mask: "rgba(19, 75, 50, .2)"
+    },
+    {
+      path: "/img/home-bg/4.jpg",
+      mask: "rgba(196, 176, 131, .1)"
+    },
+    {
+      path: "/img/home-bg/5.jpeg",
+      mask: "rgba(196, 176, 131, .1)"
+    },
+    {
+      path: "/img/home-bg/6.jpeg",
+      mask: "rgba(196, 176, 131, .1)"
+    },
+    {
+      path: "/img/home-bg/7.jpeg",
+      mask: "rgba(196, 176, 131, .1)"
     },
   ],
 
