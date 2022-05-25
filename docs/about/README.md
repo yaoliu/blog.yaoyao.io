@@ -1,10 +1,7 @@
 ---
-layout: Post
-title: About Me
-name: 耀耀
+title: About Me # 文档标题（必须）
+date: 2015-11-16 # 文档日期，会显示在文章头部（可选）
+author: 耀耀 # 文档作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
 ---
 
-转载请注明出处，有错误欢迎评论指正，或者直接在仓库发起 PR。
-
-实在不知道说什么。。。以后有机会在完善吧
-
+这里没什么内容。。。。
