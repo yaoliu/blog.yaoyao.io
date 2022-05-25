@@ -15,8 +15,6 @@ tags:  # 博客标签（可选）
 - 云原生
 ---
 
-
-
 ## 基本环境
 
 4台主机如下:
@@ -50,6 +48,7 @@ UBUNTU_CODENAME=focal
 ```
 
 ## 基础操作
+
 **注 (所有机器都需要执行)**
 
 **修改主机名并把主机信息加到 /etc/hosts 文件中**
@@ -73,7 +72,6 @@ UBUNTU_CODENAME=focal
 **修改内核参数 创建文件添加内容**
 
 ```bash
-
 # cat << EOF > /etc/sysctl.d/99-kubernetes-cri.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
@@ -114,7 +112,6 @@ EOF
 **安装容器运行时 Containerd 这里使用阿里云提供的源**
 
 ```bash
-
 # // 添加相关源 我在Macbook上使用PD搞的虚拟机 这地方需要改为对应架构的 arch=arm64
 # **sudo add-apt-repository "deb [arch=arm64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
 # // 卸载 docker
@@ -143,7 +140,7 @@ EOF
 
 配置 **Containerd** 开机启动，并启动 **Containerd**
 
-```
+```bash
 systemctl enable containerd --now
 ```
 
@@ -165,12 +162,16 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 初始化成功后会生成节点加入集群的命令 在其他节点上执行该命令
-### 在node上执行
+
+****在node上执行****
+
 ```bash
 kubeadm join 10.211.55.9:6443 --token mldghy.xtf4a0u9bw8ltsvu --discovery-token-ca-cert-hash sha256:2b0f87c543d77e0b8f843db47c95985febe17a19de747b064720097db9b9535c
 ```
 
-**部署 Flannel 组件 (Vxlan模式)**
+## **部署 Flannel 组件 (Vxlan模式)**
+
+在master上执行
 
 下载配置文件
 
@@ -239,4 +240,4 @@ systemctl enable kubelet.service
 
 涉及DNS问题可以考虑关掉DNS管理服务
 
-参考[重新夺回对 /etc/resolv.conf 的控制权](https://icloudnative.io/posts/resolvconf-tutorial/)
+参考[https://icloudnative.io/posts/resolvconf-tutorial/](https://icloudnative.io/posts/resolvconf-tutorial/)
