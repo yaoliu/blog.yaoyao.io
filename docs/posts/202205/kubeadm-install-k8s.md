@@ -146,7 +146,7 @@ systemctl enable containerd --now
 
 ## 使用kubelet初始化集群
 
-### 在master上执行
+****在master上执行****
 
 ```bash
 sudo kubeadm init --pod-network-cidr 172.16.0.0/16  \
