@@ -27,31 +27,31 @@ module.exports = gungnirTheme({
   // header images on home page
   homeHeaderImages: [
     {
-      path: "/img/home-bg/1.jpg",
+      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/1.jpg",
       mask: "rgba(40, 57, 101, .4)"
     },
     {
-      path: "/img/home-bg/2.jpg",
+      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/2.jpg",
       mask: "rgba(196, 176, 131, .1)"
     },
     {
-      path: "/img/home-bg/3.jpeg",
+      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/3.jpeg",
       mask: "rgba(19, 75, 50, .2)"
     },
     {
-      path: "/img/home-bg/4.jpg",
+      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/4.jpg",
       mask: "rgba(196, 176, 131, .1)"
     },
     {
-      path: "/img/home-bg/5.jpeg",
+      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/5.jpeg",
       mask: "rgba(196, 176, 131, .1)"
     },
     {
-      path: "/img/home-bg/6.jpeg",
+      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/6.jpeg",
       mask: "rgba(196, 176, 131, .1)"
     },
     {
-      path: "/img/home-bg/7.jpeg",
+      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/7.jpeg",
       mask: "rgba(196, 176, 131, .1)"
     },
   ],
