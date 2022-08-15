@@ -1,6 +1,6 @@
 ---
 layout: Post # 必须
-title: "MySQL双主基于GTID复制方案"
+title: "MySQL 双主基于 GTID 复制方案"
 date: "2021-09-01"
 author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）

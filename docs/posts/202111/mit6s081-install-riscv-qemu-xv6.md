@@ -1,6 +1,6 @@
 ---
 layout: Post # 必须
-title: "MIT 6.S081/Fall 2020 搭建risc-v与xv6开发调试环境" # 博客标题（必须）
+title: "MIT 6.S081/Fall 2020 搭建 risc-v 与 xv6 开发调试环境" # 博客标题（必须）
 date: "2021-11-8"
 author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
