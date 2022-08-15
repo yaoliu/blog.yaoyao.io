@@ -1,10 +1,14 @@
 name: CI
-
+#https://docs.github.com/cn/actions/using-workflows/triggering-a-workflow
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'k8s/*'
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - 'k8s/*'
 
 jobs:
   push-to-registry:
