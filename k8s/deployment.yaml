@@ -22,7 +22,7 @@ spec:
             type: ''
       containers:
         - name: container-blog
-          image: yaoyaoio/blog-v2
+          image: yaoyaoio/blog-v2:main
           ports:
             - name: http-80
               containerPort: 80
