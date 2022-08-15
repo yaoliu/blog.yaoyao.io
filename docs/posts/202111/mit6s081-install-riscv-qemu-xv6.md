@@ -366,7 +366,6 @@ riscv64-unknown-elf-gdb
     96     #out_host_hook_obj=host-darwin.o
     97     #host_xmake_file="${host_xmake_file} x-darwin"
     ```
-    
 
 2.  如果出现此问题 是gdb没有正常加载
 
