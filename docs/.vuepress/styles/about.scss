@@ -1,5 +1,5 @@
 @import 'vuepress-theme-gungnir/lib/client/styles/_variables.scss';
-@import 'vuepress-theme-gungnir/lib/client/styles/_wrapper.scss';
+//@import 'vuepress-theme-gungnir/lib/client/styles/_wrapper.scss';
 
 $AboutWidth: 900px;
 
@@ -10,7 +10,7 @@ $AboutWidth: 900px;
 }
 
 .about-profile {
-  @extend %wrapper;
+  //@extend %wrapper;
 
   border-bottom: 1px solid var(--c-border);
   margin: 7rem auto 0;
