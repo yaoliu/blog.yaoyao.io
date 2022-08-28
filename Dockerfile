@@ -1,4 +1,4 @@
-FROM node:15-alpine as builder
+FROM node:18-alpine as builder
 LABEL maintainer="YaoYao<liuyao@163.com>"
 
 WORKDIR /home/node/app
