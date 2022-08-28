@@ -23,7 +23,6 @@
     "start": "yarn run docs:dev",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "d": "sh sctipts/deploy.sh",
     "dev": "vuepress-cli dev docs --clean-cache",
     "build": "pnpm clean && vuepress-cli build docs --clean-cache",
     "serve": "anywhere -s -h localhost -d docs/.vuepress/dist"
