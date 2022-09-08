@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: blog-v2
-  namespace: home-work
+  namespace: blog
   labels:
     app: blog-v2
 spec:
