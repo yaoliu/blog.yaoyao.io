@@ -15,5 +15,7 @@ spec:
           - path: /
             pathType: ImplementationSpecific
             backend:
-              serviceName: blog-v2
-              servicePort: 8080
+              service:
+                name: blog-v2
+                port:
+                  number: 8080
