@@ -30,20 +30,28 @@ module.exports = gungnirTheme({
       path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/1.webp",
       mask: "rgba(40, 57, 101, .4)"
     },
-    {
-      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/2.webp",
-      mask: "rgba(196, 176, 131, .1)"
-    },
+    // {
+    //   path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/2.webp",
+    //   mask: "rgba(196, 176, 131, .1)"
+    // },
     {
       path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/3.webp",
       mask: "rgba(19, 75, 50, .2)"
     },
+    // {
+    //   path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/4.webp",
+    //   mask: "rgba(196, 176, 131, .1)"
+    // },
     {
-      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/4.webp",
+      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/5.webp",
       mask: "rgba(196, 176, 131, .1)"
     },
     {
-      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/5.webp",
+      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/6.webp",
+      mask: "rgba(196, 176, 131, .1)"
+    },
+    {
+      path: "https://img.liu-yao.com/yaoyaoio/img/home-bg/7.webp",
       mask: "rgba(196, 176, 131, .1)"
     },
   ],
