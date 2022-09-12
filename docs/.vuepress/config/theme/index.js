@@ -64,6 +64,12 @@ module.exports = gungnirTheme({
         path: "/img/pages/tags.jpg",
         mask: "rgba(211, 136, 37, .5)"
       }
+    },
+    timelines: {
+      subtitle: "To the time to life, rather than to life in time.",
+      bgImage: {
+        path: "/img/pages/timelines.jpeg"
+      }
     }
   },
 
@@ -102,10 +108,15 @@ module.exports = gungnirTheme({
       icon: "fa-tag"
     },
     {
+      text: "Timelines",
+      link: "/timelines/",
+      icon: "ri-timer-line"
+    },
+    {
       text: "About",
       link: "/about/",
       icon: "fa-paw"
-    }
+    },
   ],
 
   footer: `
