@@ -14,6 +14,10 @@ tags:
 - "数据库"
 ---
 
+生产可用的 Mysql 双主搭建过程
+
+<!-- more -->
+
 操作系统：CentOS Linux release 7.8.2003 (Core)
 
 master-1：192.168.200.50

@@ -1,6 +1,7 @@
 ---
 layout: Post # 必须
 title: "计算机科学必读书单"
+subtitle: "Computer science required reading list"
 date: "2020-10-21"
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: /img/in-post/2017-06-09/header.jpeg # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
@@ -13,8 +14,9 @@ tags:
  - "读书"
 ---
 
+我个人觉得需要必读的书单 随时更新。。。
 
-Computer science required reading list / 计算机科学必读书单
+<!-- more -->
 
 ### 操作系统
 1. 程序员的自我修养

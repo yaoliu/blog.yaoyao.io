@@ -12,8 +12,9 @@ catalog: true # 是否启用右侧目录，会覆写 `themeConfig.catalog`（可
 hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可选，默认：false）
 ---
 
-记录一下如何制作`OpenSSH 8.6p1` RPM安装包。
-<!--more-->
+记录一下如何制作 OpenSSH 8.6p1 RPM安装包。
+
+<!-- more -->
 
 ## 背景
 
