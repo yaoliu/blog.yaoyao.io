@@ -1,6 +1,6 @@
 ---
 layout: Post # 必须
-title: 使用 kubeadm 在 Ubuntu 20.04 部署 k8s 集群
+title: 使用 kubeadm 在 Ubuntu20.04 部署 k8s 集群
 date: 2022-05-26 # 博客发表日期（可选）
 author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
