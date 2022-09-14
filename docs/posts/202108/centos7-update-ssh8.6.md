@@ -4,10 +4,10 @@ title: "Centos7 解决 OpenSSH 漏洞升级方案"
 date: "2021-08-01"
 author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
-headerImage: https://img.liu-yao.com/yaoyaoio/img/in-post/default.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
+headerImage: /img/in-post/ideun-kim-220908-morning.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
-headerImageCredit: Victoria Zavhorodnia (akbutea) # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
-headerImageCreditLink: https://www.artstation.com/artwork/9NVDOW  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
+headerImageCredit: Ideun Kim # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
+headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
 catalog: true # 是否启用右侧目录，会覆写 `themeConfig.catalog`（可选，默认：false）
 hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可选，默认：false）
 ---
