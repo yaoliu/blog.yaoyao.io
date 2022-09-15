@@ -4,7 +4,7 @@ title: "计算机科学必读书单"
 subtitle: "Computer science required reading list"
 date: "2020-10-21"
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
-headerImage: /img/in-post/2017-06-09/header.jpeg # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
+headerImage: https://img.liu-yao.com/yaoyaoio/img/in-post/header.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
 headerImageCredit: Jeremy Fenske # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
 headerImageCreditLink: https://www.artstation.com/artwork/nLY0K  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
