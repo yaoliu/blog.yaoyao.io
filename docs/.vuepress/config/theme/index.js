@@ -3,7 +3,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 module.exports = gungnirTheme({
   navbarTitle: "YaoYao's Blog",
-  repo: "yaoliu/blog-v2",
+  repo: "yaoyaoio/yaoyao.io",
   docsDir: "docs",
   docsBranch: "main",
 
@@ -19,7 +19,7 @@ module.exports = gungnirTheme({
     sns: {
       github: "yaoliu",
       twitter: "yaoyaoio",
-      email: "liuyao@163.com",
+      email: "i@yaoyao.io",
       rss: "/rss.xml"
     }
   },
@@ -108,11 +108,6 @@ module.exports = gungnirTheme({
       icon: "fa-tag"
     },
     {
-      text: "Timelines",
-      link: "/timelines/",
-      icon: "ri-timer-line"
-    },
-    {
       text: "About",
       link: "/about/",
       icon: "fa-paw"
@@ -120,7 +115,7 @@ module.exports = gungnirTheme({
   ],
 
   footer: `
-      &copy; <a href="https://github.com/yaoliu" target="_blank">YaoYao</a> 2015-2022
+      &copy; <a href="https://github.com/yaoyaoio" target="_blank">YaoYao</a> 2015-2022
       <br>
       Powered by <a href="https://v2.vuepress.vuejs.org" target="_blank">VuePress</a> &
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
