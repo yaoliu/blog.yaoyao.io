@@ -28,14 +28,14 @@ Mac 系统：Ventura
 
 如图所示：
 
-![创建共享文件夹|1104](./assets/nas-share-create-timemachine.png)
+![创建共享文件夹|1104](/assets/nas-share-create-timemachine.png)
 
 5. 然后选择下一步
 6. 最后一步的时候 需要为你的用户设置可读写权限 然后点击**应用**即可
 
 如图所示：
 
-![配置用户权限](./assets/nas-share-timemachine-perm.png)
+![配置用户权限](/assets/nas-share-timemachine-perm.png)
 
 ### 将共享文件夹设置为 Time Machine 的备份目标
 
@@ -50,7 +50,7 @@ Mac 系统：Ventura
 
 如图所示：
 
-![开启 SMB 服务](./assets/nas-smb-start.png)
+![开启 SMB 服务](/assets/nas-smb-start.png)
 #### 设置 AFP 服务
 
 1. 打开 控制面板-> 文件服务-> AFP
@@ -59,7 +59,7 @@ Mac 系统：Ventura
 
 如图所示：
 
-![开启 AFP 服务](./assets/nas-afp-start.png)
+![开启 AFP 服务](/assets/nas-afp-start.png)
 
 #### 高级设置
 
@@ -70,9 +70,9 @@ Mac 系统：Ventura
 
 如图所示：
 
-![配置 Bonjour](./assets/nas-bonjour-start.png)
+![配置 Bonjour](/assets/nas-bonjour-start.png)
 
-![设置 TM 文件夹](./assets/nas-timemachine-set.png)
+![设置 TM 文件夹](/assets/nas-timemachine-set.png)
 
 ## 在 Mac 上进行配置
 
@@ -81,19 +81,19 @@ Mac 系统：Ventura
 1. 在 Mac 上 打开 系统设置
 
 如图所示：
-![打开系统应用|526](./assets/mac-system-settings.png)
+![打开系统应用|526](/assets/mac-system-settings.png)
 
 2. 选择通用 ->Time Machine
 
 如图所示：
 
-![打开TM|1000](./assets/mac-timemachine-main.png)
+![打开TM|1000](/assets/mac-timemachine-main.png)
 
 3. 选择备份的硬盘
 
 如图所示：
 
-![](./assets/mac-timemachine-set.png)
+![](/assets/mac-timemachine-set.png)
 4. 然后根据 Time Machine 规则 即可开始备份
 
 ## 最后
