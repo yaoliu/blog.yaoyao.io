@@ -29,7 +29,7 @@ Obsidian： Version 1.0.3 (Installer 1.0.0)
 
 如图所示：
 
-![安装 WebDAV|968](/assets/nas-install-webdav.png)
+![安装 WebDAV|968](./assets/nas-install-webdav.png)
 
 ###  配置 WebDAV Server
 
@@ -37,20 +37,20 @@ Obsidian： Version 1.0.3 (Installer 1.0.0)
 
 如图所示：
 
-![打开 WebDAV|868](/assets/nas-open-webdav.png)
+![打开 WebDAV|868](./assets/nas-open-webdav.png)
 
 2. 修改配置并应用
 
 **如果什么都不改可以直接点击应用 这个地方我修改了端口**
 
-![应用 WebDAV|1076](/assets/nas-apply-webdav.png)
+![应用 WebDAV|1076](./assets/nas-apply-webdav.png)
 
 ### 创建共享目录
 
 控制面板--> 共享文件夹--> 新增--> obsidian
 
 如图所示：
-![创建共享目录|1067](/assets/nas-share-create-obs.png)
+![创建共享目录|1067](./assets/nas-share-create-obs.png)
 
 ## 在 Obsidian 上安装 Remotely Save
 
@@ -59,13 +59,13 @@ Obsidian： Version 1.0.3 (Installer 1.0.0)
 
 如图所示：
 
-![安装|1200](/assets/obs-plugin-remotely-install.png)
+![安装|1200](./assets/obs-plugin-remotely-install.png)
 
 ## 在 Obsidian 上配置 Remotely Save
 
 如图所示：
 
-![配置|1200](/assets/obs-plugin-remotely-set.png)
+![配置|1200](./assets/obs-plugin-remotely-set.png)
 
 ###  配置如下：
 
