@@ -78,7 +78,7 @@ module.exports = gungnirTheme({
     git: isProd,
     katex: true,
     giscus: {
-      repo: "yaoliu/blog-comments",
+      repo: "yaoyaoio/blog-comments",
       repoId: "R_kgDOHX02Ew",
       category: "Announcements",
       categoryId: "DIC_kwDOHX02E84CPN8T",
