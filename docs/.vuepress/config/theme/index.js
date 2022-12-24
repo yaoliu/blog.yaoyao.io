@@ -92,7 +92,10 @@ module.exports = gungnirTheme({
     rss: {
       siteURL: "https://yaoyao.io",
       title: "YaoYao's Blog",
-      copyright: "YaoYao 2015-2022"
+      description: "Have a great day.",
+      copyright: "YaoYao 2015-2022",
+      count: 20,
+      filter: (page) => true,
     }
   },
 
