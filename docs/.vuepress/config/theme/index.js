@@ -84,7 +84,7 @@ module.exports = gungnirTheme({
       categoryId: "DIC_kwDOHX02E84CPN8T",
       lazyLoad: true
     },
-    ga: "",
+    ga: "G-VTV8TERKLB",
     ba: "",
     mdPlus: {
       all: true
