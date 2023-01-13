@@ -5,7 +5,8 @@ date: 2022-12-01
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 ---
 
-# 使用 Time Machine 将 Mac 数据备份到群晖 NAS
+
+---
 
 ::: tip  我的环境
 群晖 NAS 产品型号：DS1522+

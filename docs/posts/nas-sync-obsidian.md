@@ -4,7 +4,9 @@ title: 使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖
 date: 2022-12-01
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示)
 ---
-# 使用 Remotely Save 和 WebDAV Server 将 Obsidian 数据同步到群晖 NAS
+
+
+---
 
 ::: tip  我的环境
 
