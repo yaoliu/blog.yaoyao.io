@@ -180,7 +180,7 @@ sudo make
 
 如果安装成功 则显示如下: 
 
-![mit-make-gdb-install](https://img.liu-yao.com/yaoyaoio/mit-make-gdb-install.png)
+![mit-make-gdb-install](https://i.yaoyao.site/yaoyaoio/mit-make-gdb-install.png)
 
 **配置环境变量**
 
@@ -319,7 +319,7 @@ make qemu
 
 显示如下代表运行成功
 
-![mit-make-qemu](https://img.liu-yao.com/yaoyaoio/mit-make-qemu.png)
+![mit-make-qemu](https://i.yaoyao.site/yaoyaoio/mit-make-qemu.png)
 
 ## 使用 qemu-gdb 对 xv6进行调试
 
@@ -334,7 +334,7 @@ make CPUS=1 qemu-gdb
 
 显示如下 这样代表启动成功 qemu-gdb
 
-![mit-make-qemu-gdb](https://img.liu-yao.com/yaoyaoio/mit-make-qemu-gdb.png)
+![mit-make-qemu-gdb](https://i.yaoyao.site/yaoyaoio/mit-make-qemu-gdb.png)
 
 ### 窗口2
 
@@ -345,7 +345,7 @@ riscv64-unknown-elf-gdb
 
 显示如下 这样代表成功
 
-![mit-riscv-gdb](https://img.liu-yao.com/yaoyaoio/mit-riscv-gdb.png)
+![mit-riscv-gdb](https://i.yaoyao.site/yaoyaoio/mit-riscv-gdb.png)
 
 注: `xv6-riscv` 目录下有 `.gdbinit` 配置 有的情况下 `riscv64-unknown-elf-gdb` 会自动加载 如果没有自动加载则需要你手动 `source .gdbinit` 当打印 `0x0000000000001000 in ?? ()` 代表可以调试。
 
