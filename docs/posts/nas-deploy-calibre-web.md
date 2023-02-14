@@ -26,29 +26,29 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 点击 ` 选择 ` 后即可会自动下载
 
-![搜索及下载镜像|1000](./assets/nas-calibre-web-download.png)
+![搜索及下载镜像|1000](https://i.yaoyao.site/blog/nas-calibre-web-download.png)
 
 ### 创建容器
 
 在 ` 容器 `  中点击 ` 新增 ` 选择对应版本的镜像点击 ` 下一步 `
 
-![创建容器选择镜像|1000](./assets/nas-calibre-web-create.png)
+![创建容器选择镜像|1000](https://i.yaoyao.site/blog/nas-calibre-web-create.png)
 
 ### 配置容器网络
 
 在这里我选择了和 Docker Host 相同的网络 你也可以选择 Birdge 然后把 8083 端口暴露出来
 
-![配置容器网络|1000](./assets/nas-calibre-web-network.png)
+![配置容器网络|1000](https://i.yaoyao.site/blog/nas-calibre-web-network.png)
 
 ### 容器常规设置
 
 在这里我勾选了 ` 启用自动重新启动 ` 然后点击 ` 高级设置 `
 
-![容器常规设置|1000](./assets/nas-calibre-web-basic-set.png)
+![容器常规设置|1000](https://i.yaoyao.site/blog/nas-calibre-web-basic-set.png)
 
 ### 配置容器环境变量
 
-![高级设置配置环境变量|1000](./assets/nas-calibre-web-env-set.png)
+![高级设置配置环境变量|1000](https://i.yaoyao.site/blog/nas-calibre-web-env-set.png)
 
 |变量|值|说明|
 |---|---|---|
@@ -65,7 +65,7 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 共享文件夹的创建请点击 [这里查看](#创建共享文件夹)
 
-![存储空间设置|1000](./assets/nas-calibre-web-volume.png)
+![存储空间设置|1000](https://i.yaoyao.site/blog/nas-calibre-web-volume.png)
 
 | 本地文件夹             | 装载路径 | 说明         |
 | --- | --- | --- |
@@ -78,13 +78,13 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 此处可以看一下自己配置有没有问题 如果有问题点击 ` 上一步 ` 如果没问题则点击 ` 完成 `
 
-![摘要|1000](./assets/nas-calibre-web-more.png)
+![摘要|1000](https://i.yaoyao.site/blog/nas-calibre-web-more.png)
 
 ### 查看启动日志
 
 这个地方会慢一些
 
-![查看启动日志](./assets/nas-calibre-web-run-log.png)
+![查看启动日志](https://i.yaoyao.site/blog/nas-calibre-web-run-log.png)
 
 ## 访问及管理 Calibre-Web 服务
 
@@ -94,13 +94,13 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 默认登录账号为：`admin/admin123`
 
-![访问服务](./assets/nas-calibre-web-browser.png)
+![访问服务](https://i.yaoyao.site/blog/nas-calibre-web-browser.png)
 
 ### 配置数据库路径
 
 输入 `/books` 即可
 
-![](./assets/nas-calibre-web-db-config.png)
+![](https://i.yaoyao.site/blog/nas-calibre-web-db-config.png)
 
 如果出现 `DB Location is not Valid, Please Enter Correct Path` 请点击 [这里查看](#常见问题)
 
@@ -108,7 +108,7 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 点击右上角 `admin` 然后修改 ` 语言 `
 
-![](./assets/nas-calibre-web-lang-set.png)
+![](https://i.yaoyao.site/blog/nas-calibre-web-lang-set.png)
 
 其他配置自己摸索吧 这里就不多讲了。
 
@@ -122,13 +122,13 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 `calibre` 文件夹及权限配置如图所示：
 
-![创建共享文件夹|1000](./assets/nas-calibre-web-sharefile.png)
+![创建共享文件夹|1000](https://i.yaoyao.site/blog/nas-calibre-web-sharefile.png)
 
 ## 使用 第三方 douban 接口作为元数据提供者
 
 虽然 0.6.19 版本重新提供了 `douban` 接口。`metadata_provider` 目录下有好几种元数据提供者，但是我这一直刷新不出来 索性还是用第三方提供的接口吧
 
-![|1000](./assets/nas-calibre-web-get-matadata-error.png)
+![|1000](https://i.yaoyao.site/blog/nas-calibre-web-get-matadata-error.png)
 
 我用的是 `https://github.com/fugary/calibre-web-douban-api` 提供的接口
 
@@ -136,11 +136,11 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 打开 `File Station` 在 docker/calibre 下创建名为 `metadata_provider` 的文件夹 然后将 `NewDouban.py` 放到了该文件夹下
 
-![豆瓣目录|1000](./assets/nas-calibre-web-douban.png)
+![豆瓣目录|1000](https://i.yaoyao.site/blog/nas-calibre-web-douban.png)
 
 将该 `calibre-web` 容器停止 然后编辑该容器
 
-![编辑|1000](./assets/nas-calibre-web-edit-volume.png)
+![编辑|1000](https://i.yaoyao.site/blog/nas-calibre-web-edit-volume.png)
 
 | 本地文件夹 | 装载路径 |
 | ------ | -------- |
@@ -152,7 +152,7 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 在页面随便找本书点击 ` 获取元数据 `
 
-![](./assets/nas-calibre-web-get-metadata.png)
+![](https://i.yaoyao.site/blog/nas-calibre-web-get-metadata.png)
 
 ## 常见问题
 
@@ -171,7 +171,7 @@ cd /app/calibre-web/
 pip3 install -r requirements.txt
 ```
 
-![安装依赖](./assets/nas-calibre-web-pip-requirements.png)
+![安装依赖](https://i.yaoyao.site/blog/nas-calibre-web-pip-requirements.png)
 
 如果在页面中保存书籍元数据时会提示 `Error editing book: Proxies cannot be used with Advocate`
 
@@ -194,7 +194,7 @@ pip3 install -r requirements.txt
 apt-get install python3-distutils -y
 ```
 
-![安装 Python 依赖](./assets/nas-calibre-web-apt-python3-distutils.png)
+![安装 Python 依赖](https://i.yaoyao.site/blog/nas-calibre-web-apt-python3-distutils.png)
 
 ### google scholar 模块问题
 
@@ -230,7 +230,7 @@ apt update; apt upgrade libgl1-mesa-glx libxdamage1 libegl1 libxkbcommon0 libope
 
 可以用电脑下载 `calibre` 应用 初始配置会生成一个 `metadata.db` 然后将 `metadata.db`  放到 `books` 文件夹下
 
-![](./assets/nas-calibre-web-matadatadb-file.png)
+![](https://i.yaoyao.site/blog/nas-calibre-web-matadatadb-file.png)
 
 然后在页面重新配置数据库路径即可
 
