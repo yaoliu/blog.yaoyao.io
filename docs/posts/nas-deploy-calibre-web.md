@@ -8,13 +8,13 @@ headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必�
 
 ---
 
-::: tip  我的环境
+**我的环境：**
+
 群晖 NAS 产品型号：DS1522+
 
 群晖 NAS DSM 版本：DSM 7.1.1-42962 Update 2
 
 calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
-:::
 
 ## 部署 Calibre-Web
 
