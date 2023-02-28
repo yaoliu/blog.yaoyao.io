@@ -16,9 +16,9 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 ## 更新记录
 
-**2021-08-01**  升级为 `OpenSSH 8.6p1`，使用 `CentOS Linux release 7.8.2003 (Core)` 验证。
+**2021-08-01**  版本为 `OpenSSH 8.6p1`，使用 `CentOS Linux release 7.8.2003 (Core)` 验证。
 
-**2022-02-28**  `OpenSSH 8.6p1` 更新为 `OpenSSH 9.0p1`，使用 `CentOS Linux release 8.5.2111` 验证。
+**2022-02-28**  版本从 `OpenSSH 8.6p1` 更新为 `OpenSSH 9.0p1`，使用 `CentOS Linux release 8.5.2111` 验证。
 
 ## 背景
 
