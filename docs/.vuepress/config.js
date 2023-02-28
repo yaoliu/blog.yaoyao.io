@@ -7,7 +7,7 @@ module.exports = {
   description: 'Have a great day.',
   // 最后更新时间
   lastUpdated: '上次更新时间', // string | boolean
-  repo: 'yaoliu/blog',
+  repo: 'yaoyaoio/yaoyao.io',
   // 如果你的文档不在仓库的根部
   docsDir: 'docs',
   head: [
