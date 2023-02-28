@@ -5,7 +5,6 @@ date: 2022-12-21
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 ---
 
-
 ---
 
 **我的环境：**
@@ -57,7 +56,7 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 |OAUTHLIB_RELAX_TOKEN_SCOPE |1 | 允许 Google OAUTH 工作|
 |https_proxy| http://127.0.0.1:7890|配置了自己的代理方便下载 |
 
-**注： 这些都是可选配置**
+**注**：这些都是可选配置
 
 配置完之后点击 ` 保存 ` 然后再点击 ` 下一步 `
 
@@ -88,7 +87,7 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 ## 访问及管理 Calibre-Web 服务
 
-###  使用浏览器访问
+### 使用浏览器访问
 
 使用浏览器打开 http://{你的群晖地址}:8083
 
@@ -100,7 +99,7 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 输入 `/books` 即可
 
-![](https://i.yaoyao.site/blog/nas-calibre-web-db-config.png)
+![配置数据库路径](https://i.yaoyao.site/blog/nas-calibre-web-db-config.png)
 
 如果出现 `DB Location is not Valid, Please Enter Correct Path` 请点击 [这里查看](#常见问题)
 
@@ -108,7 +107,7 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 点击右上角 `admin` 然后修改 ` 语言 `
 
-![](https://i.yaoyao.site/blog/nas-calibre-web-lang-set.png)
+![配置语言](https://i.yaoyao.site/blog/nas-calibre-web-lang-set.png)
 
 其他配置自己摸索吧 这里就不多讲了。
 
@@ -152,7 +151,7 @@ calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
 
 在页面随便找本书点击 ` 获取元数据 `
 
-![](https://i.yaoyao.site/blog/nas-calibre-web-get-metadata.png)
+![获取元数据](https://i.yaoyao.site/blog/nas-calibre-web-get-metadata.png)
 
 ## 常见问题
 
@@ -230,16 +229,16 @@ apt update; apt upgrade libgl1-mesa-glx libxdamage1 libegl1 libxkbcommon0 libope
 
 可以用电脑下载 `calibre` 应用 初始配置会生成一个 `metadata.db` 然后将 `metadata.db`  放到 `books` 文件夹下
 
-![](https://i.yaoyao.site/blog/nas-calibre-web-matadatadb-file.png)
+![配置错误](https://i.yaoyao.site/blog/nas-calibre-web-matadatadb-file.png)
 
 然后在页面重新配置数据库路径即可
 
 ## 参考资料
 
-- https://github.com/gshang2017/docker/issues/120
-- https://www.cnblogs.com/sexintercourse/p/16927455.html
-- https://fugary.com/?p=203
+- <https://github.com/gshang2017/docker/issues/120>
+- <https://www.cnblogs.com/sexintercourse/p/16927455.html>
+- <https://fugary.com/?p=203>
 
-## 写在最后
+## 最后
 
 自己尝试吧 有问题可以留言。。。

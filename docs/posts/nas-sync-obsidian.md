@@ -5,7 +5,6 @@ date: 2022-12-01
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示)
 ---
 
-
 ---
 
 ::: tip  我的环境
@@ -23,7 +22,7 @@ Obsidian： Version 1.0.3 (Installer 1.0.0)
 
 ## 在群晖 NAS 开启 WebDAV Server
 
-###  安装 WebDAV Server
+### 安装 WebDAV Server
 
 1. 使用 **管理员** 帐户登录 DSM
 2. 打开 **套件中心**
@@ -31,21 +30,21 @@ Obsidian： Version 1.0.3 (Installer 1.0.0)
 
 如图所示：
 
-![安装 WebDAV|968](https://i.yaoyao.site/blog/nas-install-webdav.png)
+![安装 WebDAV|968](https://i.yaoyao.site/blog/nas-webdav-install.png)
 
-###  配置 WebDAV Server
+### 配置 WebDAV Server
 
-1. 进入菜单 打开 **WebDAV Server**
+进入菜单 打开 **WebDAV Server**
 
 如图所示：
 
-![打开 WebDAV|868](https://i.yaoyao.site/blog/nas-open-webdav.png)
+![打开 WebDAV|868](https://i.yaoyao.site/blog/nas-webdav-open.png)
 
-2. 修改配置并应用
+修改配置并应用
 
-**如果什么都不改可以直接点击应用 这个地方我修改了端口**
+注：如果什么都不改可以直接点击应用 这个地方我修改了端口
 
-![应用 WebDAV|1076](https://i.yaoyao.site/blog/nas-apply-webdav.png)
+![应用 WebDAV|1076](https://i.yaoyao.site/blog/nas-webdav-apply.png)
 
 ### 创建共享目录
 
@@ -69,7 +68,7 @@ Obsidian： Version 1.0.3 (Installer 1.0.0)
 
 ![配置|1200](https://i.yaoyao.site/blog/obs-plugin-remotely-set.png)
 
-###  配置如下：
+### 配置如下
 
 选择远程服务：webdav
 
