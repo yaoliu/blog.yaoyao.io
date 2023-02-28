@@ -16,19 +16,19 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 ## 更新记录
 
-2021-08-01  使用 `OpenSSH 8.6p1`，使用 `CentOS Linux release 7.8.2003 (Core)` 验证。
+2021-08-01  升级为 `OpenSSH 8.6p1`，使用 `CentOS Linux release 7.8.2003 (Core)` 验证。
 
 2022-02-28  `OpenSSH 8.6p1` 更新为 `OpenSSH 9.0p1`，使用 `CentOS Linux release 8.5.2111` 验证。
 
 ## 背景
 
 1. 通过绿盟安全扫描 Centos7 操作系统，均检测到 OpenSSH 不同程度的中、高风险漏洞；
-2. 鉴于官网没有为 Centos7 提供更新 `openssh` 相关的 RPM 安装包；为提高 Centos7 操作系统的安全性，将 Centos7 中的 `OpenSSH` 统一编译升级到指定版本： `OpenSSH 9.0p1`，以此来修复 `OpenSSH` 安全漏洞
+2. 鉴于官网没有为 Centos7 提供更新 ``OpenSSH`` 相关的 RPM 安装包；为提高 Centos7 操作系统的安全性，将 Centos7 中的 `OpenSSH` 统一编译升级到指定版本： `OpenSSH 9.0p1`，以此来修复 `OpenSSH` 安全漏洞
 3. 因涉及漏洞的生产环境不能上网，只有内网环境，所以需要在单独一台服务器上进行制作  `OpenSSH 9.0p1` RPM 安装包，再把此安装包放到生产服务器上进行安装。另外一个方案就是下载 `OpenSSH 9.0p1 所需要的依赖包然后在生产环境进行操作，此方案比较麻烦 暂时不考虑使用。
 
 ## 开始
 
-### 下载 `openssh` 源码包
+### 下载  `OpenSSH` 源码包
 
 ```bash
 wget https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/openssh-9.0p1.tar.gz
@@ -48,7 +48,7 @@ cd /root/
 mkdir -p rpmbuild/{SOURCES,SPECS,RPMS,SRPMS,BUILD,BUILDROOT}
 ```
 
-### 将 `openssh` 依赖文件复制到对应环境中
+### 复制依赖文件到编译环境中
 
 ```bash
 // 源码包
@@ -63,7 +63,7 @@ chown sshd:sshd /root/rpmbuild/SPECS/openssh.spec
 
 ### 定制 `/etc/pam.d/sshd`  文件
 
-因为如果使用 openssh 提供的 sshd 会有可能导致安装后登陆不上的问题，所以还继续使用当前的 sshd 文件。
+因为如果使用 `OpenSSH` 提供的 `sshd` 会有可能导致安装后登陆不上的问题，所以还继续使用当前的 `sshd` 文件。
 
 ```bash
 vim /root/rpmbuild/SOURCES/sshd
@@ -165,14 +165,14 @@ tar -zcvf openssh-9.0p1_rpm_package.tar.gz *.rpm
 
 ### 验证 RPM
 
-scp 到其他服务器进行测试
+可以通过 scp 到其他服务器进行测试 这里我放在 `/root/` 目录下
 
 ```bash
 ls /root/openssh-9.0p1_rpm_package.tar.gz
 tar xf openssh-9.0p1_rpm_package.tar.gz
 ```
 
-### （可选）保存现有 SSH 配置及相关命令
+### 保存现有 SSH 配置及相关命令
 
 ```bash
 # 配置备份
@@ -199,25 +199,18 @@ ssh -V
 OpenSSH_9.0p1, OpenSSL 1.1.1k  FIPS 25 Mar 2021
 查看安装情况
 rpm -qa |grep openssh
-openssh-askpass-gnome-9.0p1-1.el8.x86_64
-openssh-askpass-debuginfo-9.0p1-1.el8.x86_64
 openssh-9.0p1-1.el8.x86_64
 openssh-server-9.0p1-1.el8.x86_64
 openssh-server-debuginfo-9.0p1-1.el8.x86_64
 openssh-debuginfo-9.0p1-1.el8.x86_64
 openssh-clients-9.0p1-1.el8.x86_64
-openssh-clients-debuginfo-9.0p1-1.el8.x86_64
-openssh-debugsource-9.0p1-1.el8.x86_64
-openssh-askpass-gnome-debuginfo-9.0p1-1.el8.x86_64
-openssh-askpass-9.0p1-1.el8.x86_64
 ```
 
-### （可选）恢复配置
+（可选）恢复配置
 
 ```bash
 cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd /etc/pam.d/
 cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd_config /etc/ssh/
-cat /etc/ssh/sshd_config | grep PermitRootLogin
 rm -rf /etc/ssh/ssh_host*key
 ```
 
@@ -243,7 +236,7 @@ cat /etc/ssh/sshd_config | grep PermitRootLogin
 cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd /etc/pam.d/
 ```
 
-以下配置在/etc/ssh/sshd_config 下必须存在
+以下配置在 `/etc/ssh/sshd_config` 下必须存在
 
 ```bash
 UseDNS no
