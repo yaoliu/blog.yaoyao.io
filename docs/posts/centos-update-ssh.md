@@ -1,6 +1,6 @@
 ---
 layout: Post
-title: "Centos7 解决 OpenSSH 漏洞升级方案"
+title: "Centos 解决 OpenSSH 漏洞升级方案"
 date: "2021-08-01"
 author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
@@ -12,34 +12,35 @@ catalog: true # 是否启用右侧目录，会覆写 `themeConfig.catalog`（可
 hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可选，默认：false）
 ---
 
-记录一下如何制作 OpenSSH 8.6p1 RPM安装包。
+---
 
-<!-- more -->
+**更新记录**
+
+2021-08-01  使用 `OpenSSH 8.6p1`，使用 `CentOS Linux release 7.8.2003 (Core)` 验证。
+2022-02-28 `OpenSSH 8.6p1` 更新为 `OpenSSH 9.0p1`，使用 `CentOS Linux release 8.5.2111` 验证。
 
 ## 背景
 
-1. 通过绿盟安全扫描 Centos7 操作系统，均检测到OpenSSH不同程度的中、高风险漏洞；
-2. 鉴于官网没有为Centos7 提供更新`openssh`相关的RPM安装包；为提高 Centos7 操作系统的安全性，将 Centos7 中的 `OpenSSH`统一编译升级到指定版本：`OpenSSH 8.6p1`，以此来修复`OpenSSH`安全漏洞
-3. 因涉及漏洞的生产环境不能上网，只有内网环境，所以需要在单独一台服务器上进行制作`OpenSSH 8.6p1` RPM安装包，再把此安装包放到生产服务器上进行安装。另外一个方案就是下载`OpenSSH 8.6p1` 所需要的依赖包然后在生产环境进行操作，此方案比较麻烦 暂时不考虑使用。
-
-操作系统：CentOS Linux release 7.8.2003 (Core)
+1. 通过绿盟安全扫描 Centos7 操作系统，均检测到 OpenSSH 不同程度的中、高风险漏洞；
+2. 鉴于官网没有为 Centos7 提供更新 `openssh` 相关的 RPM 安装包；为提高 Centos7 操作系统的安全性，将 Centos7 中的 `OpenSSH` 统一编译升级到指定版本： `OpenSSH 9.0p1`，以此来修复 `OpenSSH` 安全漏洞
+3. 因涉及漏洞的生产环境不能上网，只有内网环境，所以需要在单独一台服务器上进行制作  `OpenSSH 9.0p1` RPM 安装包，再把此安装包放到生产服务器上进行安装。另外一个方案就是下载 `OpenSSH 9.0p1 所需要的依赖包然后在生产环境进行操作，此方案比较麻烦 暂时不考虑使用。
 
 ## 开始
 
 **下载** openssh **源码包**
 
 ```bash
-wget https://openbsd.hk/pub/OpenBSD/OpenSSH/portable/openssh-8.6p1.tar.gz
+wget https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/openssh-9.0p1.tar.gz
 wget https://src.fedoraproject.org/repo/pkgs/openssh/x11-ssh-askpass-1.2.4.1.tar.gz/8f2e41f3f7eaa8543a2440454637f3c3/x11-ssh-askpass-1.2.4.1.tar.gz
 ```
 
 **安装 RPM 编译工具及相关依赖包**
 
 ```bash
-yum install -y rpm-build zlib-devel openssl-devel gcc perl-devel pam-devel
+yum install -y rpm-build zlib-devel openssl-devel gcc perl-devel pam-devel gtk2-devel libXt-devel imake
 ```
 
-**创建 RPM 编译环境** 
+**创建 RPM 编译环境**
 
 ```bash
 cd /root/
@@ -50,11 +51,11 @@ mkdir -p rpmbuild/{SOURCES,SPECS,RPMS,SRPMS,BUILD,BUILDROOT}
 
 ```bash
 // 源码包
-cp /root/openssh-8.6p1.tar.gz /root/rpmbuild/SOURCES/
+cp /root/openssh-9.0p1.tar.gz /root/rpmbuild/SOURCES/
 cp /root/x11-ssh-askpass-1.2.4.1.tar.gz /root/rpmbuild/SOURCES/
-tar -zxf /root/openssh-8.6p1.tar.gz -C /opt/
+tar -zxf /root/openssh-9.0p1.tar.gz -C /opt/
 // 依赖文件
-cp /opt/openssh-8.6p1/contrib/redhat/openssh.spec /root/rpmbuild/SPECS/
+cp /opt/openssh-9.0p1/contrib/redhat/openssh.spec /root/rpmbuild/SPECS/
 // 授权
 chown sshd:sshd /root/rpmbuild/SPECS/openssh.spec
 ```
@@ -92,7 +93,7 @@ session    include      postlogin
 
 **修改** `openssh.spec` **配置**
 
-```sql
+```bash
 cd /root/rpmbuild/SPECS/
 
 vim openssh.spec
@@ -100,12 +101,12 @@ vim openssh.spec
 # 找到如下这行 并注销该行 要不在检测的时候会报错
 #BuildRequires: openssl-devel < 1.1
 
-# 找到如下这行 并将0改为1
+# 找到如下这行 并将0改为1 如果找不到可以不执行
 
 # Do we want to disable building of x11-askpass? (1=yes 0=no)
 %global no_x11_askpass 1
 
-# 找到如下这行 并将0改为1
+# 找到如下这行 并将0改为1 如果找不到可以不执行
 
 # Do we want to disable building of gnome-askpass? (1=yes 0=no)
 %global no_gnome_askpass 1
@@ -143,29 +144,29 @@ chmod 600 /etc/ssh/ssh_host_ed25519_key
 
 **编译**
 
-```sql
+```bash
 cd /root/rpmbuild/SPECS/
 rpmbuild -ba openssh.spec
 ```
 
 **查看生成的 RPM 及进行打包**
 
-```sql
+```bash
 cd /root/rpmbuild/RPMS/x86_64/
 ls /root/rpmbuild/RPMS/x86_64/
-openssh-8.6p1-1.el7.x86_64.rpm          openssh-debuginfo-8.6p1-1.el7.x86_64.rpm
-openssh-clients-8.6p1-1.el7.x86_64.rpm  openssh-server-8.6p1-1.el7.x86_64.rpm
+openssh-9.0p1-1.el8.x86_64.rpm          openssh-debuginfo-9.0p1-1.el8.x86_64.rpm
+openssh-clients-9.0p1-1.el8.x86_64.rpm  openssh-server-9.0p1-1.el8.x86_64.rpm
 // 打包
-tar -zcvf openssh-8.6p1_rpm_package.tar.gz *.rpm
+tar -zcvf openssh-9.0p1_rpm_package.tar.gz *.rpm
 ```
 
 ## 验证
 
 **验证 RPM ( scp 到其他服务器进行测试)**
 
-```sql
-ls /root/openssh-8.6p1_rpm_package.tar.gz
-tar xf openssh-8.6p1_rpm_package.tar.gz
+```bash
+ls /root/openssh-9.0p1_rpm_package.tar.gz
+tar xf openssh-9.0p1_rpm_package.tar.gz
 ```
 
 （可选）**保存现有 SSH 配置及相关命令**
@@ -183,27 +184,34 @@ cp /usr/sbin/sshd /root/ssh_bak_`date +"%Y-%m-%d"`/bin/
 
 **安装 RPM**
 
-```sql
+```bash
 rpm -Uivh openssh-*rpm
 ```
 
 **查看安装版本**
 
-```sql
+```bash
 查看版本
 ssh -V
-OpenSSH_8.6p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+OpenSSH_9.0p1, OpenSSL 1.1.1k  FIPS 25 Mar 2021
 查看安装情况
 rpm -qa |grep openssh
-openssh-8.6p1-1.el7.x86_64
-openssh-server-8.6p1-1.el7.x86_64
-openssh-askpass-8.6p1-1.el7.x86_64
-openssh-clients-8.6p1-1.el7.x86_64
+openssh-askpass-gnome-9.0p1-1.el8.x86_64
+openssh-askpass-debuginfo-9.0p1-1.el8.x86_64
+openssh-9.0p1-1.el8.x86_64
+openssh-server-9.0p1-1.el8.x86_64
+openssh-server-debuginfo-9.0p1-1.el8.x86_64
+openssh-debuginfo-9.0p1-1.el8.x86_64
+openssh-clients-9.0p1-1.el8.x86_64
+openssh-clients-debuginfo-9.0p1-1.el8.x86_64
+openssh-debugsource-9.0p1-1.el8.x86_64
+openssh-askpass-gnome-debuginfo-9.0p1-1.el8.x86_64
+openssh-askpass-9.0p1-1.el8.x86_64
 ```
 
 （可选）**恢复配置**
 
-```sql
+```bash
 cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd /etc/pam.d/
 cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd_config /etc/ssh/
 cat /etc/ssh/sshd_config | grep PermitRootLogin
@@ -212,29 +220,29 @@ rm -rf /etc/ssh/ssh_host*key
 
 **重启 sshd 服务**
 
-```sql
+```bash
 systemctl restart sshd
 ```
 
 ## 常见问题
 
-**root用户无法登录**
+**root 用户无法登录**
 
-```sql
+```bash
 cat /etc/ssh/sshd_config | grep PermitRootLogin
 正常: PermitRootLogin yes
 其他均为不正常 需要改为正常
 ```
 
-**pam报错 需要恢复旧pam配置文件**
+**pam 报错 需要恢复旧 pam 配置文件**
 
 ```bash
 cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd /etc/pam.d/
 ```
 
-**以下配置在/etc/ssh/sshd_config下必须存在**
+**以下配置在/etc/ssh/sshd_config 下必须存在**
 
-```sql
+```bash
 UseDNS no
 AddressFamily inet
 SyslogFacility AUTHPRIV
