@@ -18,41 +18,38 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 **2021-08-01**  版本为 `OpenSSH 8.6p1`，使用 `CentOS Linux release 7.8.2003 (Core)` 验证。
 
-**2022-02-28**  版本从 `OpenSSH 8.6p1` 更新为 `OpenSSH 9.0p1`，
-使用 `CentOS Linux release 8.5.2111` 验证。
+**2022-02-28**  版本从 `OpenSSH 8.6p1` 更新为 `OpenSSH 9.0p1`，使用 `CentOS Linux release 8.5.2111` 验证。
 
 ## 背景
 
-1. 通过绿盟安全扫描 Centos7 操作系统，均检测到 OpenSSH 不同程度的中、高风险漏洞；
-2. 鉴于官网没有为 Centos7 提供更新 ``OpenSSH`` 相关的 RPM 安装包；为提高 Centos7 操作系统的安全性，
-将 Centos7 中的 `OpenSSH` 统一编译升级到指定版本： `OpenSSH 9.0p1`，以此来修复 `OpenSSH` 安全漏洞
-3. 因涉及漏洞的生产环境不能上网，只有内网环境，所以需要在单独一台服务器上进行制作  `OpenSSH 9.0p1` RPM 安装包，
-再把此安装包放到生产服务器上进行安装。另外一个方案就是下载 `OpenSSH 9.0p1 所需要的依赖包然后在生产环境进行操作，此方案比较麻烦 暂时不考虑使用。
+1. 通过绿盟安全扫描 Centos7 操作系统，均检测到 `OpenSSH` 不同程度的中、高风险漏洞；
+2. 鉴于官网没有为 Centos7 提供更新 `OpenSSH` 相关的 RPM 安装包；为提高 Centos7 操作系统的安全性，将 Centos7 中的 `OpenSSH` 统一编译升级到指定版本： `OpenSSH 9.0p1`，以此来修复 `OpenSSH` 安全漏洞
+3. 因涉及漏洞的生产环境不能上网，只有内网环境，所以需要在单独一台服务器上进行制作  `OpenSSH 9.0p1` RPM 安装包，再把此安装包放到生产服务器上进行安装。另外一个方案就是下载 `OpenSSH 9.0p1 所需要的依赖包然后在生产环境进行操作，此方案比较麻烦 暂时不考虑使用。
 
-## 开始
+## 开始制作 RPM
 
-### 下载  `OpenSSH` 源码包
+### 下载相关源码包
 
 ```bash
 wget https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/openssh-9.0p1.tar.gz
 wget https://src.fedoraproject.org/repo/pkgs/openssh/x11-ssh-askpass-1.2.4.1.tar.gz/8f2e41f3f7eaa8543a2440454637f3c3/x11-ssh-askpass-1.2.4.1.tar.gz
 ```
 
-### 安装 RPM 编译工具及相关依赖包
+### 安装编译工具及依赖
 
 ```bash
 yum install -y rpm-build zlib-devel openssl-devel gcc \ 
 perl-devel pam-devel gtk2-devel libXt-devel imake
 ```
 
-### 创建 RPM 编译环境
+### 创建编译环境
 
 ```bash
 cd /root/
 mkdir -p rpmbuild/{SOURCES,SPECS,RPMS,SRPMS,BUILD,BUILDROOT}
 ```
 
-### 复制依赖文件到编译环境中
+### 复制依赖文件到编译环境
 
 ```bash
 // 源码包
@@ -147,27 +144,31 @@ chmod 600 /etc/ssh/ssh_host_ecdsa_key
 chmod 600 /etc/ssh/ssh_host_ed25519_key
 ```
 
-### 编译
+### 开始编译
 
 ```bash
 cd /root/rpmbuild/SPECS/
 rpmbuild -ba openssh.spec
 ```
 
-### 查看生成的 RPM 及进行打包
+### 查看生成的 RPM
 
 ```bash
 cd /root/rpmbuild/RPMS/x86_64/
 ls /root/rpmbuild/RPMS/x86_64/
 openssh-9.0p1-1.el8.x86_64.rpm          openssh-debuginfo-9.0p1-1.el8.x86_64.rpm
 openssh-clients-9.0p1-1.el8.x86_64.rpm  openssh-server-9.0p1-1.el8.x86_64.rpm
+```
+
+### 打包输出文件
+
+```bash
+cd /root/rpmbuild/RPMS/x86_64/
 // 打包
 tar -zcvf openssh-9.0p1_rpm_package.tar.gz *.rpm
 ```
 
-## 验证
-
-### 验证 RPM
+## 验证 RPM
 
 可以通过 scp 到其他服务器进行测试 这里我放在 `/root/` 目录下
 
@@ -218,7 +219,7 @@ cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd_config /etc/ssh/
 rm -rf /etc/ssh/ssh_host*key
 ```
 
-### 重启 sshd 服务
+### 重启 `sshd` 服务
 
 ```bash
 systemctl restart sshd
@@ -240,7 +241,7 @@ cat /etc/ssh/sshd_config | grep PermitRootLogin
 cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd /etc/pam.d/
 ```
 
-以下配置在 `/etc/ssh/sshd_config` 下必须存在
+以下配置在/etc/ssh/sshd_config 下必须存在
 
 ```bash
 UseDNS no
