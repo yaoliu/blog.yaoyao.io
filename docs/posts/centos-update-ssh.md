@@ -41,7 +41,7 @@ wget https://src.fedoraproject.org/repo/pkgs/openssh/x11-ssh-askpass-1.2.4.1.tar
 ### 安装 RPM 编译工具及相关依赖包
 
 ```bash
-yum install -y rpm-build zlib-devel openssl-devel gcc 
+yum install -y rpm-build zlib-devel openssl-devel gcc \ 
 perl-devel pam-devel gtk2-devel libXt-devel imake
 ```
 
