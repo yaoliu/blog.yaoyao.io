@@ -14,9 +14,10 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 ---
 
-**更新记录**
+## 更新记录
 
 2021-08-01  使用 `OpenSSH 8.6p1`，使用 `CentOS Linux release 7.8.2003 (Core)` 验证。
+
 2022-02-28 `OpenSSH 8.6p1` 更新为 `OpenSSH 9.0p1`，使用 `CentOS Linux release 8.5.2111` 验证。
 
 ## 背景
@@ -27,27 +28,27 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 ## 开始
 
-**下载** openssh **源码包**
+### 下载 `openssh` 源码包
 
 ```bash
 wget https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/openssh-9.0p1.tar.gz
 wget https://src.fedoraproject.org/repo/pkgs/openssh/x11-ssh-askpass-1.2.4.1.tar.gz/8f2e41f3f7eaa8543a2440454637f3c3/x11-ssh-askpass-1.2.4.1.tar.gz
 ```
 
-**安装 RPM 编译工具及相关依赖包**
+### 安装 RPM 编译工具及相关依赖包
 
 ```bash
 yum install -y rpm-build zlib-devel openssl-devel gcc perl-devel pam-devel gtk2-devel libXt-devel imake
 ```
 
-**创建 RPM 编译环境**
+### 创建 RPM 编译环境
 
 ```bash
 cd /root/
 mkdir -p rpmbuild/{SOURCES,SPECS,RPMS,SRPMS,BUILD,BUILDROOT}
 ```
 
-**将** openssh **依赖文件复制到对应环境中**
+### 将 `openssh` 依赖文件复制到对应环境中
 
 ```bash
 // 源码包
@@ -60,7 +61,7 @@ cp /opt/openssh-9.0p1/contrib/redhat/openssh.spec /root/rpmbuild/SPECS/
 chown sshd:sshd /root/rpmbuild/SPECS/openssh.spec
 ```
 
-**定制** `/etc/pam.d/sshd`  **文件**
+### 定制 `/etc/pam.d/sshd`  文件
 
 因为如果使用 openssh 提供的 sshd 会有可能导致安装后登陆不上的问题，所以还继续使用当前的 sshd 文件。
 
@@ -91,7 +92,7 @@ session    include      postlogin
 -session   optional     pam_reauthorize.so prepare
 ```
 
-**修改** `openssh.spec` **配置**
+### 修改 `openssh.spec` 配置
 
 ```bash
 cd /root/rpmbuild/SPECS/
@@ -142,14 +143,14 @@ chmod 600 /etc/ssh/ssh_host_ecdsa_key
 chmod 600 /etc/ssh/ssh_host_ed25519_key
 ```
 
-**编译**
+### 编译
 
 ```bash
 cd /root/rpmbuild/SPECS/
 rpmbuild -ba openssh.spec
 ```
 
-**查看生成的 RPM 及进行打包**
+### 查看生成的 RPM 及进行打包
 
 ```bash
 cd /root/rpmbuild/RPMS/x86_64/
@@ -162,14 +163,16 @@ tar -zcvf openssh-9.0p1_rpm_package.tar.gz *.rpm
 
 ## 验证
 
-**验证 RPM ( scp 到其他服务器进行测试)**
+### 验证 RPM
+
+scp 到其他服务器进行测试
 
 ```bash
 ls /root/openssh-9.0p1_rpm_package.tar.gz
 tar xf openssh-9.0p1_rpm_package.tar.gz
 ```
 
-（可选）**保存现有 SSH 配置及相关命令**
+### （可选）保存现有 SSH 配置及相关命令
 
 ```bash
 # 配置备份
@@ -182,13 +185,13 @@ cp /bin/ssh* /root/ssh_bak_`date +"%Y-%m-%d"`/bin/
 cp /usr/sbin/sshd /root/ssh_bak_`date +"%Y-%m-%d"`/bin/
 ```
 
-**安装 RPM**
+### 安装 RPM
 
 ```bash
 rpm -Uivh openssh-*rpm
 ```
 
-**查看安装版本**
+### 查看安装版本
 
 ```bash
 查看版本
@@ -209,7 +212,7 @@ openssh-askpass-gnome-debuginfo-9.0p1-1.el8.x86_64
 openssh-askpass-9.0p1-1.el8.x86_64
 ```
 
-（可选）**恢复配置**
+### （可选）恢复配置
 
 ```bash
 cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd /etc/pam.d/
@@ -218,7 +221,7 @@ cat /etc/ssh/sshd_config | grep PermitRootLogin
 rm -rf /etc/ssh/ssh_host*key
 ```
 
-**重启 sshd 服务**
+### 重启 sshd 服务
 
 ```bash
 systemctl restart sshd
@@ -226,7 +229,7 @@ systemctl restart sshd
 
 ## 常见问题
 
-**root 用户无法登录**
+### root 用户无法登录
 
 ```bash
 cat /etc/ssh/sshd_config | grep PermitRootLogin
@@ -234,13 +237,13 @@ cat /etc/ssh/sshd_config | grep PermitRootLogin
 其他均为不正常 需要改为正常
 ```
 
-**pam 报错 需要恢复旧 pam 配置文件**
+### pam 报错 需要恢复旧 pam 配置文件
 
 ```bash
 cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd /etc/pam.d/
 ```
 
-**以下配置在/etc/ssh/sshd_config 下必须存在**
+以下配置在/etc/ssh/sshd_config 下必须存在
 
 ```bash
 UseDNS no
