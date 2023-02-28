@@ -18,13 +18,16 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 **2021-08-01**  版本为 `OpenSSH 8.6p1`，使用 `CentOS Linux release 7.8.2003 (Core)` 验证。
 
-**2022-02-28**  版本从 `OpenSSH 8.6p1` 更新为 `OpenSSH 9.0p1`，使用 `CentOS Linux release 8.5.2111` 验证。
+**2022-02-28**  版本从 `OpenSSH 8.6p1` 更新为 `OpenSSH 9.0p1`，
+使用 `CentOS Linux release 8.5.2111` 验证。
 
 ## 背景
 
 1. 通过绿盟安全扫描 Centos7 操作系统，均检测到 OpenSSH 不同程度的中、高风险漏洞；
-2. 鉴于官网没有为 Centos7 提供更新 ``OpenSSH`` 相关的 RPM 安装包；为提高 Centos7 操作系统的安全性，将 Centos7 中的 `OpenSSH` 统一编译升级到指定版本： `OpenSSH 9.0p1`，以此来修复 `OpenSSH` 安全漏洞
-3. 因涉及漏洞的生产环境不能上网，只有内网环境，所以需要在单独一台服务器上进行制作  `OpenSSH 9.0p1` RPM 安装包，再把此安装包放到生产服务器上进行安装。另外一个方案就是下载 `OpenSSH 9.0p1 所需要的依赖包然后在生产环境进行操作，此方案比较麻烦 暂时不考虑使用。
+2. 鉴于官网没有为 Centos7 提供更新 ``OpenSSH`` 相关的 RPM 安装包；为提高 Centos7 操作系统的安全性，
+将 Centos7 中的 `OpenSSH` 统一编译升级到指定版本： `OpenSSH 9.0p1`，以此来修复 `OpenSSH` 安全漏洞
+3. 因涉及漏洞的生产环境不能上网，只有内网环境，所以需要在单独一台服务器上进行制作  `OpenSSH 9.0p1` RPM 安装包，
+再把此安装包放到生产服务器上进行安装。另外一个方案就是下载 `OpenSSH 9.0p1 所需要的依赖包然后在生产环境进行操作，此方案比较麻烦 暂时不考虑使用。
 
 ## 开始
 
@@ -38,7 +41,8 @@ wget https://src.fedoraproject.org/repo/pkgs/openssh/x11-ssh-askpass-1.2.4.1.tar
 ### 安装 RPM 编译工具及相关依赖包
 
 ```bash
-yum install -y rpm-build zlib-devel openssl-devel gcc perl-devel pam-devel gtk2-devel libXt-devel imake
+yum install -y rpm-build zlib-devel openssl-devel gcc 
+perl-devel pam-devel gtk2-devel libXt-devel imake
 ```
 
 ### 创建 RPM 编译环境
