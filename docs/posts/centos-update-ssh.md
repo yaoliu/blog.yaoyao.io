@@ -49,7 +49,9 @@ cd /root/
 mkdir -p rpmbuild/{SOURCES,SPECS,RPMS,SRPMS,BUILD,BUILDROOT}
 ```
 
-### 复制依赖文件到编译环境
+### 修改相关配置
+
+#### 复制依赖文件到编译环境
 
 ```bash
 // 源码包
@@ -62,7 +64,7 @@ cp /opt/openssh-9.0p1/contrib/redhat/openssh.spec /root/rpmbuild/SPECS/
 chown sshd:sshd /root/rpmbuild/SPECS/openssh.spec
 ```
 
-### 定制 `/etc/pam.d/sshd`  文件
+#### 定制 `/etc/pam.d/sshd`  文件
 
 因为如果使用 `OpenSSH` 提供的 `sshd` 会有可能导致安装后登陆不上的问题，所以还继续使用当前的 `sshd` 文件。
 
@@ -93,7 +95,7 @@ session    include      postlogin
 -session   optional     pam_reauthorize.so prepare
 ```
 
-### 修改 `openssh.spec` 配置
+#### 修改 `openssh.spec` 配置
 
 ```bash
 cd /root/rpmbuild/SPECS/
@@ -177,7 +179,7 @@ ls /root/openssh-9.0p1_rpm_package.tar.gz
 tar xf openssh-9.0p1_rpm_package.tar.gz
 ```
 
-### 保存现有 SSH 配置及相关命令
+### 备份当前 SSH 配置及命令
 
 ```bash
 # 配置备份
@@ -219,7 +221,7 @@ cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd_config /etc/ssh/
 rm -rf /etc/ssh/ssh_host*key
 ```
 
-### 重启 `sshd` 服务
+### 重启服务
 
 ```bash
 systemctl restart sshd
