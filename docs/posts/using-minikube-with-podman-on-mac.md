@@ -20,9 +20,8 @@ en: Running Kubernetes using minikube and Podman on Mac
 
 ## 我的环境
 
-电脑型号：MacBook Pro (14-inch, 2021)
-
-系统版本：macOS Version 13.2
+- MacBook Pro (14-inch, 2021)
+- macOS Version 13.2
 
 ## Podman
 
