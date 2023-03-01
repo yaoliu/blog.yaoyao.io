@@ -2,18 +2,25 @@
 layout: Post
 title: 在 Mac 上使用 minikube 和 Podman 运行 kubernetes
 date: 2023-03-01
+useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
+headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
+headerImageCredit: Ideun Kim # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
+headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
+en: Running Kubernetes using minikube and Podman on Mac
 ---
 
 ---
 
 ## 背景
 
-原因是这几天想在本地测 eBPF，需要一个 Kubernetes 集群。发现 minikube 用的人比较多，所以就试了一下。没有使用 `Docker for Mac` 的原因就是讨厌这个项目。
+原因是这几天想在本地测 eBPF，需要一个 Kubernetes 集群。
+发现 minikube 用的人比较多，所以就试了一下。
+没有使用 `Docker for Mac` 的原因就是讨厌这个项目。
 
 ## 我的环境
 
-电脑型号：MacBook Pro (14-inch, 2021,M1)
+电脑型号：MacBook Pro (14-inch, 2021)
 
 系统版本：macOS Version 13.2
 
@@ -52,7 +59,7 @@ OS/Arch:      linux/arm64
 
 ```bash
 // 初始化Podman Machine的虚拟机环境
-podman machine init --cpus 2 --memory 4096 --disk-size 40
+podman machine init --cpus 2 --memory 4096 --disk-size 4
 // 启动虚拟机环境
 podman machine start
 // 查看虚拟机列表
@@ -176,8 +183,6 @@ minikube   Ready    control-plane   77m   v1.26.0
 ```
 
 ### 删除集群
-
-谨慎执行
 
 ```bash
 minikube delete --all --purge
