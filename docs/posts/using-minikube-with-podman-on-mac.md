@@ -22,6 +22,9 @@ en: Running Kubernetes using minikube and Podman on Mac
 
 - MacBook Pro (14-inch, 2021)
 - macOS Version 13.2
+- M1 Max (ARM64)
+- minikube v1.29.0
+- podman 4.4.2
 
 ## Podman
 
@@ -54,7 +57,7 @@ Built:        Thu Feb  9 18:57:43 2023
 OS/Arch:      linux/arm64
 ```
 
-### 配置运行 Podman Machine
+### 运行 Podman Machine
 
 ```bash
 // 初始化Podman Machine的虚拟机环境
