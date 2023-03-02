@@ -40,7 +40,7 @@ brew install podman
 
 ```bash
 podman version
-// 输出以下内容
+// 输出结果
 Client:       Podman Engine
 Version:      4.4.2
 API Version:  4.4.2
@@ -126,7 +126,12 @@ commit: ddac20b4b34a9c8c857fc602203b6ba2679794d3
 如果网络差点意思就使用国内的源
 
 ```bash
-minikube start --driver=podman --container-runtime=containerd  --image-mirror-country=cn --kubernetes-version=1.26.0 --base-image=registry.cn-hangzhou.aliyuncs.com/google_containers/kicbase:v0.0.36
+minikube start \ 
+--driver=podman \
+--container-runtime=containerd \
+--image-mirror-country=cn \
+--kubernetes-version=1.26.0 \
+--base-image=registry.cn-hangzhou.aliyuncs.com/google_containers/kicbase:v0.0.36
 ```
 
 ### 国外
@@ -134,7 +139,9 @@ minikube start --driver=podman --container-runtime=containerd  --image-mirror-co
 如果网络畅通无阻
 
 ```bash
-minikube start --driver=podman --container-runtime=containerd
+minikube start \
+--driver=podman \
+--container-runtime=containerd
 ```
 
 输出结果
