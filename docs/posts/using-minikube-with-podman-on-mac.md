@@ -199,3 +199,43 @@ minikube delete --all --purge
 rm -rf ~/.kube
 rm -rf ~/.minikube
 ```
+
+### 重启集群
+
+如果 Mac 关机 重启后重新执行该命令即可。
+
+```bash
+
+podman machine start
+
+minikube start \
+--driver=podman \
+--container-runtime=containerd  \
+--image-mirror-country=cn \
+--kubernetes-version=1.26.0 \
+--base-image=registry.cn-hangzhou.aliyuncs.com/google_containers/kicbase:v0.0.36
+```
+
+输出结果
+
+```bash
+😄  minikube v1.29.0 on Darwin 13.2.1 (arm64)
+🆕  Kubernetes 1.26.1 is now available. If you would like to upgrade, specify: --kubernetes-version=v1.26.1
+✨  Using the podman (experimental) driver based on existing profile
+👍  Starting control plane node minikube in cluster minikube
+🚜  Pulling base image ...
+E0302 19:52:38.602523    2690 cache.go:188] Error downloading kic artifacts:  not yet implemented, see issue #8426
+🔄  Restarting existing podman container for "minikube" ...
+📦  Preparing Kubernetes v1.26.0 on containerd 1.6.9 ...
+🔗  Configuring CNI (Container Networking Interface) ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image docker.io/kubernetesui/dashboard:v2.7.0
+    ▪ Using image registry.cn-hangzhou.aliyuncs.com/google_containers/storage-provisioner:v5
+    ▪ Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+💡  Some dashboard features require the metrics-server addon. To enable all features please run:
+
+    minikube addons enable metrics-server
+
+🌟  Enabled addons: storage-provisioner, default-storageclass, dashboard
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+```
