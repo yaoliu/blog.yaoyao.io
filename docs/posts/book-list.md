@@ -1,8 +1,8 @@
 ---
-layout: Post # 必须
 title: "我的书单"
 date: "2016-01-01"
-author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
+author: 耀耀
+layout: Post # 必须
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: https://i.yaoyao.site/yaoyaoio/img/in-post/header.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）

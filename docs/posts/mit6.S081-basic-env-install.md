@@ -1,8 +1,8 @@
 ---
-layout: Post # 必须
-title: "MIT 6.S081/Fall 2020 搭建 risc-v 与 xv6 开发调试环境" # 博客标题（必须）
+title: "MIT 6.S081/Fall 2020 搭建 risc-v 与 xv6 开发调试环境"
 date: "2021-11-8"
-author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
+author: 耀耀
+layout: Post # 必须
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: /img/in-post/lorenzo-lanfranconi-5.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
@@ -14,27 +14,21 @@ tags:
 - "操作系统"
 ---
 
-记录一下学习MIT6.S081课程部署实验环境的详细过程。
+---
 
-<!-- more -->
+## 背景
 
 2022-01-19日更新
-
-1. 很多人用 M1 架构编译都出现了错误 然后我同样复现了错误并且找到了解决办法
-2. 更详细的描述了不同的安装过程
-
+- 很多人用 M1 架构编译都出现了错误 然后我同样复现了错误并且找到了解决办法 
+- 更详细的描述了不同的安装过程 
+- 我的笔记本是 arm64(M1芯片) 架构的，但此篇文章适用于 M1 及 Intel。
 
 课程链接：[https://pdos.csail.mit.edu/6.S081/2020/](https://pdos.csail.mit.edu/6.S081/2020/)
 
-## 我的环境：
+## 我的环境
+- 我的电脑: `MacBook Pro (14-inch, 2021)`, `Monterey 12.1`, `M1 Max (ARM64,aarch64)`
 
-电脑型号：MacBook Pro (14-inch, 2021)
-
-系统版本：macOS Monterey 12.1
-
-我的笔记本是 arm64(M1芯片) 架构的，但此篇文章适用于 M1 及 Intel。
-
-## 前提(必须安装)：
+## 前提(必须安装)
 
 默认情况下需要安装 brew 后面很多地方都需要用到此工具
 

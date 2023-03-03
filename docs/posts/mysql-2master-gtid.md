@@ -1,8 +1,8 @@
 ---
-layout: Post # 必须
 title: "MySQL 双主基于 GTID 复制方案"
 date: "2021-09-01"
-author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
+author: 耀耀
+layout: Post # 必须
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
@@ -14,11 +14,20 @@ tags:
 - "数据库"
 ---
 
-生产可用的 Mysql 双主搭建过程
+---
 
-<!-- more -->
+## 背景
 
-操作系统：CentOS Linux release 7.8.2003 (Core)
+在生产环境中，我们需要保证数据库的高可用，一般的做法是搭建主从复制，但是主从复制存在一些问题，比如主从延迟，主从切换等，
+所以我们需要搭建双主复制，双主复制可以保证数据库的高可用，同时也可以保证数据库的读写分离。
+**（以上由 Github Copilot 生成）**
+
+
+## 我的环境
+
+  操作系统：`CentOS Linux release 7.8.2003 (Core)`
+
+## 主机信息
 
 master-1：192.168.200.50
 
@@ -65,7 +74,6 @@ chkconfig on mysqld
 ### 初始化数据库
 
 ```bash
-
 // 初始化数据库 此处会生成默认root密码
 /usr/local/mysql/bin/mysqld --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data --initialize
 // 会打印一下日志 记住保存好密码
@@ -125,7 +133,7 @@ pid-file=/usr/local/mysql/data/database.pid
 
 **节点1启动数据库**
 
-```go
+```bash
 // 启动数据库
 /etc/init.d/mysqld start
 ```
@@ -298,7 +306,7 @@ Master_SSL_Verify_Server_Cert: No
 
 **节点1开启同步节点2**
 
-```go
+```sql
 // 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
 // 创建同步
@@ -385,7 +393,7 @@ mysql>exit;
 
 **注：任意一台服务器/2个节点其中一个 需要确保已经授权**
 
-```sql
+```bash
 // 登陆数据库 如果登陆成功 代表数据库集群正常运行
 /usr/local/mysql/bin/mysql -uroot -p -h 192.168.200.50 --port=13306
 ```

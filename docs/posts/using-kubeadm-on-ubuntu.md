@@ -1,8 +1,8 @@
 ---
-layout: Post # 必须
-title: 使用 kubeadm 在 Ubuntu20.04 部署 k8s 集群
+title: 在 Ubuntu 22.04 上使用 kubeadm  运行 kubernetes 集群
 date: 2022-05-26 # 博客发表日期（可选）
 author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
+layout: Post # 必须
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: https://i.yaoyao.site/yaoyaoio/img/in-post/header.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
@@ -19,7 +19,12 @@ tags:  # 博客标签（可选）
 
 <!-- more -->
 
-## 基本环境
+## 我的环境
+
+- 我的电脑: `MacBook Pro (14-inch, 2021)`, `Version 13.2`, `M1 Max (ARM64,aarch64)`
+- 本地Linux环境: `Ubuntu 22.04.2 LTS` in `Parallels Desktop 18 for Mac`
+
+## 主机信息
 
 4台主机如下:
 
@@ -35,20 +40,20 @@ cat /etc/hosts |grep home
 
 ```bash
 # uname -a
-Linux home-01 5.13.0-25-generic #26~20.04.1-Ubuntu SMP Sat Jan 8 18:05:46 UTC 2022 aarch64 aarch64 aarch64 GNU/Linux
+Linux home-01 5.15.0-60-generic #66-Ubuntu SMP Fri Jan 20 14:34:57 UTC 2023 aarch64 aarch64 aarch64 GNU/Linux
 # cat /etc/os-release
+PRETTY_NAME="Ubuntu 22.04.2 LTS"
 NAME="Ubuntu"
-VERSION="20.04.3 LTS (Focal Fossa)"
+VERSION_ID="22.04"
+VERSION="22.04.2 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
 ID=ubuntu
 ID_LIKE=debian
-PRETTY_NAME="Ubuntu 20.04.3 LTS"
-VERSION_ID="20.04"
 HOME_URL="https://www.ubuntu.com/"
 SUPPORT_URL="https://help.ubuntu.com/"
 BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-VERSION_CODENAME=focal
-UBUNTU_CODENAME=focal
+UBUNTU_CODENAME=jammy
 ```
 
 ## 基础操作

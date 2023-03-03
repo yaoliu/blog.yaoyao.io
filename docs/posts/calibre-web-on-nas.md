@@ -1,19 +1,26 @@
 ---
-layout: Post
 title: 使用 群晖 NAS 和 Calibre-Web 搭建个人图书馆
 date: 2022-12-21
+author: 耀耀
+layout: Post
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 ---
 
 ---
 
-**我的环境：**
+## 背景
 
-群晖 NAS 产品型号：DS1522+
+如果你是一个爱书之人，那么你可能会收集大量的电子书。
+但是，如果你的电脑硬盘空间不足，或者你想要在多个设备上访问你的图书馆，那么你需要一个更好的解决方案。
+在这篇文章中，我将向你介绍如何使用群晖 NAS 和 Calibre-Web 来搭建一个个人图书馆，让你随时随地阅读你的电子书。
 
-群晖 NAS DSM 版本：DSM 7.1.1-42962 Update 2
+**（以上内容由 Notion AI 生成）**
 
-calibre-web 镜像版本：linuxserver/calibre-web:0.6.19
+## 我的环境
+
+- 我的电脑: `MacBook Pro (14-inch, 2021)`, `Version 13.2`, `M1 Max (ARM64,aarch64)`
+- 我的NAS：群晖 `DS1522+`, `DSM 7.1.1-42962 Update 2`
+- calibre-web 镜像：`linuxserver/calibre-web:0.6.19`
 
 ## 部署 Calibre-Web
 

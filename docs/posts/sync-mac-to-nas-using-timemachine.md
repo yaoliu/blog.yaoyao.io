@@ -1,22 +1,18 @@
 ---
-layout: Post
 title: 使用 Time Machine 将 Mac 数据备份到群晖 NAS
 date: 2022-12-01
+author: 耀耀
+layout: Post
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 ---
 
-
 ---
 
-::: tip  我的环境
-群晖 NAS 产品型号：DS1522+
+## 我的环境
 
-群晖 NAS DSM 版本：DSM 7.1.1-42962 Update 2
+- 我的电脑: `MacBook Pro (14-inch, 2021)`, `Version 13.2`, `M1 Max (ARM64,aarch64)`
+- 我的NAS：群晖 `DS1522+`, `DSM 7.1.1-42962 Update 2`
 
-Mac 型号：MacBook Pro 14-inch, 2021
-
-Mac 系统：Ventura
-:::
 
 ##  在群晖 NAS 上进行配置
 

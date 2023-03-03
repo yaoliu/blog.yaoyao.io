@@ -1,8 +1,8 @@
 ---
-layout: Post
 title: "Centos 解决 OpenSSH 漏洞升级方案"
 date: "2021-08-01"
-author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
+author: 耀耀
+layout: Post
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: /img/in-post/ideun-kim-220908-morning.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
@@ -22,9 +22,13 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 ## 背景
 
-1. 通过绿盟安全扫描 Centos7 操作系统，均检测到 `OpenSSH` 不同程度的中、高风险漏洞；
-2. 鉴于官网没有为 Centos7 提供更新 `OpenSSH` 相关的 RPM 安装包；为提高 Centos7 操作系统的安全性，将 Centos7 中的 `OpenSSH` 统一编译升级到指定版本：`OpenSSH 9.0p1`，以此来修复 `OpenSSH` 安全漏洞
-3. 因涉及漏洞的生产环境不能上网，只有内网环境，所以需要在单独一台服务器上进行制作  `OpenSSH 9.0p1` RPM 安装包，再把此安装包放到生产服务器上进行安装。另外一个方案就是下载 `OpenSSH 9.0p1 所需要的依赖包然后在生产环境进行操作，此方案比较麻烦 暂时不考虑使用。
+- 通过绿盟安全扫描 Centos7 操作系统，均检测到 `OpenSSH` 不同程度的中、高风险漏洞； 
+- 鉴于官网没有为 Centos7 提供更新 `OpenSSH` 相关的 RPM 安装包；为提高 Centos7 操作系统的安全性，将 Centos7 中的 `OpenSSH` 统一编译升级到指定版本：`OpenSSH 9.0p1`，以此来修复 `OpenSSH` 安全漏洞 
+- 因涉及漏洞的生产环境不能上网，只有内网环境，所以需要在单独一台服务器上进行制作  `OpenSSH 9.0p1` RPM 安装包，再把此安装包放到生产服务器上进行安装。另外一个方案就是下载 `OpenSSH 9.0p1 所需要的依赖包然后在生产环境进行操作，此方案比较麻烦 暂时不考虑使用。
+
+## 我的环境
+
+- 操作系统：`CentOS Linux release 8.5.2111`
 
 ## 开始制作 RPM
 

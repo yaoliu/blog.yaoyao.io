@@ -1,7 +1,8 @@
 ---
-layout: Post
 title: 在 Mac 上使用 minikube 和 Podman 运行 Kubernetes
 date: 2023-03-01
+author: 耀耀
+layout: Post
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
@@ -20,11 +21,7 @@ en: Running Kubernetes using minikube and Podman on Mac
 
 ## 我的环境
 
-- MacBook Pro (14-inch, 2021)
-- macOS Version 13.2
-- M1 Max (ARM64)
-- minikube v1.29.0
-- podman 4.4.2
+- 我的电脑: `MacBook Pro (14-inch, 2021)`, `Version 13.2`, `M1 Max (ARM64,aarch64)`
 
 ## Podman
 
@@ -60,7 +57,7 @@ OS/Arch:      linux/arm64
 ### 运行 Podman Machine
 
 ```bash
-// 初始化Podman Machine的虚拟机环境
+// 初始化 Podman Machine 的虚拟机环境
 podman machine init --cpus 2 --memory 4096 --disk-size 4
 // 启动虚拟机环境
 podman machine start
@@ -177,12 +174,12 @@ E0301 21:08:02.911942   24959 cache.go:188] Error downloading kic artifacts:  no
 
 ```bash
 // 使用 Mac 环境下的 kubectl 查看集群状态
-// 可以使用 brew install kubectl 安装kubectl
+// 可以使用 brew install kubectl 安装 kubectl
 kubectl get nodes
 // 输出结果
 NAME       STATUS   ROLES           AGE     VERSION
 minikube   Ready    control-plane   4m17s   v1.26.0
-// 使用 minikube查看集群状态
+// 使用 minikube kubectl 查看集群状态
 minikube kubectl -- get nodes -A
 // 输出结果
     > kubectl.sha256:  64 B / 64 B [-------------------------] 100.00% ? p/s 0s

@@ -23,8 +23,8 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 ## 我的环境
 
-- `MacBook Pro 14-inch, 2021` (Apple M1 Max, 64GB, Ventura 13.2.1)
-- `Ubuntu 22.04.2 LTS` in `Parallels Desktop 18 for Mac`
+- 我的电脑: `MacBook Pro (14-inch, 2021)`, `Version 13.2`, `M1 Max (ARM64,aarch64)`
+- 本地Linux环境: `Ubuntu 22.04.2 LTS` in `Parallels Desktop 18 for Mac`
 
 ## 安装 Docker
 
@@ -137,7 +137,10 @@ uid=1001(yaoyao) gid=1001(yaoyao) groups=1001(yaoyao),27(sudo),999(docker)
 
 ```bash
 // 不加sudo
-minikube start --driver=docker --container-runtime=containerd
+minikube start \
+--driver=docker \
+--container-runtime=containerd \
+--image-repository="https://registry.cn-hangzhou.aliyuncs.com/google_containers"
 ```
 
 输出结果
