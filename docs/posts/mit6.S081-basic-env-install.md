@@ -5,7 +5,7 @@ author: 耀耀
 layout: Post # 必须
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: /img/in-post/lorenzo-lanfranconi-5.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
-headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
+headerMask: rgba(40,57,101, .4)  # 封面图遮罩（可选）
 headerImageCredit: Lorenzo Lanfranconi # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
 headerImageCreditLink: https://www.artstation.com/artwork/Gg4qW  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
 catalog: true # 是否启用右侧目录，会覆写 `themeConfig.catalog`（可选，默认：false）
@@ -16,13 +16,13 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 ## 背景
 
-2022-01-19日更新
+2022-01-19 日更新
 
 - 很多人用 M1 架构编译都出现了错误 然后我同样复现了错误并且找到了解决办法。
 - 更详细的描述了不同的安装过程。
-- 我的笔记本是 arm64(M1芯片) 架构的，但此篇文章适用于 M1 及 Intel。
+- 我的笔记本是 arm64(M1 芯片) 架构的，但此篇文章适用于 M1 及 Intel。
 
-课程链接：[https://pdos.csail.mit.edu/6.S081/2020/](https://pdos.csail.mit.edu/6.S081/2020/)
+课程链接： [https://pdos.csail.mit.edu/6.S081/2020/](https://pdos.csail.mit.edu/6.S081/2020/)
 
 ## 我的环境
 
@@ -33,7 +33,8 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 默认情况下需要安装 brew 后面很多地方都需要用到此工具
 
 ```bash
-# 安装Brew 如果已经安装了可以下一步
+# 安装 brew 
+# 如果已经安装了可以下一步
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # 检查是否安装成功
 brew -v
@@ -45,7 +46,7 @@ Homebrew/homebrew-cask (git revision c6cfd6f92b; last commit 2022-01-18)
 brew install python3 gawk gnu-sed gmp mpfr libmpc isl zlib expat gsed
 brew tap discoteq/discoteq
 brew install flock
-# Qemu 需要依赖ninja
+# Qemu 需要依赖 ninja
 brew install ninja
 ```
 
@@ -56,7 +57,9 @@ Mac 默认情况下预装的环境是 LLVM+CLANG 而不是 GCC 虽然有 GCC 的
 测试如下 执行 gcc -v:
 
 ```bash
+# 执行
 gcc -v
+# 输出结果
 Configured with: --prefix=/Library/Developer/CommandLineTools/usr --with-gxx-include-dir=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/4.2.1
 Apple clang version 13.0.0 (clang-1300.0.29.30)
 Target: arm64-apple-darwin21.2.0
@@ -64,17 +67,17 @@ Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
 
-在编译 [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)  工具链的时候，
+在编译 [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain) 工具链的时候，
 本机是 GCC 还是 LLVM+CLANG 都不会影响，我亲测都可以编译成功，所以这个地方可以保持默认，
-如果需要安装GCC 来替换 LLVM + CLANG 可以按照以下步骤操作:
+如果需要安装 GCC 来替换 LLVM + CLANG 可以按照以下步骤操作:
 
 ```bash
 # 安装
 brew install gcc
-# 版本为gcc 11.2.0_3
+# 版本为 gcc 11.2.0_3
 # 设置环境变量: 
 # 把以下内容添加到 ~/.zshrc 或者 ~/.bash_profile  或者 /etc/profile
-# 因为我使用的是zsh 所以配置到 ~/.zshrc 里
+# 因为我使用的是 zsh 所以配置到 ~/.zshrc 里
 vim ~/.zshrc
 # 增加以下内容 
 export GCCPATH=/opt/homebrew/Cellar/gcc/11.2.0_3/
@@ -99,7 +102,7 @@ gcc version 11.2.0 (Homebrew GCC 11.2.0_3)
 
 ## 安装 riscv-gnu-toolchain
 
-以下安装选一个即可 你怎么开心怎么选 我用的是 `源码编译安装`
+以下安装选一个即可 你怎么开心怎么选 我用的是 ` 源码编译安装 `
 
 ### 使用 brew 进行安装（可选）
 
@@ -136,7 +139,7 @@ riscv-glibc commit: `9826b03b747b841f5fc6de2054bf1ef3f5c4bdf3` tag: **glibc-2.33
 
 riscv-newlib commit: `415fdd4279b85eeec9d54775ce13c5c412451e08` tag: **newlib-4.1.0**
 
-源码很大 6.5G左右 所以克隆的时候会很慢 可以先克隆主仓库 分开克隆子仓库
+源码很大 6.5G 左右 所以克隆的时候会很慢 可以先克隆主仓库 分开克隆子仓库
 
 ```bash
 git clone https://github.com/riscv/riscv-gnu-toolchain
@@ -146,7 +149,7 @@ git submodule update --init --recursive
 
 百度云中下载我这边上传好的 可以直接下载解压
 
-地址：[源码包](https://pan.baidu.com/s/1iDNpV2_UTWk4OwZx0Bv2YA)   提取码：`nmvw`  包名： `riscv-gnu-toolchain-src-2022-01-17.tar.gz`
+地址： [源码包](https://pan.baidu.com/s/1iDNpV2_UTWk4OwZx0Bv2YA) 提取码：`nmvw`  包名： `riscv-gnu-toolchain-src-2022-01-17.tar.gz`
 
 #### 编译安装
 
@@ -165,7 +168,7 @@ vim riscv-gcc/gcc/config.host
 97     #host_xmake_file="${host_xmake_file} x-darwin"
 ```
 
-编译耗时较长 慢慢等待吧 目测要1小时左右
+编译耗时较长 慢慢等待吧 目测要 1 小时左右
 
 ```bash
 cd riscv-gnu-toolchain
@@ -195,11 +198,11 @@ source ~/.zshrc
 
 **`x86_64(intel)`**
 
-地址：[源码包](https://pan.baidu.com/s/1iDNpV2_UTWk4OwZx0Bv2YA)   提取码：`nmvw`  包名： `riscv-gnu-toolchain-bin-2020.04.01-x86_64-apple-darwin.tar.gz`
+地址： [源码包](https://pan.baidu.com/s/1iDNpV2_UTWk4OwZx0Bv2YA) 提取码：`nmvw`  包名： `riscv-gnu-toolchain-bin-2020.04.01-x86_64-apple-darwin.tar.gz`
 
 **`aarm(m1)`**
 
-地址：[源码包](https://pan.baidu.com/s/1iDNpV2_UTWk4OwZx0Bv2YA)   提取码：`nmvw`  包名： `riscv-gnu-toolchain-bin-2022.01.18-arm64-apple-darwin.tar.gz`
+地址： [源码包](https://pan.baidu.com/s/1iDNpV2_UTWk4OwZx0Bv2YA) 提取码：`nmvw`  包名： `riscv-gnu-toolchain-bin-2022.01.18-arm64-apple-darwin.tar.gz`
 
 #### 解压
 
@@ -247,7 +250,7 @@ qemu 是强大的虚拟机操作系统模拟器，在此课程中，我们使用
 
 我安装的 qemu 版本为 `6.2.0`
 
-以下安装选一个即可 你怎么开心怎么选 我用的是 `使用 brew 安装`
+以下安装选一个即可 你怎么开心怎么选 我用的是 ` 使用 brew 安装 `
 
 ### 使用 brew 安装（可选）
 
@@ -316,9 +319,9 @@ make qemu
 
 ## 使用 qemu-gdb 对 xv6 进行调试
 
-需要2个窗口(终端)
+需要 2 个窗口(终端)
 
-### 窗口1
+### 窗口 1
 
 ```bash
 cd xv6-riscv
@@ -329,7 +332,7 @@ make CPUS=1 qemu-gdb
 
 ![mit-make-qemu-gdb](https://i.yaoyao.site/blog/mit-make-qemu-gdb.png)
 
-### 窗口2
+### 窗口 2
 
 ```bash
 cd xv6-riscv
@@ -347,9 +350,9 @@ riscv64-unknown-elf-gdb
 
 ### ld: symbol(s) not found for architecture arm64
 
-如果出现此问题 一般都是 arm架构 导致的
+如果出现此问题 一般都是 arm 架构 导致的
 
-**官方 issues 反馈的问题：[https://github.com/riscv-software-src/homebrew-riscv/issues/47](https://github.com/riscv-software-src/homebrew-riscv/issues/47)**
+官方 issues 反馈的问题： [https://github.com/riscv-software-src/homebrew-riscv/issues/47](https://github.com/riscv-software-src/homebrew-riscv/issues/47)
 
 解决办法:
 

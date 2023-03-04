@@ -18,7 +18,7 @@ headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必�
 ## 我的环境
 
 - 我的电脑: `MacBook Pro (14-inch, 2021)`, `Version 13.2`, `M1 Max (ARM64,aarch64)`
-- 我的NAS：群晖 `DS1522+`, `DSM 7.1.1-42962 Update 2`
+- 我的 NAS：群晖 `DS1522+`, `DSM 7.1.1-42962 Update 2`
 - calibre-web 镜像：`linuxserver/calibre-web:0.6.19`
 
 ## 部署 Calibre-Web

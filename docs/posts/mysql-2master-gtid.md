@@ -5,7 +5,7 @@ author: 耀耀
 layout: Post # 必须
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
-headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
+headerMask: rgba(40,57,101, .4)  # 封面图遮罩（可选）
 headerImageCredit: Ismail Inceoglu # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
 headerImageCreditLink: https://www.artstation.com/artwork/18D5XG  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
 catalog: true # 是否启用右侧目录，会覆写 `themeConfig.catalog`（可选，默认：false）
@@ -28,9 +28,9 @@ tags:
 
 ## 主机信息
 
-节点1: <`master-1`, `192.168.200.50`>
+节点 1: <`master-1`, `192.168.200.50`>
 
-节点2: <`master-2`, `192.168.200.51`>
+节点 2: <`master-2`, `192.168.200.51`>
 
 ## 基本操作
 
@@ -89,7 +89,7 @@ chkconfig on mysqld
 
 ## 双主配置
 
-### 节点1配置数据库
+### 节点 1 配置数据库
 
 #### 修改配置文件
 
@@ -161,7 +161,7 @@ mysql>flush privileges;
 mysql>exit;
 ```
 
-### 节点2配置数据库
+### 节点 2 配置数据库
 
 #### 修改配置文件
 
@@ -235,7 +235,7 @@ mysql>exit;
 
 ## 双主同步配置
 
-### 节点2开启同步节点1
+### 节点 2 开启同步节点 1
 
 ```sql
 # 登陆数据库
@@ -307,7 +307,7 @@ Master_SSL_Verify_Server_Cert: No
 1 row in set (0.00 sec)
 ```
 
-### 节点1开启同步节点2
+### 节点 1 开启同步节点 2
 
 ```sql
 # 登陆数据库
@@ -380,7 +380,7 @@ e9ff5da2-0b1e-11ec-b665-005056a5c44c:1-2
 1 row in set (0.00 sec)
 ```
 
-### 对IP进行授权访问
+### 对 IP 进行授权访问
 
 ```sql
 # 在任意一个节点上执行
@@ -394,7 +394,7 @@ mysql>exit;
 
 ## 测试数据库
 
-任意一台服务器/2个节点其中一个 需要确保已经授予IP访问权限
+任意一台服务器 2 个节点其中 1 个 需要确保已经授予 IP 访问权限
 
 ```bash
 # 登陆数据库 如果登陆成功 代表数据库集群正常运行

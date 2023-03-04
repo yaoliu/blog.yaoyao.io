@@ -5,7 +5,7 @@ author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.pers
 layout: Post # 必须
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: https://i.yaoyao.site/yaoyaoio/img/in-post/header.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
-headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
+headerMask: rgba(40,57,101, .4)  # 封面图遮罩（可选）
 headerImageCredit: Jeremy Fenske # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
 headerImageCreditLink: https://www.artstation.com/artwork/nLY0K  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
 catalog: true # 是否启用右侧目录，会覆写 `themeConfig.catalog`（可选，默认：false）
@@ -17,11 +17,11 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 ## 我的环境
 
 - 我的电脑: `MacBook Pro (14-inch, 2021)`, `Version 13.2`, `M1 Max (ARM64,aarch64)`
-- 本地Linux环境: `Ubuntu 22.04.2 LTS` in `Parallels Desktop 18 for Mac`
+- 本地 Linux 环境: `Ubuntu 22.04.2 LTS` in `Parallels Desktop 18 for Mac`
 
 ## 主机信息
 
-4台主机信息
+4 台主机信息
 
 ```bash
 cat /etc/hosts |grep home
@@ -107,7 +107,7 @@ nameserver 114.114.114.114
 nameserver 8.8.8.8
 ```
 
-## 安装 Kubeadm
+## 安装 `Kubeadm`
 
 我这里使用阿里云提供的镜像源作为安装 `Kubeadm` 加速
 
@@ -232,7 +232,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubeadm join 10.211.55.9:6443 --token mldghy.xtf4a0u9bw8ltsvu --discovery-token-ca-cert-hash sha256:2b0f87c543d77e0b8f843db47c95985febe17a19de747b064720097db9b9535c
 ```
 
-## 部署 Flannel 组件 
+## 部署 Flannel 组件
 
 我使用的是 Vxlan 模式
 
@@ -305,5 +305,5 @@ home-04   Ready    <none>          5d6h   v1.24.0   10.211.55.12   <none>       
 sudo systemctl enable kubelet.service
 ```
 
-涉及DNS问题可以考虑关掉DNS管理服务
+涉及 DNS 问题可以考虑关掉 DNS 管理服务
 参考 [https://icloudnative.io/posts/resolvconf-tutorial/](https://icloudnative.io/posts/resolvconf-tutorial/)
