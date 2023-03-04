@@ -27,33 +27,21 @@ module.exports = gungnirTheme({
   // header images on home page
   homeHeaderImages: [
     {
-      path: "https://i.yaoyao.site/yaoyaoio/img/home-bg/1.webp",
+      path: "https://i.yaoyao.site/bg/1.webp",
       mask: "rgba(40, 57, 101, .4)"
     },
-    // {
-    //   path: "https://i.yaoyao.site/yaoyaoio/img/home-bg/2.webp",
-    //   mask: "rgba(196, 176, 131, .1)"
-    // },
     {
-      path: "https://i.yaoyao.site/yaoyaoio/img/home-bg/3.webp",
+      path: "https://i.yaoyao.site/bg/2.webp",
       mask: "rgba(19, 75, 50, .2)"
     },
-    // {
-    //   path: "https://i.yaoyao.site/yaoyaoio/img/home-bg/4.webp",
-    //   mask: "rgba(196, 176, 131, .1)"
-    // },
     {
-      path: "https://i.yaoyao.site/yaoyaoio/img/home-bg/5.webp",
+      path: "https://i.yaoyao.site/bg/3.webp",
       mask: "rgba(196, 176, 131, .1)"
     },
     {
-      path: "https://i.yaoyao.site/yaoyaoio/img/home-bg/6.webp",
+      path: "https://i.yaoyao.site/bg/4.webp",
       mask: "rgba(196, 176, 131, .1)"
-    },
-    {
-      path: "https://i.yaoyao.site/yaoyaoio/img/home-bg/7.webp",
-      mask: "rgba(196, 176, 131, .1)"
-    },
+    }
   ],
 
   // other pages
@@ -63,12 +51,6 @@ module.exports = gungnirTheme({
       bgImage: {
         path: "/img/pages/tags.jpg",
         mask: "rgba(211, 136, 37, .5)"
-      }
-    },
-    timelines: {
-      subtitle: "To the time to life, rather than to life in time.",
-      bgImage: {
-        path: "/img/pages/timelines.jpeg"
       }
     }
   },
