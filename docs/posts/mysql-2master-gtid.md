@@ -22,20 +22,19 @@ tags:
 所以我们需要搭建双主复制，双主复制可以保证数据库的高可用，同时也可以保证数据库的读写分离。
 **（以上由 Github Copilot 生成）**
 
-
 ## 我的环境
 
   操作系统：`CentOS Linux release 7.8.2003 (Core)`
 
 ## 主机信息
 
-master-1：192.168.200.50
+节点1: <`master-1`, `192.168.200.50`>
 
-master-2：192.168.200.51
+节点2: <`master-2`, `192.168.200.51`>
 
 ## 基本操作
 
-**注: 所有节点都需要执行**
+所有节点都需要执行以下操作
 
 ```bash
 // 关闭防火墙
@@ -49,7 +48,7 @@ setenforce 0
 
 ## 二进制安装数据库
 
-**注: 所有节点都需要执行**
+所有节点都需要执行以下操作
 
 ### 安装数据库
 
@@ -90,7 +89,9 @@ chkconfig on mysqld
 
 ## 双主配置
 
-### **节点1配置数据库**
+### 节点1配置数据库
+
+#### 修改配置文件
 
 ```bash
 // 打开/etc/my.cnf 将以下内容添加进去
@@ -131,14 +132,14 @@ log-error=/usr/local/mysql/data/error.log
 pid-file=/usr/local/mysql/data/database.pid
 ```
 
-**节点1启动数据库**
+#### 启动数据库
 
 ```bash
 // 启动数据库
 /etc/init.d/mysqld start
 ```
 
-**节点1初始化密码**
+#### 初始化密码
 
 ```sql
 // 登陆数据库
@@ -149,7 +150,7 @@ mysql>flush privileges;
 mysql>exit;
 ```
 
-**节点1创建从库同步用户**
+#### 创建从库同步用户
 
 ```sql
 // 登陆数据库
@@ -160,7 +161,9 @@ mysql>flush privileges;
 mysql>exit;
 ```
 
-### **节点2配置数据库**
+### 节点2配置数据库
+
+#### 修改配置文件
 
 ```bash
 // 打开/etc/my.cnf 将以下内容添加进去
@@ -201,14 +204,14 @@ log-error=/usr/local/mysql/data/error.log
 pid-file=/usr/local/mysql/data/database.pid
 ```
 
-**节点2启动数据库**
+#### 启动数据库
 
 ```bash
 // 启动数据库
 /etc/init.d/mysqld start
 ```
 
-**节点2初始化密码**
+#### 初始化密码
 
 ```sql
 // 登陆数据库
@@ -219,7 +222,7 @@ mysql>flush privileges;
 mysql>exit;
 ```
 
-**节点2创建从库同步用户**
+#### 创建从库同步用户
 
 ```sql
 // 登陆数据库
@@ -232,7 +235,7 @@ mysql>exit;
 
 ## 双主同步配置
 
-**节点2开启同步节点1**
+### 节点2开启同步节点1
 
 ```sql
 // 登陆数据库
@@ -304,7 +307,7 @@ Master_SSL_Verify_Server_Cert: No
 1 row in set (0.00 sec)
 ```
 
-**节点1开启同步节点2**
+### 节点1开启同步节点2
 
 ```sql
 // 登陆数据库
@@ -377,7 +380,7 @@ e9ff5da2-0b1e-11ec-b665-005056a5c44c:1-2
 1 row in set (0.00 sec)
 ```
 
-**对IP进行授权访问**
+### 对IP进行授权访问
 
 ```sql
 // 在任意一个节点上执行
@@ -391,14 +394,14 @@ mysql>exit;
 
 ## 测试数据库
 
-**注：任意一台服务器/2个节点其中一个 需要确保已经授权**
+任意一台服务器/2个节点其中一个 需要确保已经授予IP访问权限
 
 ```bash
 // 登陆数据库 如果登陆成功 代表数据库集群正常运行
 /usr/local/mysql/bin/mysql -uroot -p -h 192.168.200.50 --port=13306
 ```
 
-**完整数据库测试**
+### 完整数据库测试
 
 ```sql
 // 测试数据库创建

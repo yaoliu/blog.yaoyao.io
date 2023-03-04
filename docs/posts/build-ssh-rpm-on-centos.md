@@ -35,6 +35,7 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 ### 下载相关源码包
 
 ```bash
+cd /root/
 wget https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/openssh-9.0p1.tar.gz
 wget https://src.fedoraproject.org/repo/pkgs/openssh/x11-ssh-askpass-1.2.4.1.tar.gz/8f2e41f3f7eaa8543a2440454637f3c3/x11-ssh-askpass-1.2.4.1.tar.gz
 ```
@@ -50,7 +51,7 @@ perl-devel pam-devel gtk2-devel libXt-devel imake
 
 ```bash
 cd /root/
-mkdir -p rpmbuild/{SOURCES,SPECS,RPMS,SRPMS,BUILD,BUILDROOT}
+mkdir -p /root/rpmbuild/{SOURCES,SPECS,RPMS,SRPMS,BUILD,BUILDROOT}
 ```
 
 ### 修改相关配置

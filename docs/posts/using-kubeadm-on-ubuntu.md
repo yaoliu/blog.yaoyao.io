@@ -10,14 +10,9 @@ headerImageCredit: Jeremy Fenske # 图片来源，比如图片作者的名字（
 headerImageCreditLink: https://www.artstation.com/artwork/nLY0K  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
 catalog: true # 是否启用右侧目录，会覆写 `themeConfig.catalog`（可选，默认：false）
 hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可选，默认：false）
-tags:  # 博客标签（可选）
-- kubernetes
-- 云原生
 ---
 
-记录一下安装过程 随时拿来用一下。
-
-<!-- more -->
+---
 
 ## 我的环境
 
@@ -26,7 +21,7 @@ tags:  # 博客标签（可选）
 
 ## 主机信息
 
-4台主机如下:
+4台主机信息
 
 ```bash
 cat /etc/hosts |grep home
@@ -36,7 +31,7 @@ cat /etc/hosts |grep home
 10.211.55.12 home-04 # node
 ```
 
-操作系统版本:
+操作系统版本
 
 ```bash
 # uname -a
@@ -58,27 +53,31 @@ UBUNTU_CODENAME=jammy
 
 ## 基础操作
 
-**注 (所有机器都需要执行)**
+所有机器都需要执行
 
-**修改主机名并把主机信息加到 /etc/hosts 文件中**
+### 修改主机名
+
+记得把主机信息加到 /etc/hosts 文件中
 
 ```bash
 # hostnamectl set-hostname {主机名}
 ```
 
-**关闭 swap**
+### 关闭 swap
 
 ```bash
 # sudo swapoff -a
 ```
 
-**加载内核模块**
+### 加载内核模块
 
 ```bash
 # modprobe br_netfilter
 ```
 
-**修改内核参数 创建文件添加内容**
+### 修改内核参数
+
+#### 新增相关配置
 
 ```bash
 # cat << EOF > /etc/sysctl.d/99-kubernetes-cri.conf
@@ -89,54 +88,103 @@ user.max_user_namespaces=28633
 EOF
 ```
 
-**执行以下命令使配置生效:**
+#### 生效配置
 
 ```bash
-# sysctl -p /etc/sysctl.d/99-kubernetes-cri.conf
+# sudo sysctl -p /etc/sysctl.d/99-kubernetes-cri.conf
 ```
 
-**修改 DNS 禁用 systemd-resolved.service**
+### 修改 DNS
 
-此处手动管理 /etc/resolv.conf
+禁用 `systemd-resolved.service` 此处手动管理 `/etc/resolv.conf`
 
 ```bash
-# systemctl disable --now systemd-resolved.service
-# cat /etc/resolv.conf
+systemctl disable --now systemd-resolved.service
+// 执行
+cat /etc/resolv.conf
+// 输出结果
 nameserver 114.114.114.114
 nameserver 8.8.8.8
 ```
 
-**安装 kubernetes 这里使用阿里云提供的源**
+## 安装 Kubeadm
+
+我这里使用阿里云提供的镜像源作为安装 `Kubeadm` 加速
+
+### 安装依赖
 
 ```bash
-# apt-get update && api install vim curl -y
-# apt-get install -y apt-transport-https
-# curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
-# cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update && api install vim curl -y
+sudo apt-get install -y apt-transport-https
+```
+
+### 安装 GPG 证书
+
+```bash
+sudo curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
+```
+
+### 写入软件源信息
+
+```bash
+sudo cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
 EOF
-# apt-get install -y kubelet kubeadm kubectl
 ```
 
-**安装容器运行时 Containerd 这里使用阿里云提供的源**
+### 更新并安装
 
 ```bash
-# // 添加相关源 我在Macbook上使用PD搞的虚拟机 这地方需要改为对应架构的 arch=arm64
-# **sudo add-apt-repository "deb [arch=arm64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
-# // 卸载 docker
-#** sudo apt-get remove docker-ce docker.io docker
-# // 安装 containerd
-# sudo apt install containerd.io
+sudo apt update
+sudo apt-get install -y kubelet kubeadm kubectl
 ```
 
-**生成 Containerd 所需要的配置文件**
+## 安装 Containerd
+
+我这里使用阿里云提供的镜像源作为安装 `Containerd` 加速
+
+### 安装依赖
+
+```bash
+sudo apt-get update 
+sudo apt -y install apt-transport-https ca-certificates curl software-properties-common
+```
+
+### 安装 GPG 证书
+
+```bash
+curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+### 写入软件源信息
+
+```bash
+// 我在 Macbook 上使用 PD 运行的 Ubuntu, 所以这地方需要改为对应架构的 arch=arm64
+// ARM64 
+sudo add-apt-repository "deb [arch=arm64] <https://download.docker.com/linux/ubuntu> $(lsb_release -cs) stable"
+// AMD64
+sudo add-apt-repository "deb [arch=amd64] <https://download.docker.com/linux/ubuntu> $(lsb_release -cs) stable"
+```
+
+### 更新并安装
+
+```bash
+// 卸载 docker
+sudo apt-get remove docker-ce docker.io docker
+// 安装 containerd
+sudo apt install -y containerd.io
+```
+
+### 配置 Containerd
+
+#### 生成配置文件
 
 ```bash
 # mkdir -p /etc/containerd
 # containerd config default > /etc/containerd/config.toml
 ```
 
-**使用 systemd 作为容器的 cgroup driver**
+#### 使用 systemd 作为容器的 cgroup driver
 
 ```bash
 # vim /etc/containerd/config.toml
@@ -147,15 +195,21 @@ EOF
     SystemdCgroup = true
 ```
 
-配置 **Containerd** 开机启动，并启动 **Containerd**
+#### 配置 Containerd 开机启动
 
 ```bash
 systemctl enable containerd --now
 ```
 
-## 使用kubelet初始化集群
+### 启动 Containerd
 
-### 在master上执行
+```bash
+sudo systemctl start containerd
+```
+
+## 创建 Kubernetes 集群
+
+### 在 master 上执行
 
 ```bash
 sudo kubeadm init --pod-network-cidr 172.16.0.0/16  \
@@ -172,13 +226,13 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 初始化成功后会生成节点加入集群的命令 在其他节点上执行该命令
 
-### 在node上执行
+### 在 node 上执行
 
 ```bash
 kubeadm join 10.211.55.9:6443 --token mldghy.xtf4a0u9bw8ltsvu --discovery-token-ca-cert-hash sha256:2b0f87c543d77e0b8f843db47c95985febe17a19de747b064720097db9b9535c
 ```
 
-## **部署 Flannel 组件 (Vxlan模式)**
+## 部署 Flannel 组件 (Vxlan模式)
 
 在master上执行
 
@@ -225,13 +279,13 @@ data:
 执行
 
 ```bash
-# kubectl apply -f kube-flannel.yaml
+kubectl apply -f kube-flannel.yaml
 ```
 
 ## 查看集群状态
 
 ```bash
-# kubectl get nodes -o wide
+kubectl get nodes -o wide
 NAME      STATUS   ROLES           AGE    VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
 home-01   Ready    control-plane   15d    v1.24.0   10.211.55.9    <none>        Ubuntu 20.04.3 LTS   5.13.0-25-generic   containerd://1.6.4
 home-02   Ready    <none>          15d    v1.24.0   10.211.55.5    <none>        Ubuntu 20.04.3 LTS   5.13.0-25-generic   containerd://1.6.4
@@ -239,12 +293,12 @@ home-03   Ready    <none>          15d    v1.24.0   10.211.55.11   <none>       
 home-04   Ready    <none>          5d6h   v1.24.0   10.211.55.12   <none>        Ubuntu 20.04.3 LTS   5.13.0-25-generic   containerd://1.6.4
 ```
 
-## 注:
+## FAQ
 
-可以在每台机器上让 kubelet 开机启动
+可以在c每台机器上让 kubelet 开机启动
 
 ```bash
-systemctl enable kubelet.service
+sudo systemctl enable kubelet.service
 ```
 
 涉及DNS问题可以考虑关掉DNS管理服务

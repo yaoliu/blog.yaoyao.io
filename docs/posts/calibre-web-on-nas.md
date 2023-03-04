@@ -13,7 +13,6 @@ headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必�
 如果你是一个爱书之人，那么你可能会收集大量的电子书。
 但是，如果你的电脑硬盘空间不足，或者你想要在多个设备上访问你的图书馆，那么你需要一个更好的解决方案。
 在这篇文章中，我将向你介绍如何使用群晖 NAS 和 Calibre-Web 来搭建一个个人图书馆，让你随时随地阅读你的电子书。
-
 **（以上内容由 Notion AI 生成）**
 
 ## 我的环境
@@ -61,7 +60,7 @@ headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必�
 |TZ|  Asia/Shanghai|时区配置|
 |DOCKER_MODS | linuxserver/mods: universal-calibre|电子书转换能力|
 |OAUTHLIB_RELAX_TOKEN_SCOPE |1 | 允许 Google OAUTH 工作|
-|https_proxy| http://127.0.0.1:7890|配置了自己的代理方便下载 |
+|https_proxy| `http://127.0.0.1:7890`|配置了自己的代理方便下载 |
 
 **注**：这些都是可选配置
 
@@ -96,7 +95,7 @@ headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必�
 
 ### 使用浏览器访问
 
-使用浏览器打开 http://{你的群晖地址}:8083
+使用浏览器打开 `http://{你的群晖地址}:8083`
 
 默认登录账号为：`admin/admin123`
 
@@ -140,7 +139,8 @@ headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必�
 
 ### 配置
 
-打开 `File Station` 在 docker/calibre 下创建名为 `metadata_provider` 的文件夹 然后将 `NewDouban.py` 放到了该文件夹下
+打开 `File Station` 在 docker/calibre 下创建名为 `metadata_provider` 的文件夹
+然后将 `NewDouban.py` 放到了该文件夹下
 
 ![豆瓣目录|1000](https://i.yaoyao.site/blog/nas-calibre-web-douban.png)
 
@@ -150,7 +150,7 @@ headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必�
 
 | 本地文件夹 | 装载路径 |
 | ------ | -------- |
-|  /docker/calibre/metadata_provider      |  /app/calibre-web/cps/metadata_provider |
+|  /docker/calibre/metadata_provider  |  /app/calibre-web/cps/metadata_provider |
 
 然后启动点击 ` 保存 ` 并启动该容器
 
@@ -218,14 +218,16 @@ pip uninstall scholarly -y
 
 如果出现以下错误
 
-`Failed to import PyQt module: PyQt6.QtWebEngineCore with error: libXtst.so.6: cannot open shared object file: No such file or directory`
+`Failed to import PyQt module: PyQt6.QtWebEngineCore with error: libXtst.so.6:
+cannot open shared object file: No such file or directory`
 
 解决办法：
 
 进入容器中执行
 
 ```bash
-apt update; apt upgrade libgl1-mesa-glx libxdamage1 libegl1 libxkbcommon0 libopengl0 -y
+apt update
+apt upgrade libgl1-mesa-glx libxdamage1 libegl1 libxkbcommon0 libopengl0 -y
 ```
 
 ### 数据库路径配置错误
