@@ -59,17 +59,17 @@ mkdir -p /root/rpmbuild/{SOURCES,SPECS,RPMS,SRPMS,BUILD,BUILDROOT}
 #### 复制依赖文件到编译环境
 
 ```bash
-// 源码包
+# 源码包
 cp /root/openssh-9.0p1.tar.gz /root/rpmbuild/SOURCES/
 cp /root/x11-ssh-askpass-1.2.4.1.tar.gz /root/rpmbuild/SOURCES/
 tar -zxf /root/openssh-9.0p1.tar.gz -C /opt/
-// 依赖文件
+# 依赖文件
 cp /opt/openssh-9.0p1/contrib/redhat/openssh.spec /root/rpmbuild/SPECS/
-// 授权
+# 授权
 chown sshd:sshd /root/rpmbuild/SPECS/openssh.spec
 ```
 
-#### 定制 `/etc/pam.d/sshd`  文件
+#### 定制 `/etc/pam.d/sshd` 文件
 
 因为如果使用 `OpenSSH` 提供的 `sshd` 会有可能导致安装后登陆不上的问题，所以还继续使用当前的 `sshd` 文件。
 
@@ -171,7 +171,7 @@ openssh-clients-9.0p1-1.el8.x86_64.rpm  openssh-server-9.0p1-1.el8.x86_64.rpm
 
 ```bash
 cd /root/rpmbuild/RPMS/x86_64/
-// 打包
+# 打包
 tar -zcvf openssh-9.0p1_rpm_package.tar.gz *.rpm
 ```
 
@@ -187,14 +187,16 @@ tar xf openssh-9.0p1_rpm_package.tar.gz
 ### 备份当前 SSH 配置及命令
 
 ```bash
-# 配置备份
-mkdir /root/ssh_bak_`date +"%Y-%m-%d"`
-cp -r /etc/ssh/* /root/ssh_bak_`date +"%Y-%m-%d"`
-cp /etc/pam.d/sshd /root/ssh_bak_`date +"%Y-%m-%d"`
-# 命令备份
-mkdir /root/ssh_bak_`date +"%Y-%m-%d"`/bin/
-cp /bin/ssh* /root/ssh_bak_`date +"%Y-%m-%d"`/bin/
-cp /usr/sbin/sshd /root/ssh_bak_`date +"%Y-%m-%d"`/bin/
+# 查看版本
+ssh -V
+OpenSSH_9.0p1, OpenSSL 1.1.1k  FIPS 25 Mar 2021
+# 查看安装情况
+rpm -qa |grep openssh
+openssh-9.0p1-1.el8.x86_64
+openssh-server-9.0p1-1.el8.x86_64
+openssh-server-debuginfo-9.0p1-1.el8.x86_64
+openssh-debuginfo-9.0p1-1.el8.x86_64
+openssh-clients-9.0p1-1.el8.x86_64
 ```
 
 ### 安装 RPM
@@ -206,10 +208,10 @@ rpm -Uivh openssh-*rpm
 ### 查看安装版本
 
 ```bash
-查看版本
+# 查看版本
 ssh -V
 OpenSSH_9.0p1, OpenSSL 1.1.1k  FIPS 25 Mar 2021
-查看安装情况
+# 查看安装情况
 rpm -qa |grep openssh
 openssh-9.0p1-1.el8.x86_64
 openssh-server-9.0p1-1.el8.x86_64

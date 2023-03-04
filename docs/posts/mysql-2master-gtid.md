@@ -37,12 +37,12 @@ tags:
 所有节点都需要执行以下操作
 
 ```bash
-// 关闭防火墙
+# 关闭防火墙
 systemctl stop firewalld
-// 关闭Selinux
+# 关闭Selinux
 vim /etc/sysconfig/selinux
 SELINUX=disabled 
-// 临时关闭Selinux
+# 临时关闭Selinux
 setenforce 0
 ```
 
@@ -53,29 +53,29 @@ setenforce 0
 ### 安装数据库
 
 ```bash
-// 安装数据库
+# 安装数据库
 mkdir /usr/local/mysql
-// 解压缩
+# 解压缩
 tar -zxvf mysql-5.7.35-linux-glibc2.12-x86_64.tar.gz -C /usr/local/mysql --strip=1
-// 创建用户及用户组
+# 创建用户及用户组
 groupadd mysql
 useradd mysql -g mysql -s /sbin/nologin
-// 创建数据库数据目录
+# 创建数据库数据目录
 mkdir /usr/local/mysql/data
-// 授权
+# 授权
 chown -R mysql.mysql /usr/local/mysql
-// 复制启动脚本
+# 复制启动脚本
 cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
-// 设置开机启动
+# 设置开机启动
 chkconfig on mysqld
 ```
 
 ### 初始化数据库
 
 ```bash
-// 初始化数据库 此处会生成默认root密码
+# 初始化数据库 此处会生成默认root密码
 /usr/local/mysql/bin/mysqld --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data --initialize
-// 会打印一下日志 记住保存好密码
+# 会打印一下日志 记住保存好密码
 2021-09-01T11:54:32.248336Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
 2021-09-01T11:54:33.099720Z 0 [Warning] InnoDB: New log files created, LSN=45790
 2021-09-01T11:54:33.236031Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
@@ -94,7 +94,7 @@ chkconfig on mysqld
 #### 修改配置文件
 
 ```bash
-// 打开/etc/my.cnf 将以下内容添加进去
+# 打开/etc/my.cnf 将以下内容添加进去
 vim /etc/my.cnf
 
 [mysqld]
@@ -135,16 +135,16 @@ pid-file=/usr/local/mysql/data/database.pid
 #### 启动数据库
 
 ```bash
-// 启动数据库
+# 启动数据库
 /etc/init.d/mysqld start
 ```
 
 #### 初始化密码
 
 ```sql
-// 登陆数据库
+# 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
-// 修改root密码
+# 修改root密码
 mysql>ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
 mysql>flush privileges;
 mysql>exit;
@@ -153,9 +153,9 @@ mysql>exit;
 #### 创建从库同步用户
 
 ```sql
-// 登陆数据库
+# 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
-// 创建同步用户
+# 创建同步用户
 mysql>GRANT REPLICATION SLAVE ON *.* TO master1@'%' IDENTIFIED BY '123456';
 mysql>flush privileges;
 mysql>exit;
@@ -166,7 +166,7 @@ mysql>exit;
 #### 修改配置文件
 
 ```bash
-// 打开/etc/my.cnf 将以下内容添加进去
+# 打开/etc/my.cnf 将以下内容添加进去
 vim /etc/my.cnf
 
 [mysqld]
@@ -207,16 +207,16 @@ pid-file=/usr/local/mysql/data/database.pid
 #### 启动数据库
 
 ```bash
-// 启动数据库
+# 启动数据库
 /etc/init.d/mysqld start
 ```
 
 #### 初始化密码
 
 ```sql
-// 登陆数据库
+# 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
-// 修改root密码
+# 修改root密码
 mysql>ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
 mysql>flush privileges;
 mysql>exit;
@@ -225,9 +225,9 @@ mysql>exit;
 #### 创建从库同步用户
 
 ```sql
-// 登陆数据库
+# 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
-// 创建同步用户
+# 创建同步用户
 mysql>GRANT REPLICATION SLAVE ON *.* TO master2@'%' IDENTIFIED BY '123456';
 mysql>flush privileges;
 mysql>exit;
@@ -238,13 +238,13 @@ mysql>exit;
 ### 节点2开启同步节点1
 
 ```sql
-// 登陆数据库
+# 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
-// 创建同步
+# 创建同步
 mysql>change master to master_host='192.168.200.50',master_user='master1',master_password='123456',master_port=13306,master_auto_position=1;
-// 开始同步
+# 开始同步
 mysql>start slave;
-// 查看同步状态
+# 查看同步状态
 mysql>show slave status\G;
 *************************** 1. row ***************************
                Slave_IO_State: Waiting for master to send event
@@ -310,13 +310,13 @@ Master_SSL_Verify_Server_Cert: No
 ### 节点1开启同步节点2
 
 ```sql
-// 登陆数据库
+# 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
-// 创建同步
+# 创建同步
 mysql>change master to master_host='192.168.200.51',master_user='master2',master_password='123456',master_port=13306,master_auto_position=1;
-// 开始同步
+# 开始同步
 mysql>start slave;
-// 查看同步状态
+# 查看同步状态
 mysql>show slave status\G;
 *************************** 1. row ***************************
                Slave_IO_State: Waiting for master to send event
@@ -383,8 +383,8 @@ e9ff5da2-0b1e-11ec-b665-005056a5c44c:1-2
 ### 对IP进行授权访问
 
 ```sql
-// 在任意一个节点上执行
-// 登陆数据库
+# 在任意一个节点上执行
+# 登陆数据库
 /usr/local/mysql/bin/mysql -uroot -p --port=13306
 mysql>grant all on *.* to 'root'@'192.168.200.50' identified by '123456' with grant option;
 mysql>grant all on *.* to 'root'@'192.168.200.51' identified by '123456' with grant option;
@@ -397,16 +397,16 @@ mysql>exit;
 任意一台服务器/2个节点其中一个 需要确保已经授予IP访问权限
 
 ```bash
-// 登陆数据库 如果登陆成功 代表数据库集群正常运行
+# 登陆数据库 如果登陆成功 代表数据库集群正常运行
 /usr/local/mysql/bin/mysql -uroot -p -h 192.168.200.50 --port=13306
 ```
 
 ### 完整数据库测试
 
 ```sql
-// 测试数据库创建
+# 测试数据库创建
 create database test1;
-// 测试数据表创建
+# 测试数据表创建
 use test1;
 create table user(
 id int auto_increment primary key,
@@ -414,9 +414,9 @@ user varchar(20) not null,
 sex varchar(20) not null,
 birthday datetime
 )
-// 测试数据插入 不带ID 让Mysql自增
+# 测试数据插入 不带ID 让Mysql自增
 insert into user(user,sex,birthday) values('耀耀','男','1977-09-01');
-// 查看数据
+# 查看数据
 select * from user;
 +----+--------+-----+---------------------+
 | id | user   | sex | birthday            |
@@ -425,8 +425,8 @@ select * from user;
 |  4 | 张三 | 男 | 1977-09-01 00:00:00 |
 |  6 | 张三 | 男 | 1977-09-01 00:00:00 |
 +----+--------+-----+---------------------+
-发现是2倍数递增
-// 测试数据插入 携带ID
+# 发现是2倍数递增
+# 测试数据插入 携带ID
 insert into user(id,user,sex,birthday) values(7,'耀耀','男','1977-09-01');
 ```
 

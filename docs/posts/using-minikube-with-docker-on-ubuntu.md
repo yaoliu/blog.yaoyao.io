@@ -46,7 +46,7 @@ curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key 
 ### 写入软件源信息
 
 ```bash
-// 我在 Macbook 上使用 PD 运行的 Ubuntu, 所以这地方需要改为对应架构的 arch=arm64
+# 我在 Macbook 上使用 PD 运行的 Ubuntu, 所以这地方需要改为对应架构的 arch=arm64
 // ARM64 
 sudo add-apt-repository "deb [arch=arm64] <https://download.docker.com/linux/ubuntu> $(lsb_release -cs) stable"
 // AMD64
@@ -96,9 +96,9 @@ For more examples and ideas, visit:
 ### 查看 Docker 版本
 
 ```bash
-// 执行
+# 执行
 sudo docker -v
-// 输出结果
+# 输出结果
 Docker version 23.0.1, build a5ee5b1
 ```
 
@@ -107,9 +107,9 @@ Docker version 23.0.1, build a5ee5b1
 ### 下载和安装
 
 ```bash
-// 下载 minikube 官方软件包
+# 下载 minikube 官方软件包
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64
-// 安装 minikube
+# 安装 minikube
 sudo install minikube-linux-arm64 /usr/local/bin/minikube
 ```
 
@@ -127,16 +127,16 @@ sudo usermod -aG docker $USER && newgrp docker
 查看当前用户信息，当前用户已加入 id 为 999 的 docker 组
 
 ```bash
-// 执行
+# 执行
 id
-// 输出结果
+# 输出结果
 uid=1001(yaoyao) gid=1001(yaoyao) groups=1001(yaoyao),27(sudo),999(docker)
 ```
 
 ## 创建 Kubernetes 集群
 
 ```bash
-// 不加sudo
+# 不加 sudo
 minikube start \
 --driver=docker \
 --container-runtime=containerd \
@@ -170,9 +170,9 @@ minikube start \
 ### 查看安装状态
 
 ```bash
-// 执行
+# 执行
 minikube status
-// 输出结果
+# 输出结果
 minikube
 type: Control Plane
 host: Running
@@ -184,9 +184,9 @@ kubeconfig: Configured
 ### 查看 Pod 状态
 
 ```bash
-// 执行
+# 执行
 minikube kubectl -- get nodes -A
-// 执行结果
+# 执行结果
     > kubectl.sha256:  64 B / 64 B [-------------------------] 100.00% ? p/s 0s
     > kubectl:  44.31 MiB / 44.31 MiB [------------] 100.00% 25.15 MiB p/s 2.0s
 NAME       STATUS   ROLES           AGE    VERSION
@@ -212,8 +212,8 @@ alias kubectl="minikube kubectl --"
 当前用户永久设置别名
 
 ```bash
-// 添加别名配置
+# 添加别名配置
 echo "alias kubectl='minikube kubectl --'" >> ~/.bashrc
-// 使配置生效
+# 使配置生效
 source ~/.bashrc
 ```

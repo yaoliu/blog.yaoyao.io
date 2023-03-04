@@ -100,9 +100,9 @@ sudo sysctl -p /etc/sysctl.d/99-kubernetes-cri.conf
 
 ```bash
 systemctl disable --now systemd-resolved.service
-// 执行
+# 执行
 cat /etc/resolv.conf
-// 输出结果
+# 输出结果
 nameserver 114.114.114.114
 nameserver 8.8.8.8
 ```
@@ -159,19 +159,19 @@ curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key 
 ### 写入软件源信息
 
 ```bash
-// 我在 Macbook 上使用 PD 运行的 Ubuntu, 所以这地方需要改为对应架构的 arch=arm64
+# 我在 Macbook 上使用 PD 运行的 Ubuntu, 所以这地方需要改为对应架构的 arch=arm64
 // ARM64 
 sudo add-apt-repository "deb [arch=arm64] <https://download.docker.com/linux/ubuntu> $(lsb_release -cs) stable"
-// AMD64
+# AMD64
 sudo add-apt-repository "deb [arch=amd64] <https://download.docker.com/linux/ubuntu> $(lsb_release -cs) stable"
 ```
 
 ### 更新并安装
 
 ```bash
-// 卸载 docker
+# 卸载 docker
 sudo apt-get remove docker-ce docker.io docker
-// 安装 containerd
+# 安装 containerd
 sudo apt install -y containerd.io
 ```
 
@@ -287,9 +287,9 @@ kubectl apply -f kube-flannel.yaml
 ## 查看集群状态
 
 ```bash
-// 执行
+# 执行
 kubectl get nodes -o wide
-// 输出结果
+# 输出结果
 NAME      STATUS   ROLES           AGE    VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
 home-01   Ready    control-plane   15d    v1.24.0   10.211.55.9    <none>        Ubuntu 20.04.3 LTS   5.13.0-25-generic   containerd://1.6.4
 home-02   Ready    <none>          15d    v1.24.0   10.211.55.5    <none>        Ubuntu 20.04.3 LTS   5.13.0-25-generic   containerd://1.6.4

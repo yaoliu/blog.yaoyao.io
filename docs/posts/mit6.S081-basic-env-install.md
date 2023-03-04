@@ -155,22 +155,22 @@ git submodule update --init --recursive
 修改如下:
 
 ```bash
-// 进入目录
+# 进入目录
 cd riscv-gnu-toolchain
-// 注销配置
-// 编辑文件 
+# 注销配置
+# 编辑文件 
 vim riscv-gcc/gcc/config.host
-// 注销96行 97行
+# 注销96行 97行
 96     #out_host_hook_obj=host-darwin.o
 97     #host_xmake_file="${host_xmake_file} x-darwin"
 ```
 
-编译 耗时较长 慢慢等待吧 目测要1小时左右
+编译耗时较长 慢慢等待吧 目测要1小时左右
 
 ```bash
 cd riscv-gnu-toolchain
 ./configure --prefix=/opt/riscv-gnu-toolchain --with-cmodel=medany --enable-multilib
-// 因为安到opt目录下所以加了sudo 如果不安装在这个目录下 可以不使用sudo
+# 因为安装到 opt 目录下所以加了 sudo 如果不安装在这个目录下 可以不使用 sudo
 sudo make
 ```
 
@@ -181,11 +181,11 @@ sudo make
 #### 配置环境变量
 
 ```bash
-// 把以下内容添加到 ~/.zshrc 或者 ~/.bash_profile  或者 /etc/profile
-// 因为我使用的是zsh 所以配置到 ~/.zshrc 里
+# 把以下内容添加到 ~/.zshrc 或者 ~/.bash_profile  或者 /etc/profile
+# 因为我使用的是zsh 所以配置到 ~/.zshrc 里
 export RISCV_HOME=/opt/riscv-gnu-toolchain
 export PATH=${PATH}:${RISCV_HOME}/bin
-// 用 source 命令 让环境变量重新加载
+# 用 source 命令 让环境变量重新加载
 source ~/.zshrc 
 ```
 
@@ -217,20 +217,20 @@ drwxr-xr-x   7 root  wheel   224 Jan 19 09:39 share
 #### 配置环境变量
 
 ```bash
-// 把以下内容添加到 ~/.zshrc 或者 ~/.bash_profile  或者 /etc/profile
-// 因为我使用的是zsh 所以配置到 ~/.zshrc 里
+# 把以下内容添加到 ~/.zshrc 或者 ~/.bash_profile  或者 /etc/profile
+# 因为我使用的是zsh 所以配置到 ~/.zshrc 里
 export RISCV_HOME=/opt/riscv-gnu-toolchain
 export PATH=${PATH}:${RISCV_HOME}/bin
-// 用 source 命令 让环境变量重新加载
+# 用 source 命令 让环境变量重新加载
 source ~/.zshrc 
 ```
 
 ## 验证 riscv-gnu-toolchain
 
 ```bash
-// 执行
+# 执行
 riscv64-unknown-elf-gcc -v
-// 如打印以下内容代表安装成功
+# 如打印以下内容代表安装成功
 riscv64-unknown-elf-gcc -v
 Using built-in specs.
 COLLECT_GCC=riscv64-unknown-elf-gcc
@@ -252,7 +252,7 @@ qemu 是强大的虚拟机操作系统模拟器，在此课程中，我们使用
 ### 使用 brew 安装（可选）
 
 ```bash
-// 本人就使用了这种方式进行安装
+# 本人就使用了这种方式进行安装
 brew install qemu
 ```
 
@@ -272,18 +272,18 @@ make install
 #### 配置环境变量
 
 ```bash
-// 把以下内容添加到 ~/.zshrc 或者 ~/.bash_profile  或者 /etc/profile
-// 因为我使用的是zsh 所以配置到 ~/.zshrc 里
+# 把以下内容添加到 ~/.zshrc 或者 ~/.bash_profile  或者 /etc/profile
+# 因为我使用的是zsh 所以配置到 ~/.zshrc 里
 export QEMU_HOME=/opt/qemu
 export PATH=${PATH}:${QEMU_HOME}/bin
-// 用 source 命令 让环境变量重新加载
+# 用 source 命令 让环境变量重新加载
 source ~/.zshrc 
 ```
 
 ## 验证 Qemu
 
 ```bash
-// 执行 如果打印以下内容代表安装成功
+# 执行 如果打印以下内容代表安装成功
 qemu-system-riscv64 --version
 QEMU emulator version 6.1.0
 Copyright (c) 2003-2021 Fabrice Bellard and the QEMU Project developers
@@ -354,12 +354,12 @@ riscv64-unknown-elf-gdb
 解决办法:
 
 ```bash
-// 进入目录
+# 进入目录
 cd riscv-gnu-toolchain
-// 注销配置
-// 编辑文件 
+# 注销配置
+# 编辑文件 
 vim riscv-gcc/gcc/config.host
-// 注销96行 97行
+# 注销96行 97行
 96     #out_host_hook_obj=host-darwin.o
 97     #host_xmake_file="${host_xmake_file} x-darwin"
 ```

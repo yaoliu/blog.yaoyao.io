@@ -37,7 +37,7 @@ brew install podman
 
 ```bash
 podman version
-// 输出结果
+# 输出结果
 Client:       Podman Engine
 Version:      4.4.2
 API Version:  4.4.2
@@ -57,13 +57,13 @@ OS/Arch:      linux/arm64
 ### 运行 Podman Machine
 
 ```bash
-// 初始化 Podman Machine 的虚拟机环境
+# 初始化 Podman Machine 的虚拟机环境
 podman machine init --cpus 2 --memory 4096 --disk-size 4
-// 启动虚拟机环境
+# 启动虚拟机环境
 podman machine start
-// 查看虚拟机列表
+# 查看虚拟机列表
 podman machine list
-// 输出结果
+# 输出结果
 NAME                     VM TYPE     CREATED       LAST UP            CPUS        MEMORY      DISK SIZE
 podman-machine-default*  qemu        10 hours ago  Currently running  2           4.295GB     42.95GB
 ```
@@ -74,7 +74,7 @@ podman-machine-default*  qemu        10 hours ago  Currently running  2         
 
 ```bash
 podman run hello-world
-// 输出结果
+# 输出结果
 !... Hello Podman World ...!
 
          .--"--.
@@ -107,7 +107,7 @@ brew install minikube
 
 ```bash
 minikube version
-// 输出结果
+# 输出结果
 minikube version: v1.29.0
 commit: ddac20b4b34a9c8c857fc602203b6ba2679794d3
 ```
@@ -173,15 +173,15 @@ E0301 21:08:02.911942   24959 cache.go:188] Error downloading kic artifacts:  no
 ### 查看集群状态
 
 ```bash
-// 使用 Mac 环境下的 kubectl 查看集群状态
-// 可以使用 brew install kubectl 安装 kubectl
+# 使用 Mac 环境下的 kubectl 查看集群状态
+# 可以使用 brew install kubectl 安装 kubectl
 kubectl get nodes
-// 输出结果
+# 输出结果
 NAME       STATUS   ROLES           AGE     VERSION
 minikube   Ready    control-plane   4m17s   v1.26.0
-// 使用 minikube kubectl 查看集群状态
+# 使用 minikube kubectl 查看集群状态
 minikube kubectl -- get nodes -A
-// 输出结果
+# 输出结果
     > kubectl.sha256:  64 B / 64 B [-------------------------] 100.00% ? p/s 0s
     > kubectl:  50.78 MiB / 50.78 MiB [------------] 100.00% 33.50 MiB p/s 1.7s
 NAME       STATUS   ROLES           AGE   VERSION
@@ -192,7 +192,7 @@ minikube   Ready    control-plane   77m   v1.26.0
 
 ```bash
 minikube delete --all --purge
-// 如果本地还管理其他集群，不要执行该操作。
+# 如果本地还管理其他集群，不要执行该操作。
 rm -rf ~/.kube
 rm -rf ~/.minikube
 ```
