@@ -60,19 +60,19 @@ UBUNTU_CODENAME=jammy
 记得把主机信息加到 /etc/hosts 文件中
 
 ```bash
-# hostnamectl set-hostname {主机名}
+sudo hostnamectl set-hostname {主机名}
 ```
 
 ### 关闭 swap
 
 ```bash
-# sudo swapoff -a
+sudo swapoff -a
 ```
 
 ### 加载内核模块
 
 ```bash
-# modprobe br_netfilter
+modprobe br_netfilter
 ```
 
 ### 修改内核参数
@@ -80,7 +80,7 @@ UBUNTU_CODENAME=jammy
 #### 新增相关配置
 
 ```bash
-# cat << EOF > /etc/sysctl.d/99-kubernetes-cri.conf
+cat << EOF > /etc/sysctl.d/99-kubernetes-cri.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
@@ -91,7 +91,7 @@ EOF
 #### 生效配置
 
 ```bash
-# sudo sysctl -p /etc/sysctl.d/99-kubernetes-cri.conf
+sudo sysctl -p /etc/sysctl.d/99-kubernetes-cri.conf
 ```
 
 ### 修改 DNS
@@ -180,14 +180,14 @@ sudo apt install -y containerd.io
 #### 生成配置文件
 
 ```bash
-# mkdir -p /etc/containerd
-# containerd config default > /etc/containerd/config.toml
+mkdir -p /etc/containerd
+containerd config default > /etc/containerd/config.toml
 ```
 
 #### 使用 systemd 作为容器的 cgroup driver
 
 ```bash
-# vim /etc/containerd/config.toml
+vim /etc/containerd/config.toml
 # SystemdCgroup = true
 [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
   ...
@@ -232,14 +232,16 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubeadm join 10.211.55.9:6443 --token mldghy.xtf4a0u9bw8ltsvu --discovery-token-ca-cert-hash sha256:2b0f87c543d77e0b8f843db47c95985febe17a19de747b064720097db9b9535c
 ```
 
-## 部署 Flannel 组件 (Vxlan模式)
+## 部署 Flannel 组件 
 
-在master上执行
+我使用的是 Vxlan 模式
+
+在 master 上执行
 
 下载配置文件
 
 ```bash
-# wget https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
+wget https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 ```
 
 修改配置文件 只修改 Network 和 Backend Type
@@ -285,7 +287,9 @@ kubectl apply -f kube-flannel.yaml
 ## 查看集群状态
 
 ```bash
+// 执行
 kubectl get nodes -o wide
+// 输出结果
 NAME      STATUS   ROLES           AGE    VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
 home-01   Ready    control-plane   15d    v1.24.0   10.211.55.9    <none>        Ubuntu 20.04.3 LTS   5.13.0-25-generic   containerd://1.6.4
 home-02   Ready    <none>          15d    v1.24.0   10.211.55.5    <none>        Ubuntu 20.04.3 LTS   5.13.0-25-generic   containerd://1.6.4
@@ -295,12 +299,11 @@ home-04   Ready    <none>          5d6h   v1.24.0   10.211.55.12   <none>       
 
 ## FAQ
 
-可以在c每台机器上让 kubelet 开机启动
+可以在每台机器上让 kubelet 开机启动
 
 ```bash
 sudo systemctl enable kubelet.service
 ```
 
 涉及DNS问题可以考虑关掉DNS管理服务
-
-参考[https://icloudnative.io/posts/resolvconf-tutorial/](https://icloudnative.io/posts/resolvconf-tutorial/)
+参考 [https://icloudnative.io/posts/resolvconf-tutorial/](https://icloudnative.io/posts/resolvconf-tutorial/)
