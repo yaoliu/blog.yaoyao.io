@@ -248,7 +248,7 @@ cat /etc/ssh/sshd_config | grep PermitRootLogin
 cp /root/ssh_bak_`date +"%Y-%m-%d"`/sshd /etc/pam.d/
 ```
 
-以下配置在/etc/ssh/sshd_config 下必须存在
+以下配置在 `/etc/ssh/sshd_config` 下必须存在
 
 ```bash
 UseDNS no
