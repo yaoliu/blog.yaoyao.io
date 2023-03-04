@@ -232,7 +232,7 @@ rm -rf /etc/ssh/ssh_host*key
 systemctl restart sshd
 ```
 
-## 常见问题
+## FAQ
 
 ### root 用户无法登录
 

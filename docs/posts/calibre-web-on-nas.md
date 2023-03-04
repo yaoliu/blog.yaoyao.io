@@ -129,7 +129,7 @@ headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必�
 
 ![创建共享文件夹|1000](https://i.yaoyao.site/blog/nas-calibre-web-sharefile.png)
 
-## 使用 第三方 douban 接口作为元数据提供者
+## 使用第三方 douban 接口作为元数据提供者
 
 虽然 0.6.19 版本重新提供了 `douban` 接口。`metadata_provider` 目录下有好几种元数据提供者，但是我这一直刷新不出来 索性还是用第三方提供的接口吧
 
@@ -160,7 +160,7 @@ headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必�
 
 ![获取元数据](https://i.yaoyao.site/blog/nas-calibre-web-get-metadata.png)
 
-## 常见问题
+## FAQ
 
 ### advocate 模块问题
 
