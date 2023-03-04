@@ -1,5 +1,5 @@
 ---
-title: 在 Ubuntu 22.04 上使用 kubeadm  运行 kubernetes 集群
+title: 在 Ubuntu 22.04 上使用 kubeadm  运行 kubernetes
 date: 2022-05-26 # 博客发表日期（可选）
 author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
 layout: Post # 必须
