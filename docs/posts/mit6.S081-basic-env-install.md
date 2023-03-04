@@ -225,7 +225,7 @@ export PATH=${PATH}:${RISCV_HOME}/bin
 source ~/.zshrc 
 ```
 
-### 验证
+## 验证 riscv-gnu-toolchain
 
 ```bash
 // 执行
@@ -247,7 +247,7 @@ qemu 是强大的虚拟机操作系统模拟器，在此课程中，我们使用
 
 我安装的 qemu 版本为 `6.2.0`
 
-**以下安装选一个即可 你怎么开心怎么选 我用的是 `使用 brew 安装`
+以下安装选一个即可 你怎么开心怎么选 我用的是 `使用 brew 安装`
 
 ### 使用 brew 安装（可选）
 
@@ -280,7 +280,7 @@ export PATH=${PATH}:${QEMU_HOME}/bin
 source ~/.zshrc 
 ```
 
-### 验证
+## 验证 Qemu
 
 ```bash
 // 执行 如果打印以下内容代表安装成功
