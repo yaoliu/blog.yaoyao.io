@@ -432,6 +432,6 @@ insert into user(id,user,sex,birthday) values(7,'耀耀','男','1977-09-01');
 
 ## 参考资料
 
-1. [https://keithlan.github.io/2016/06/23/gtid/](https://keithlan.github.io/2016/06/23/gtid/)
-2. [http://mysql.taobao.org/monthly/2020/05/09/](http://mysql.taobao.org/monthly/2020/05/09/)
-3. [https://bbs.huaweicloud.com/blogs/211180](https://bbs.huaweicloud.com/blogs/211180)
+- [https://keithlan.github.io/2016/06/23/gtid/](https://keithlan.github.io/2016/06/23/gtid/)
+- [http://mysql.taobao.org/monthly/2020/05/09/](http://mysql.taobao.org/monthly/2020/05/09/)
+- [https://bbs.huaweicloud.com/blogs/211180](https://bbs.huaweicloud.com/blogs/211180)
