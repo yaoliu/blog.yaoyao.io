@@ -23,7 +23,7 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 ## 我的环境
 
-- 我的电脑: `MacBook Pro (14-inch, 2021)`, `Version 13.2`, `M1 Max (ARM64,aarch64)`
+- 我的电脑: `MacBook Pro (14-inch, 2021)`, `Ventura 13.2`, `M1 Max (ARM64,aarch64)`
 - 本地 Linux 环境: `Ubuntu 22.04.2 LTS` in `Parallels Desktop 18 for Mac`
 
 ## 安装 Docker
