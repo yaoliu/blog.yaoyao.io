@@ -1,9 +1,9 @@
 {
-  "name": "yaoyao-blog-v2",
+  "name": "yaoyao.io",
   "private": true,
   "description": "this is blog",
   "license": "Apache-2.0",
-  "author": "YaoYao<liuyao@163.com>",
+  "author": "YaoYao<i@yaoyao.io",
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-beta.49",
     "@vuepress/bundler-webpack": "2.0.0-beta.49",

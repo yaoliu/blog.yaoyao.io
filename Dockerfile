@@ -1,5 +1,5 @@
 FROM node:18-alpine as builder
-LABEL maintainer="YaoYao<liuyao@163.com>"
+LABEL maintainer="YaoYao<i@yaoyao.io>"
 
 WORKDIR /home/node/app
 COPY package.json /home/node/app/
