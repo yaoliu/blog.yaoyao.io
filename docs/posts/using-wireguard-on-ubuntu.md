@@ -15,7 +15,7 @@ headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源
 
 ## 我的环境
 
-我使用两台腾讯云轻量级服务器，在本地使用一台 Mac 运行 Surge 作为客户端。
+我使用两台腾讯云轻量级服务器，在本地使用一台 `Mac` 运行 `Surge` 作为客户端。
 
 我的电脑: `MacBook Pro (14-inch, 2021)`, `Ventura 13.2`, `M1 Max (ARM64,aarch64)`
 
@@ -25,7 +25,7 @@ headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源
 
 ### 内核依赖
 
-使用 `WireGuard` 需要 Linux 内核版本 4.1 或更高版本。在 `Ubuntu 20.04` 中，内核版本符合要求，因此可以直接安装并使用 WireGuard。
+使用 `WireGuard` 需要 Linux 内核版本 4.1 或更高版本。在 `Ubuntu 20.04` 中，内核版本符合要求，因此可以直接安装并使用 `WireGuard`。
 
 如果您不确定内核是否支持，可以使用 `modinfo wireguard` 查看
 
@@ -39,8 +39,7 @@ filename:       /lib/modules/5.4.0-121-generic/kernel/wireguard/wireguard.ko
 
 ### 私有 IP 段
 
-WireGuard 组网的 IP 段需要选择私有 IP 段，不要使用公网 IP 段。并且不能和你使用的网络 IP 段冲突，例如，您可以使用 `192.168.x.x` 或 `10.x.x.x` 等私有 IP 段。在本文档中，我使用 `192.168.100.1/24` 做为 WireGuard 私有段。
-中继服务端的 IP 地址为 `192.168.100.1`，Peer 客户端的 IP 地址为 `192.168.100.2` 。Mac 的 IP 地址为 `192.168.100.3`
+WireGuard 组网的 IP 段需要选择私有 IP 段，不要使用公网 IP 段。并且不能和你使用的网络 IP 段冲突，例如，您可以使用 `192.168.x.x` 或 `10.x.x.x` 等私有 IP 段。在本文档中，我使用 `192.168.100.1/24` 做为 WireGuard 私有段。 中继节点的 IP 地址为 `192.168.100.1`，Peer 节点的 IP 地址为 `192.168.100.2` 。Mac 的 IP 地址为 `192.168.100.3`
 
 ### 保证唯一
 
@@ -52,13 +51,13 @@ WireGuard 组网的 IP 段需要选择私有 IP 段，不要使用公网 IP 段�
 
 如果在服务器上使用 `ufw`，请关闭 `ufw` 或开放下面配置的端口。 例如：`udp 51820`。
 
-## 中继节点与 Peer 节点
+## 中继节点 与 Peer 节点
 
 在 WireGuard 协议中，中继节点使用一台服务器来整合所有对等节点的流量并将其路由到互联网，从而实现虚拟专用网络（VPN）连接。对等节点是指使用 WireGuard 协议的客户端设备，它们之间可以直接通信，而无需通过中继节点。对等节点可以是任何支持 WireGuard 协议的设备，例如计算机、手机、路由器等等。在 WireGuard 中，中继节点和对等节点的配置方式也略有不同。中继节点需要配置 WireGuard 服务器，生成密钥对，编写 WireGuard 配置文件，设置内核参数，关闭防火墙等。而对等节点则需要生成自己的密钥对，编写 WireGuard 配置文件，将配置文件发送给 WireGuard 服务器，然后启动 WireGuard 客户端即可连接到 WireGuard 中。
 
 **在本文中，我认为中继节点可以理解为服务端，而 Peer 节点则可以理解为客户端。因此，当文中出现“中继节点”一词时，可以将其理解为服务端；当出现“Peer 节点”一词时，可以将其理解为客户端。反之亦然。**
 
-## 服务端
+## 中继节点
 
 ### 安装 WireGuard
 
@@ -81,15 +80,13 @@ wg pubkey < privatekey > publickey
 
 `tee 命令` 用于读取标准输入的数据，并将其内容输出成文件。
 
-您可以使用 `cat` 命令查看私钥和公钥。**切记不要泄露私钥给任何一个人**
+您可以使用 `cat` 命令查看私钥和公钥。**切记不要泄露私钥给任何一个人。**
 
-### 编写 **WireGuard 配置**
+### 编写 WireGuard **配置**
 
 WireGuard 使用 [INI](https://zh.wikipedia.org/wiki/INI%E6%96%87%E4%BB%B6) 语法作为其配置文件格式。配置文件可以放在任何路径下，但必须通过绝对路径引用。默认路径是 `/etc/wireguard/wg0.conf`。
 
-配置文件的命名形式必须为 `${WireGuard 接口的名称}.conf`。
-通常情况下 WireGuard 接口名称以 `wg` 为前缀，并从 `0` 开始编号.
-但你也可以使用其他名称，只要符合正则表达式 `^[a-zA-Z0-9_=+.-]{1,15}$`。在这里我使用 `wg0` 作为配置文件名称。
+配置文件的命名形式必须为 `${WireGuard 接口的名称}.conf`。通常情况下 WireGuard 接口名称以 `wg` 为前缀，并从 `0` 开始编号，但你也可以使用其他名称，只要符合正则表达式 `^[a-zA-Z0-9_=+.-]{1,15}$`。在这里我使用 `wg0` 作为配置文件名称。
 
 创建配置文件
 
@@ -126,7 +123,7 @@ ip -o -4 route show to default | awk '{print $5}'
 
 ### 配置内核参数
 
-为了让 WireGuard 服务器转发数据包，需要设置内核参数 `net.ipv4.ip_forward=1` 和 `net.ipv4.conf.all.proxy_arp=1`。其中，`net.ipv4.ip_forward=1` 允许 Linux 内核将数据包从一个网络接口转发到另一个网络接口，`net.ipv4.conf.all.proxy_arp=1` 则允许 Linux 内核在本地网络中拦截 ARP 请求并向请求方提供本地主机的 MAC 地址，从而实现数据包的转发。
+为了让 WireGuard 中继节点转发数据包，需要设置内核参数 `net.ipv4.ip_forward=1` 和 `net.ipv4.conf.all.proxy_arp=1`。其中，`net.ipv4.ip_forward=1` 允许 Linux 内核将数据包从一个网络接口转发到另一个网络接口，`net.ipv4.conf.all.proxy_arp=1` 则允许 Linux 内核在本地网络中拦截 ARP 请求并向请求方提供本地主机的 MAC 地址，从而实现数据包的转发。
 
 打开配置文件
 
@@ -187,9 +184,9 @@ interface: wg0
 sudo systemctl enable wg-quick@wg0.service
 ```
 
-## 客户端
+## Peer 节点
 
-现在，您已经在 `Ubuntu 20.04` 上成功运行了 `WireGuard` 服务器，下一步是配置客户端。您可以在任何支持 `WireGuard` 协议的设备上安装客户端，例如 Windows、macOS、Android、iOS、路由器等等。这里提供的是 `Ubuntu 20.04` 客户端的安装过程。
+现在，您已经在 `Ubuntu 20.04` 上成功运行了 `WireGuard 中继节点`，下一步是配置 `Peer 节点`。您可以在任何支持 `WireGuard` 协议的设备上安装客户端，例如 Windows、macOS、Android、iOS、路由器等等。这里提供的是 `Ubuntu 20.04` 客户端的安装过程。
 
 ### 安装 WireGuard
 
@@ -208,7 +205,7 @@ wg genkey | tee privatekey
 wg pubkey < privatekey > publickey
 ```
 
-### 编写 WireGuard 配置
+### 编写 WireGuard **配置**
 
 创建配置文件：
 
@@ -224,8 +221,8 @@ Address = 192.168.100.2/24
 PrivateKey = {这是你上面生成的私钥}
 
 [Peer]
-PublicKey = {这是你在服务器上生成的公钥}
-Endpoint = {你的WireGuard服务器公网IP}:51820
+PublicKey = {这是你在中继节点上生成的公钥}
+Endpoint = {你的W ireGuard中继节点公网 IP}:51820
 AllowedIPs = 192.168.100.1/32
 PersistentKeepalive = 21
 ```
@@ -247,53 +244,53 @@ sudo wg-quick up wg0
 
 现在您已经成功配置了 WireGuard 客户端。
 
-## 将 客户端添加到服务端
+## 将 Peer 节点添加到中继节点
 
 ### 通过编辑配置文件添加
 
-要将客户端添加到服务器上，您需要将客户端的公钥添加到服务器的配置文件中。在服务器上编辑 `/etc/wireguard/wg0.conf` 文件，将以下内容添加到文件末尾：
+要将 Peer 节点添加到中继节点上，您需要将 Peer 节点的公钥添加到中继节点的配置文件中。在中继节点上编辑 `/etc/wireguard/wg0.conf` 文件，将以下内容添加到文件末尾：
 
 ```bash
 [Peer]
-PublicKey = {这是你在客户端上生成的公钥}
+PublicKey = {这是你在Peer 节点上生成的公钥}
 AllowedIPs = 192.168.100.2/32
 ```
 
 ### 通过命令行工具添加
 
 ```bash
-sudo wg set wg0 peer {客户端公钥} allowed-ips {客户端IP}
+sudo wg set wg0 peer {Peer 节点公钥} allowed-ips {Peer 节点IP}
 // 例如
 sudo wg set wg0 peer xxxxxx allowed-ios 192.168.100.2
 ```
 
-现在您的客户端应该能够成功连接到服务器了。
+现在您的 Peer 节点应该能够成功连接到中继节点了。
 
-### 在服务端查看链接状态
+## 在中继节点查看状态
 
-您可以在服务端使用以下命令查看当前的 `WireGuard` 连接状态：
+您可以在中继节点使用以下命令查看当前的 `WireGuard` 连接状态：
 
 ```bash
 sudo wg show
 ```
 
-该命令将输出当前连接的客户端信息，包括公钥、网络接口名称（例如 `wg0`）、IP 地址、数据流量等。
+该命令将输出当前连接的 Peer 节点信息，包括公钥、网络接口名称（例如 `wg0`）、IP 地址、数据流量等。
 
 ```bash
 interface: wg0
-  public key: {服务端公钥}
+  public key: {中继节点公钥}
   private key: (hidden)
   listening port: 51820
   fwmark: 0xca6c
 
-peer: {客户端公钥}
-  endpoint: {客户端公网IP}:64886
+peer: {Peer 节点公钥}
+  endpoint: {Peer 节点公网IP}:64886
   allowed ips: 192.168.100.2/32
   latest handshake: 1 minute, 44 seconds ago
   transfer: 40.12 KiB received, 10.00 KiB sent
 ```
 
-您可以在服务端使用 `ping` 访问客户端：
+您可以在中继节点使用 ping 访问 Peer 节点：
 
 ```bash
 // 执行命令
