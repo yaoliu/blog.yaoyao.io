@@ -1,5 +1,5 @@
 ---
-title: 如何在 Ubuntu 20 04 运行 WireGuard
+title: 如何在 Ubuntu 20.04 运行 WireGuard
 author: 耀耀
 date: 2023-03-20
 tags: 
