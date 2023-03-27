@@ -12,7 +12,8 @@ import {
   RiBook2Fill,
   RiGithubLine,
   RiSailboatLine,
-  RiVuejsLine
+  RiVuejsLine,
+  CoNotion
 } from "oh-vue-icons/icons";
 
 addIcons(
@@ -27,7 +28,8 @@ addIcons(
   RiGithubLine,
   OiGitCompare,
   OiRocket,
-  RiSailboatLine
+  RiSailboatLine,
+  CoNotion
 );
 
 export default defineClientConfig({});
