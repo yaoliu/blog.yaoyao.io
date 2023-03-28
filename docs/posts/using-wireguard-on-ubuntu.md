@@ -3,8 +3,8 @@ title: 如何在 Ubuntu 20 04 运行 WireGuard
 author: 耀耀
 date: 2023-03-20
 tags:
-- ubuntu
-- wireGuard
+- Ubuntu
+- WireGuard
 layout: Post
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
 headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
