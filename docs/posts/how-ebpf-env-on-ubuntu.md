@@ -11,6 +11,7 @@ headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源
 ---
 
 我的电脑: `MacBook Pro (14-inch, 2021)`, `Ventura 13.2`, `M1 Max (ARM64,aarch64)`
+
 本地 Linux 环境: `Ubuntu 22.04.2 LTS (5.15.0-60-generic)`  in `Parallels Desktop 18 for Mac`
 
 下面安装步骤均在 `Ubuntu 22.04.2 LTS (5.15.0-60-generic)` 进行测试。
@@ -25,8 +26,6 @@ sudo apt install -y linux-tools-$(uname -r) linux-headers-$(uname -r) linux-comm
 ```
 
 ## LLVM & CLANG
-
-默认情况下，eBPF 代码是用 C 或 C++编写的，Clang 用于将代码翻译为 LLVM IR。LLVM IR 是代码的高级、跨平台表示，由 LLVM 的优化器和后端进行优化和转换。LLVM 中的 eBPF 后端将 LLVM IR 转换为 eBPF 字节码，该字节码可以由 Linux 内核的 eBPF 虚拟机执行。eBPF 字节码是特定于 eBPF 架构的低级表示，经过优化，可在内核的 eBPF 虚拟机上执行。总的来说，编译 eBPF 代码的过程涉及多个步骤，包括从 C/C++到 LLVM IR 的翻译，以及从 LLVM IR 到 eBPF 字节码的翻译。Clang 和 LLVM 提供了自动执行这些步骤的工具和库，并且在 eBPF 开发社区中广泛使用。
 
 ### 使用官方源安装
 
@@ -116,6 +115,8 @@ find /usr/include/ -name bpf.h
 
 如果没有找到 `bpf.h` 在这种情况下，你需要安装相应的 Linux 内核头文件包，以便在开发和编译 eBPF 程序时能够访问 `bpf.h` 头文件。
 
+### 使用包管理工具安装
+
 通常情况下，你可以使用包管理来安装 Linux 内核头文件包。例如，在 Ubuntu 系统上，你可以使用以下命令安装 Linux 内核头文件包：
 
 ```bash
@@ -126,7 +127,7 @@ sudo apt install linux-headers-$(uname -r)
 
 ## libbpf
 
-`libbpf` **** 是一个用于管理和操作 eBPF 代码的库。它提供了一组低级别的 API，用于加载、卸载和管理 eBPF 程序和映射，以及与内核中的 eBPF 子系统进行交互。
+`libbpf` 是一个用于管理和操作 eBPF 代码的库。它提供了一组低级别的 API，用于加载、卸载和管理 eBPF 程序和映射，以及与内核中的 eBPF 子系统进行交互。
 
 libbpf 库的主要功能包括：
 
