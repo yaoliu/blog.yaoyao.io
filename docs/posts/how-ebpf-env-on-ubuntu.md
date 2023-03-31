@@ -349,19 +349,18 @@ sudo apt install linux-source-5.15.0
 
 ```bash
 cd /usr/src/
-ls -l /usr/src/
-tar xf linux-source-5.15.0.tar.bz2
+sudo tar xf linux-source-5.15.0.tar.bz2
 ```
 
 编译
 
 ```bash
 cd linux-source-5.15.0/tools
-cd bpf/bpftools
+cd bpf/bpftool
 make
-./bpftool version -p
+sudo ./bpftool v -p
 {
-    "version": "5.15.85",
+    "version": "5.15.87",
     "features": {
         "libbfd": true,
         "skeletons": true
