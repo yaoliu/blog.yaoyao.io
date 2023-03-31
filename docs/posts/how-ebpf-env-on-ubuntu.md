@@ -18,7 +18,7 @@ headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源
 
 ## 一键安装
 
-如果没有特殊需求或者只是在尝试 `eBPF`  可以使用以下命令安装：
+如果没有特殊需求或者只是在尝试学习使用 `eBPF`  可以使用以下命令安装：
 
 ```bash
 sudo apt install -y make clang llvm libelf-dev libbpf-dev bpfcc-tools libbpfcc-dev
@@ -29,7 +29,7 @@ sudo apt install -y linux-tools-$(uname -r) linux-headers-$(uname -r) linux-comm
 
 ### 使用官方源安装
 
-你可以使用添加官方源的方式在 `Ubuntu 22.04` 上安装指定版本的 `LLVM`：
+你可以使用添加官方源的方式在 `Ubuntu 上安装指定版本的 `LLVM`：
 
 安装 GPG 证书
 
@@ -37,7 +37,7 @@ sudo apt install -y linux-tools-$(uname -r) linux-headers-$(uname -r) linux-comm
 wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
 ```
 
-写入软件源信息 将下面内容添加到 `/etc/apt/sources.list`
+写入软件源信息，将下面内容添加到 `/etc/apt/sources.list`
 
 ```bash
 deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy main
@@ -59,7 +59,7 @@ sudo apt-get update
 安装 `LLVM` 工具链
 
 ```bash
-apt-get install -y clang-15 lldb-15 lld-15 clangd-15
+sudo apt install -y clang-15 lldb-15 lld-15 clangd-15
 ```
 
 ### 使用官方脚本安装
@@ -104,12 +104,15 @@ sudo ./llvm.sh 15 all
 
 `bpf.h` 是 Linux 内核的一部分，通常在安装 Linux 操作系统时就已经包含在内核中。因此，如果你已经安装了 Linux 系统，通常就已经拥有了 `bpf.h` 头文件。但是，不同的 Linux 发行版可能会有不同的内核版本和配置，因此可能会存在某些版本的内核中不包含 `bpf.h` 头文件的情况。
 
-如果你想知道你的 Linux 上是否安装了 `bpf.h` 可以使用 find 命令
+如果你想知道你的 Linux 上是否安装了 `bpf.h` 可以使用 `find` 命令
 
 ```bash
-// 执行命令
-find /usr/include/ -name bpf.h
-// 输出结果
+sudo find /usr/include/ -name bpf.h
+```
+
+输出结果
+
+```bash
 /usr/include/linux/bpf.h
 ```
 
@@ -123,21 +126,20 @@ find /usr/include/ -name bpf.h
 sudo apt install linux-headers-$(uname -r)
 ```
 
-这个命令将安装当前正在运行的内核版本对应的头文件包。安装完成后，你就可以在编写 eBPF 程序时使用 `bpf.h` 头文件了。
+这个命令将安装当前正在运行的内核版本对应的头文件包。安装完成后，你就可以在编写 `eBPF` 程序时使用 `bpf.h` 头文件了。
 
 ## libbpf
 
-`libbpf` 是一个用于管理和操作 eBPF 代码的库。它提供了一组低级别的 API，用于加载、卸载和管理 eBPF 程序和映射，以及与内核中的 eBPF 子系统进行交互。
+`libbpf` 是一个用于管理和操作 `eBPF` 代码的库。它提供了一组低级别的 API，用于加载、卸载和管理 `eBPF` 程序和映射，以及与内核中的 `eBPF` 子系统进行交互。
 
-libbpf 库的主要功能包括：
+`libbpf` 库的主要功能包括：
 
-- 加载和卸载 eBPF 程序和映射
-- 与 eBPF 程序和映射进行交互，例如查看和修改它们的属性
-- 与内核中的 eBPF 子系统进行交互，例如获取 eBPF 子系统的信息和状态
-- 生成 eBPF 代码和数据的 ELF 格式文件，以便将其编译为内核模块或用户空间程序
+- 加载和卸载 `eBPF` 程序和映射
+- 与 `eBPF` 程序和映射进行交互，例如查看和修改它们的属性
+- 与内核中的 `eBPF` 子系统进行交互，例如获取 `eBPF` 子系统的信息和状态
+- 生成 `eBPF` 代码和数据的 ELF 格式文件，以便将其编译为内核模块或用户空间程序
 
-libbpf 库是 eBPF 开发中不可或缺的一部分，它提供了一组简单易用的 API，可以帮助开发者更方便地操作和管理 eBPF 程序和映射。
-libbpf 库的源代码托管在 GitHub 上，可以访问 [https://github.com/libbpf/libbpf](https://github.com/libbpf/libbpf) 查看。
+`libbpf` 库的源代码托管在 GitHub 上，可以访问 [libbpf Github](https://github.com/libbpf/libbpf) 查看源代码。
 
 ### 使用源码编译安装
 
@@ -178,18 +180,18 @@ sudo find /lib --name libbpf.so
 
 ## bcc
 
-**`bcc`** 是一组用于 eBPF 开发的工具，它包括了一组用于编写和调试 eBPF 程序的库和命令行工具。使用 bcc，可以更加方便地开发和调试 eBPF 程序，提高开发效率和代码质量。
+**`bcc`** 是一组用于 `eBPF` 开发的工具，它包括了一组用于编写和调试 `eBPF` 程序的库和命令行工具。使用 `bcc`，可以更加方便地开发和调试 `eBPF` 程序，提高开发效率和代码质量。
 
 ### 使用包管理工具安装
 
-在 Ubuntu 系统上，可以使用以下命令安装 bcc：
+在 Ubuntu 上，可以使用以下命令安装 bcc：
 
 ```bash
 sudo apt update
 sudo apt install bpfcc-tools
 ```
 
-这个命令将安装 bcc 工具集及其依赖项。安装完成后，你就可以使用 `bcc-tool` 命令行工具和 `libbpf` 库了。
+这个命令将安装 bcc 工具集及其依赖项。
 
 ### 使用源码编译安装
 
@@ -203,23 +205,23 @@ make
 sudo make install
 ```
 
-这个命令将下载 bcc 源代码并编译安装 bcc 工具集。编译完成后，你就可以在 `/usr/share/bcc/tools` 目录下找到各种 bcc 工具的源代码和示例程序。
+这个命令将下载 `bcc` 源代码并编译安装 `bcc` 工具集。编译完成后，你就可以在 `/usr/share/bcc/tools` 目录下找到各种 `bcc` 工具的源代码和示例程序。
 
-需要注意的是，编译 bcc 工具集需要一些依赖项，包括 clang、llvm、libelf、libbfd 等。在编译 bcc 之前，需要先安装这些依赖项。
+需要注意的是，编译 `bcc` 工具集需要一些依赖项，包括 `clang、llvm、libelf、libbfd ` 等。在编译 `bcc` 之前，需要先安装这些依赖项。
 
-如果你想了解更多关于 bcc 的信息，可以查看 [bcc GitHub 主页](https://github.com/iovisor/bcc) 或者 [bcc 官方文档](https://github.com/iovisor/bcc/blob/master/docs/reference_guide.md) 。
+如果你想了解更多关于 `bcc` 的信息，可以查看 [bcc GitHub](https://github.com/iovisor/bcc) 或者 [bcc 官方文档](https://github.com/iovisor/bcc/blob/master/docs/reference_guide.md) 。
 
-## **bpftool**
+## bpftool
 
-**`bpftool`** 是一个用于管理和调试 `eBPF` 代码的命令行工具。它允许你查看和分析系统中运行的 `eBPF` 程序和映射，以及与内核中的 `eBPF` 子系统进行交互。更多内容可以查看 [https://github.com/libbpf/bpftool](https://github.com/libbpf/bpftool)
+**`bpftool`** 是一个用于管理和调试 `eBPF` 代码的命令行工具。它允许你查看和分析系统中运行的 `eBPF` 程序和映射，以及与内核中的 `eBPF` 子系统进行交互。更多内容可以查看 [bpftool Github](https://github.com/libbpf/bpftool)
 
 使用 `bpftool`，你可以执行以下操作：
 
-- 列出当前系统中所有加载的 eBPF 程序和映射
-- 查看指定 eBPF 程序或映射的详细信息，例如指令集、内存布局等
-- 修改 eBPF 程序或映射的属性，例如禁用一个程序或清空一个映射
-- 将一个 eBPF 程序或映射导出到文件中，以便在其他系统上重新导入
-- 调试 eBPF 程序，例如跟踪程序的控制流、访问内存等
+- 列出当前系统中所有加载的 `eBPF` 程序和映射
+- 查看指定 `eBPF` 程序或映射的详细信息，例如指令集、内存布局等
+- 修改 `eBPF` 程序或映射的属性，例如禁用一个程序或清空一个映射
+- 将一个 `eBPF` 程序或映射导出到文件中，以便在其他系统上重新导入
+- 调试 `eBPF` 程序，例如跟踪程序的控制流、访问内存等
 
 ### 使用包管理工具安装
 
@@ -232,7 +234,7 @@ sudo apt install -y linux-tools-$(uname -r)
 安装依赖
 
 ```bash
-apt install    build-essential \
+sudo apt install build-essential \
         libelf-dev \
         libz-dev \
         libcap-dev \
