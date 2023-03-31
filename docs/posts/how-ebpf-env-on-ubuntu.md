@@ -10,15 +10,18 @@ headerImageCredit: Ideun Kim # 图片来源，比如图片作者的名字（可�
 headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
 ---
 
+
+## 我的环境
+
 我的电脑: `MacBook Pro (14-inch, 2021)`, `Ventura 13.2`, `M1 Max (ARM64,aarch64)`
 
-本地 Linux 环境: `Ubuntu 22.04.2 LTS (5.15.0-60-generic)`  in `Parallels Desktop 18 for Mac`
+本地 Linux 环境: `Ubuntu 22.04.2 LTS (5.15.0-60-generic)` in `Parallels Desktop 18 for Mac`
 
 下面安装步骤均在 `Ubuntu 22.04.2 LTS (5.15.0-60-generic)` 进行测试。
 
 ## 一键安装
 
-如果没有特殊需求或者只是在尝试学习使用 `eBPF`  可以使用以下命令安装：
+如果没有特殊需求或者只是在尝试学习使用 `eBPF` 可以使用以下命令安装：
 
 ```bash
 sudo apt install -y make clang llvm libelf-dev libbpf-dev bpfcc-tools libbpfcc-dev
@@ -96,7 +99,7 @@ chmod +x llvm.sh
 sudo ./llvm.sh 15 all
 ```
 
-如果在 `Ubuntu` 上使用 `apt` 安装 `LLVM` 的更多方法可以参考 [https://apt.llvm.org/](https://apt.llvm.org/)
+如果在 `Ubuntu` 上使用 `apt` 安装 `LLVM` 的更多方法可以参考 [LLVM APT](https://apt.llvm.org/)
 
 如果你需要使用二进制包安装特定版本的 LLVM，可以在 [LLVM 下载页面](https://releases.llvm.org/download.html) 上下载相应的版本并手动安装。
 
@@ -116,11 +119,11 @@ sudo find /usr/include/ -name bpf.h
 /usr/include/linux/bpf.h
 ```
 
-如果没有找到 `bpf.h` 在这种情况下，你需要安装相应的 Linux 内核头文件包，以便在开发和编译 eBPF 程序时能够访问 `bpf.h` 头文件。
+如果没有找到 `bpf.h` 在这种情况下，你需要安装相应的 Linux 内核头文件包，以便在开发和编译 `eBPF` 程序时能够访问 `bpf.h` 头文件。
 
 ### 使用包管理工具安装
 
-通常情况下，你可以使用包管理来安装 Linux 内核头文件包。例如，在 Ubuntu 系统上，你可以使用以下命令安装 Linux 内核头文件包：
+通常情况下，你可以使用包管理来安装 Linux 内核头文件包。例如，在 `Ubuntu` 系统上，你可以使用以下命令安装 Linux 内核头文件包：
 
 ```bash
 sudo apt install linux-headers-$(uname -r)
@@ -174,7 +177,7 @@ sudo apt install libbpf-dev
 
 ```bash
 sudo find /usr/lib -name libbpf.so
-// 或者
+// or
 sudo find /lib --name libbpf.so
 ```
 
@@ -207,7 +210,7 @@ sudo make install
 
 这个命令将下载 `bcc` 源代码并编译安装 `bcc` 工具集。编译完成后，你就可以在 `/usr/share/bcc/tools` 目录下找到各种 `bcc` 工具的源代码和示例程序。
 
-需要注意的是，编译 `bcc` 工具集需要一些依赖项，包括 `clang、llvm、libelf、libbfd ` 等。在编译 `bcc` 之前，需要先安装这些依赖项。
+需要注意的是，编译 `bcc` 工具集需要一些依赖项，包括 `clang、llvm、libelf、libbfd` 等。在编译 `bcc` 之前，需要先安装这些依赖项。
 
 如果你想了解更多关于 `bcc` 的信息，可以查看 [bcc GitHub](https://github.com/iovisor/bcc) 或者 [bcc 官方文档](https://github.com/iovisor/bcc/blob/master/docs/reference_guide.md) 。
 
@@ -332,16 +335,37 @@ sudo ./bpftool v -p
 
 ### 使用 Linux 源码编译安装
 
-安装 Linux 源码
+安装依赖
 
 ```bash
-// 查看当前内核版本
+sudo apt install build-essential \
+        libelf-dev \
+        libz-dev \
+        libcap-dev \
+        clang llvm llvm-dev lld \
+        binutils-dev \
+        pkg-config
+```
+
+在这里建议使用与当前内核版本匹配或兼容的版本。您可以通过运行 `uname -r` 来检查当前内核版本，并使用 `apt-cache search` 搜索可用的 `Linux` 源代码版本。一旦找到所需版本，就可以继续安装过程。
+
+查看当前内核版本
+
+```bash
 uname -r
-// 输出当前版本
-5.15.0-60-generic
-// 搜索 Linux 源码
+```
+
+搜索 `Linux` 源码
+
+```bash
 sudo apt-cache search linux-source
-// 安装源码
+```
+
+安装 `Linux` 源码
+
+默认会将源码安装到 `/usr/src/` 目录下
+
+```bash
 sudo apt install linux-source-5.15.0
 ```
 
@@ -358,6 +382,11 @@ sudo tar xf linux-source-5.15.0.tar.bz2
 cd linux-source-5.15.0/tools
 cd bpf/bpftool
 make
+```
+
+验证命令
+
+```bash
 sudo ./bpftool v -p
 {
     "version": "5.15.87",
