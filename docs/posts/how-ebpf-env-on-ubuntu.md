@@ -10,14 +10,15 @@ headerImageCredit: Ideun Kim # 图片来源，比如图片作者的名字（可�
 headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
 ---
 
-
 ## 我的环境
 
 我的电脑: `MacBook Pro (14-inch, 2021)`, `Ventura 13.2`, `M1 Max (ARM64,aarch64)`
 
-本地 Linux 环境: `Ubuntu 22.04.2 LTS (5.15.0-60-generic)` in `Parallels Desktop 18 for Mac`
+本地 Linux 开发环境: `Ubuntu 22.04.2 LTS (5.15.0-60-generic)` in `Parallels Desktop 18 for Mac`
 
-下面安装步骤均在 `Ubuntu 22.04.2 LTS (5.15.0-60-generic)` 进行测试。
+在这里我建议选择大于 `5.0.0` 内核版本的 `Linux` 发行版。可以使用阿里云、腾讯云、Google、AWS、等公有云上的 `Ubuntu`。也可以在你本地电脑上使用 `Parallels Desktop 18 for Mac`、`Vargrant`、等工具创建 `Ubuntu` 虚拟机。
+
+下面安装过程均在 `Ubuntu 22.04.2 LTS (5.15.0-60-generic)` 进行测试。
 
 ## 一键安装
 
@@ -25,7 +26,7 @@ headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源
 
 ```bash
 sudo apt install -y make clang llvm libelf-dev libbpf-dev bpfcc-tools libbpfcc-dev
-sudo apt install -y linux-tools-$(uname -r) linux-headers-$(uname -r) linux-common
+sudo apt install -y linux-tools-$(uname -r) linux-headers-$(uname -r) linux-tools-common
 ```
 
 ## LLVM & CLANG
@@ -99,9 +100,9 @@ chmod +x llvm.sh
 sudo ./llvm.sh 15 all
 ```
 
-如果在 `Ubuntu` 上使用 `apt` 安装 `LLVM` 的更多方法可以参考 [LLVM APT](https://apt.llvm.org/)
+如果在 `Ubuntu` 上使用 `apt` 安装 `LLVM` 的更多方法可以参考 [APT LLVM 页面](https://apt.llvm.org/)
 
-如果你需要使用二进制包安装特定版本的 LLVM，可以在 [LLVM 下载页面](https://releases.llvm.org/download.html) 上下载相应的版本并手动安装。
+如果你需要使用二进制包安装特定版本的 `LLVM`，可以在 [LLVM 下载页面](https://releases.llvm.org/download.html) 上下载相应的版本并手动安装。
 
 ## bpf.h
 
@@ -119,11 +120,11 @@ sudo find /usr/include/ -name bpf.h
 /usr/include/linux/bpf.h
 ```
 
-如果没有找到 `bpf.h` 在这种情况下，你需要安装相应的 Linux 内核头文件包，以便在开发和编译 `eBPF` 程序时能够访问 `bpf.h` 头文件。
+如果没有找到 `bpf.h` 在这种情况下，你需要安装相应的 `Linux` 内核头文件包，以便在开发和编译 `eBPF` 程序时能够访问 `bpf.h` 头文件。
 
 ### 使用包管理工具安装
 
-通常情况下，你可以使用包管理来安装 Linux 内核头文件包。例如，在 `Ubuntu` 系统上，你可以使用以下命令安装 Linux 内核头文件包：
+通常情况下，你可以使用包管理来安装 `Linux` 内核头文件包。例如，在 `Ubuntu` 系统上，你可以使用以下命令安装 `Linux` 内核头文件包：
 
 ```bash
 sudo apt install linux-headers-$(uname -r)
@@ -198,21 +199,56 @@ sudo apt install bpfcc-tools
 
 ### 使用源码编译安装
 
-如果你想自行编译 bcc 工具集，可以使用以下命令从 GitHub 上获取源代码并编译：
+如果你想自行编译 `bcc` 工具集，可以从 GitHub 上获取源代码并编译、我建议选择一个已经发布的 `release` 版本进行编译。
+
+编译 `bcc` 工具集需要一些依赖项，包括 `clang、llvm、libelf、libbfd` 等。在编译 `bcc` 之前，需要先安装这些依赖项。
+
+安装依赖
+
+```bash
+sudo apt install bison \
+                                 flex \
+libdebuginfod-dev \
+liblzma-dev \
+libclang-dev \
+libllvm \
+libluajit-5.1-dev \
+build-essential \
+libelf-dev libedit-dev python3 zlib1g-dev libelf-dev libfl-dev python3-distutils linux-tools-$(uname -r)
+```
+
+克隆仓库
 
 ```bash
 git clone https://github.com/iovisor/bcc.git
-mkdir bcc/build; cd bcc/build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr
-make
-sudo make install
 ```
 
-这个命令将下载 `bcc` 源代码并编译安装 `bcc` 工具集。编译完成后，你就可以在 `/usr/share/bcc/tools` 目录下找到各种 `bcc` 工具的源代码和示例程序。
+切换到已经发布的 `release` 版本
 
-需要注意的是，编译 `bcc` 工具集需要一些依赖项，包括 `clang、llvm、libelf、libbfd` 等。在编译 `bcc` 之前，需要先安装这些依赖项。
+```bash
+cd bcc
+git checkout tags/v0.26.0
+```
 
-如果你想了解更多关于 `bcc` 的信息，可以查看 [bcc GitHub](https://github.com/iovisor/bcc) 或者 [bcc 官方文档](https://github.com/iovisor/bcc/blob/master/docs/reference_guide.md) 。
+编译
+
+```bash
+mkdir build; cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DENABLE_LLVM_SHARED=1
+make
+sudo make install
+cmake -DPYTHON_CMD=python3 .. # build python3 binding
+pushd src/python/
+make
+sudo make install
+popd
+```
+
+这个命令将下载 `bcc` 源代码并编译安装 `bcc` 工具集。编译完成后，你就可以在 `/usr/share/bcc/tools` 目录下找到各种 `bcc` 工具的源代码和示例程序。比如，可以执行 `sudo python3 /usr/share/bcc/tools/execsnoop` 命令来运行 `bcc` 自带的 `execsnoop` 工具。
+
+我们根据以上 ` 编译 ` 步骤可以看日志输出。了解具体安装过程及安装到哪些目录。
+
+如果想了解更多关于 `bcc` 的信息，可以查看 [bcc GitHub](https://github.com/iovisor/bcc) 或者 [bcc 官方文档](https://github.com/iovisor/bcc/blob/master/docs/reference_guide.md) 。
 
 ## bpftool
 
@@ -429,7 +465,7 @@ find /usr/include -name vmlinux.h
 
 另外，需要注意的是，不同的 Linux 发行版可能会有不同的内核版本和配置，因此可能会存在某些版本的内核中不包含 **`vmlinux.h`** 头文件的情况。在这种情况下，你需要手动编译和安装相应的内核头文件，或者从其他渠道获取 **`vmlinux.h`** 文件。
 
-## 其他
+## libbfd
 
 如果你想检查是否安装了 **`libbfd`** 库，可以使用以下命令：
 
@@ -447,6 +483,36 @@ find /usr/include -name bfd.h
 
 这个命令将在 **`/usr/include`** 目录下查找 **`bfd.h`** 文件，如果存在，则表示 **`libbfd`** 库已经安装在系统中并且可用于编译程序。如果未找到 **`bfd.h`** 文件，则需要安装 **`libbfd`** 库或者手动安装相应的头文件。
 
-## 参考资料
+## Rust
 
-- [libbpf](https://github.com/libbpf/libbpf)
+### 安装 Rust
+
+打开终端并输入以下命令以安装
+
+```bash
+sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+配置临时环境变量
+
+```bash
+source $HOME/.cargo/env
+```
+
+使环境变量永久生效
+
+```bash
+echo "export PATH='$HOME/.cargo/bin:$PATH'" >> .bashrc
+// 或者
+exho '. "$HOME/.cargo/env"' > .bashrc
+// 生效
+source .bashrc
+```
+
+确认已安装 Rust
+
+```bash
+rustc --version
+```
+
+以上步骤完成后，您已成功安装 Rust 。
