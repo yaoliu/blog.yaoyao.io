@@ -512,7 +512,7 @@ source $HOME/.cargo/env
 ```bash
 echo "export PATH='$HOME/.cargo/bin:$PATH'" >> .bashrc
 // 或者
-exho '. "$HOME/.cargo/env"' > .bashrc
+echo '. "$HOME/.cargo/env"' > .bashrc
 // 生效
 source .bashrc
 ```
