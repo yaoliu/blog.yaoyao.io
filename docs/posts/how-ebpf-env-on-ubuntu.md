@@ -32,7 +32,7 @@ sudo apt install -y linux-tools-$(uname -r) linux-headers-$(uname -r) linux-comm
 
 ### 使用官方源安装
 
-你可以使用添加官方源的方式在 `Ubuntu 上安装指定版本的 `LLVM`：
+你可以使用添加官方源的方式在 `Ubuntu` 上安装指定版本的 `LLVM`：
 
 安装 GPG 证书
 
