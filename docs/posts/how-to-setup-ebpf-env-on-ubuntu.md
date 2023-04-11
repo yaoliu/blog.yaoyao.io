@@ -354,10 +354,18 @@ cd src
 sudo make
 ```
 
+安装到本机
+
+```bash
+sudo make install
+```
+
+默认情况下 `bpftool` 命令会安装到 /`usr/local/sbin/` 下
+
 验证命令
 
 ```bash
-sudo ./bpftool v -p
+sudo bpftool v -p
 {
     "version": "7.0.0",
     "libbpf_version": "1.0",
