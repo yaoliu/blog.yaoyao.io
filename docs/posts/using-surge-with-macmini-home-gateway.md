@@ -4,7 +4,7 @@ date: 2023-04-11
 author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
 layout: Post # 必须
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
-headerImage: https://i.yaoyao.site/yaoyaoio/img/in-post/header.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
+headerImage: https://i.yaoyao.io/yaoyaoio/img/in-post/header.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40,57,101, .4)  # 封面图遮罩（可选）
 headerImageCredit: Jeremy Fenske # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
 headerImageCreditLink: https://www.artstation.com/artwork/nLY0K  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
@@ -89,31 +89,31 @@ IP 地址：`10.10.0.2`
 
 在这里 `Sugre` 会提示你一些信息，你可以仔细看一下，了解一下它的功能及需要满足的需求，如果没什么问题就点击 `下一步`。
 
-![https://i.yaoyao.site/blog/surge-for-mac-dhcp-start.png](https://i.yaoyao.site/blog/surge-for-mac-dhcp-start.png)
+![https://i.yaoyao.io/blog/surge-for-mac-dhcp-start.png](https://i.yaoyao.io/blog/surge-for-mac-dhcp-start.png)
 
 ### 选择网络设备
 
 如果 `Mac mini` 使用无线网络，这里的选择框会为空，当 `Mac mini` 接入有线网络之后在这里就能选择 `Ethernet` 网络设备。选择完之后。请点击 `下一步`。
 
-![https://i.yaoyao.site/blog/surge-for-mac-dhcp-eth.png](https://i.yaoyao.site/blog/surge-for-mac-dhcp-eth.png)
+![https://i.yaoyao.io/blog/surge-for-mac-dhcp-eth.png](https://i.yaoyao.io/blog/surge-for-mac-dhcp-eth.png)
 
 ### 检查 DHCP
 
 这里会进行检查，如果上面配置没问题，这里可以很快就通过进行下一步了。
 
-![https://i.yaoyao.site/blog/surge-for-mac-dhcp-check.png](https://i.yaoyao.site/blog/surge-for-mac-dhcp-check.png)
+![https://i.yaoyao.io/blog/surge-for-mac-dhcp-check.png](https://i.yaoyao.io/blog/surge-for-mac-dhcp-check.png)
 
 ### 配置 DHCP 网络参数
 
 在这里，您可以配置与 `DHCP` 相关的网络参数。如果没有特殊的需求，您可以不进行任何更改。如果您想更改 `DNS 地址` 或 `DHCP 可分配的 IP 段`，您可以进行修改。完成后，请点击 `完成`。
 
-![https://i.yaoyao.site/blog/surge-for-mac-dhcp-set.png](https://i.yaoyao.site/blog/surge-for-mac-dhcp-set.png)
+![https://i.yaoyao.io/blog/surge-for-mac-dhcp-set.png](https://i.yaoyao.io/blog/surge-for-mac-dhcp-set.png)
 
 ### 查看设备
 
 一旦上述配置正确，您就可以在 `Surge` 的界面中在左侧点击 `设备`，查看局域网中已经使用 `Surge DHCP` 服务的设备列表。如果您的电脑不在该列表中，可以尝试重启 Wi-Fi 或重启网卡。
 
-![https://i.yaoyao.site/blog/surge-for-mac-dev-list.png](https://i.yaoyao.site/blog/surge-for-mac-dev-list.png)
+![https://i.yaoyao.io/blog/surge-for-mac-dev-list.png](https://i.yaoyao.io/blog/surge-for-mac-dev-list.png)
 
 ## 开启网关模式
 
@@ -131,7 +131,7 @@ IP 地址：`10.10.0.2`
 
 在这里 `Surge` 会提示一些说明。如果没什么问题请点击 `继续`。
 
-![https://i.yaoyao.site/blog/surge-for-mac-enhanced-start.png](https://i.yaoyao.site/blog/surge-for-mac-enhanced-start.png)
+![https://i.yaoyao.io/blog/surge-for-mac-enhanced-start.png](https://i.yaoyao.io/blog/surge-for-mac-enhanced-start.png)
 
 如果开启成功。`概览` 界面会显示增强模式已激活。
 
