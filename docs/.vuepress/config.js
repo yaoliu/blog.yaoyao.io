@@ -27,7 +27,10 @@ module.exports = {
       }],
     ["meta", {name: "apple-mobile-web-app-status-bar-style", content: "black"}],
     ["meta", {name: "theme-color", content: "#377bb5"}],
-    ["meta", {name: "msapplication-TileColor", content: "#377bb5"}]
+    ["meta", {name: "msapplication-TileColor", content: "#377bb5"}],
+    ["meta", {name: "twitter:card", content: "summary"}],
+    ["meta", {name: "twitter:site", content: "@yaoyaoio"}],
+    ["meta", {name: "twitter:creator", content: "@yaoyaoio"}]
   ],
   locales: {
     '/': {
