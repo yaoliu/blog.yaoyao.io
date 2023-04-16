@@ -19,15 +19,15 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 
 ## 我的设备
 
-- Mac Mini 配置为 M1、16G、1T SSD 和千兆以太网卡。非常适合用作网关。
+- Mac mini 2020, Apple M1, 16GB Memory, 1TB SSD, 1Gb Ethernet。
 - 一根六类网线。
 - Surge for Mac 5、Surge for iOS 5.4.0。
 - MacBook Pro、iPhone 14 Pro、若干内网设备。
 - 若干个机场。
 
-### 设置静态 IP
+## 设置静态 IP
 
-如果让 `Mac mini` 开启 `DHCP 服务器` 和 `网关模式`。需要 `Mac mini` 使用有线网络，并且配置 `静态 IP`。 我使用 `一根六类网线` 将 `Mac mini` 和我的 `WIFI 路由器` 进行连接。我家的 `WIFI 路由器 IP` 为 `10.10.0.1`，子网掩码为 `255.255.0.0`。所以在这里我的 `Mac mini` 使用 `10.10.0.2`。
+如果让 `Mac mini` 开启 `DHCP 服务器` 和 `网关模式`。需要 `Mac mini` 使用有线网络，并且配置 `静态 IP`。 我使用 一根六类网线 将 `Mac mini` 和我的 `WIFI 路由器` 进行连接。我家的 `WIFI 路由器 IP` 为 `10.10.0.1`，子网掩码为 `255.255.0.0`。所以在这里我的 `Mac mini` 使用 `10.10.0.2`。
 
 在 `Mac mini` 上左上角点击 `苹果图标` 选择 `系统偏好设置` 在选择 `网络` ，在 `网络` 界面里 `左侧` 选择 `以太网`。在右侧进行以下配置：
 
@@ -39,7 +39,7 @@ IP 地址：`10.10.0.2`
 
 最后点击 `应用`
 
-![https://i.yaoyao.io/blog/mac-eth-set-1.png](https://i.yaoyao.io/blog/mac-eth-set-1.png)
+![https://i.yaoyao.io/blog/mac-eth-set-env.png](https://i.yaoyao.io/blog/mac-eth-set-env.png)
 
 ## 配置 DHCP 服务
 
@@ -57,31 +57,31 @@ IP 地址：`10.10.0.2`
 
 在这里 `Sugre` 会提示你一些信息，你可以仔细看一下，了解一下它的功能及需要满足的需求，如果没什么问题就点击 `下一步`。
 
-![https://i.yaoyao.site/blog/surge-for-mac-dhcp-start.png](https://i.yaoyao.site/blog/surge-for-mac-dhcp-start.png)
+![https://i.yaoyao.io/blog/surge-for-mac-dhcp-start.png](https://i.yaoyao.io/blog/surge-for-mac-dhcp-start.png)
 
 ### 选择网络设备
 
 如果 `Mac mini` 使用无线网络，这里的选择框会为空，当 `Mac mini` 接入有线网络之后在这里就能选择 `Ethernet` 网络设备。选择完之后。请点击 `下一步`。
 
-![https://i.yaoyao.site/blog/surge-for-mac-dhcp-eth.png](https://i.yaoyao.site/blog/surge-for-mac-dhcp-eth.png)
+![https://i.yaoyao.io/blog/surge-for-mac-dhcp-eth.png](https://i.yaoyao.io/blog/surge-for-mac-dhcp-eth.png)
 
 ### 检查 DHCP
 
 这里会进行检查，如果上面配置没问题，这里可以很快就通过进行下一步了。
 
-![https://i.yaoyao.site/blog/surge-for-mac-dhcp-check.png](https://i.yaoyao.site/blog/surge-for-mac-dhcp-check.png)
+![https://i.yaoyao.io/blog/surge-for-mac-dhcp-check.png](https://i.yaoyao.io/blog/surge-for-mac-dhcp-check.png)
 
 ### 配置 DHCP 网络参数
 
 在这里，您可以配置与 `DHCP` 相关的网络参数。如果没有特殊的需求，您可以不进行任何更改。如果您想更改 `DNS 地址` 或 `DHCP 可分配的 IP 段`，您可以进行修改。完成后，请点击 `完成`。
 
-![https://i.yaoyao.site/blog/surge-for-mac-dhcp-set.png](https://i.yaoyao.site/blog/surge-for-mac-dhcp-set.png)
+![https://i.yaoyao.io/blog/surge-for-mac-dhcp-set.png](https://i.yaoyao.io/blog/surge-for-mac-dhcp-set.png)
 
 ### 查看设备
 
 一旦上述配置正确，您就可以在 `Surge` 的界面中在左侧点击 `设备`，查看局域网中已经使用 `Surge DHCP` 服务的设备列表。如果您的电脑不在该列表中，可以尝试重启 Wi-Fi 或重启网卡。
 
-![https://i.yaoyao.site/blog/surge-for-mac-dev-list.png](https://i.yaoyao.site/blog/surge-for-mac-dev-list.png)
+![https://i.yaoyao.io/blog/surge-for-mac-dev-list.png](https://i.yaoyao.io/blog/surge-for-mac-dev-list.png)
 
 ## 开启网关模式
 
@@ -99,7 +99,7 @@ IP 地址：`10.10.0.2`
 
 在这里 `Surge` 会提示一些说明。如果没什么问题请点击 `继续`。
 
-![https://i.yaoyao.site/blog/surge-for-mac-enhanced-start.png](https://i.yaoyao.site/blog/surge-for-mac-enhanced-start.png)
+![https://i.yaoyao.io/blog/surge-for-mac-enhanced-start.png](https://i.yaoyao.io/blog/surge-for-mac-enhanced-start.png)
 
 如果开启成功。`概览` 界面会显示增强模式已激活。
 
@@ -147,11 +147,11 @@ IP 地址：`10.10.0.2`
 
 ![https://i.yaoyao.io/blog/surge-for-mac-profile-2.png](https://i.yaoyao.io/blog/surge-for-mac-profile-2.png)
 
-`iCloud/Surge` 文件夹也可以由`Surge for iOS` 自动创建。步骤为`iPhone` →  `Surge for iOS` →  `更多` →  `配置同步` → `iCloud 云盘`。默认就会在`iCloud`里创建`Surge`文件夹。
+`iCloud/Surge` 文件夹也可以由`Surge for iOS` 自动创建。步骤为`iPhone` → `Surge for iOS` → `更多` → `配置同步` → `iCloud 云盘`。默认就会在`iCloud`里创建`Surge`文件夹。
 
 ![https://i.yaoyao.io/blog/surge-for-ios-profile-sync.png](https://i.yaoyao.io/blog/surge-for-ios-profile-sync.png)
 
-使用`Mac` 设备 可以在 `iCloud` 中看到 `Surge` 文件夹。
+使用`Mac Book Pro` 可以在 `iCloud` 中看到 `Surge` 文件夹。
 
 ![https://i.yaoyao.io/blog/surge-for-mac-icloud.png](https://i.yaoyao.io/blog/surge-for-mac-icloud.png)
 
@@ -167,7 +167,7 @@ IP 地址：`10.10.0.2`
 
 ![https://i.yaoyao.io/blog/surge-for-mac-settings-remote.png](https://i.yaoyao.io/blog/surge-for-mac-settings-remote.png)
 
-在其他Mac设备上可以配置`连接到其他设备` 。配置新的控制台。
+在其他Mac设备上可以配置`连接到其他设备` 。配置新的控制台。保存并连接。
 
 ![https://i.yaoyao.io/blog/surge-for-mac-connent-remote.png](https://i.yaoyao.io/blog/surge-for-mac-connent-remote.png)
 
@@ -177,11 +177,17 @@ IP 地址：`10.10.0.2`
 
 ## 代理策略&&规则
 
-我为了更好的访问不同的 `墙外服务`。所以搞了 7 个左右的 `纵云梯`。并且将这些 `纵云梯` 添加到了 `Surge for Mac` 的策略里。并且 `策略模式` 为 `规则判定`
+### 代理策略
+
+我这里将自建的梯子全都放到了代理中。如果有的梯子协议不被Surge支持。可以考虑在本机运行一个客户端暴露SOCK5协议端口。在从Surge里创建一个代理转发到这个端口上。
+
+我将策略组分为五种： 机场、自建、地区、业务、默认。
 
 ![https://i.yaoyao.io/blog/surge-for-mac-policy-list.png](https://i.yaoyao.io/blog/surge-for-mac-policy-list.png)
 
-我在 `规则` 中会将不同服务规则使用不同代理策略
+### 规则
+
+我把规则进行分类、使用 `# > 注释内容` 作为注释标明不同类型。并且使每个规则都使用不同的策略。这样有个好处是如果我希望使用HK节点访问Google，不需要在这里重新将规则更换HK策略。而是在策略里对Google策略进行修改即可。
 
 ![https://i.yaoyao.io/blog/surge-for-mac-rules-list.png](https://i.yaoyao.io/blog/surge-for-mac-rules-list.png)
 
@@ -195,13 +201,15 @@ IP 地址：`10.10.0.2`
 
 ![https://i.yaoyao.io/blog/surge-for-mac-ponte-start.png](https://i.yaoyao.io/blog/surge-for-mac-ponte-start.png)
 
-Surge 会测试当前网络的 NAT 类型。我这里选选择 `通过代理的 NAT 穿透`
+### 通过代理进行 NAT 穿透
 
-![https://i.yaoyao.io/blog/surge-for-mac-ponte-nat-select.png](https://i.yaoyao.io/blog/surge-for-mac-ponte-nat-select.png)
+Surge 会测试当前网络的 NAT 类型。我这里选择 `通过代理进行 NAT 穿透`
 
-因为我选择了通过代理的 NAT 穿透。所以我这里选择一个支持 UDP 中继的代理。
+![https://i.yaoyao.io/blog/surge-for-mac-ponte-select-2.png](https://i.yaoyao.io/blog/surge-for-mac-ponte-select-2.png)
 
-![https://i.yaoyao.io/blog/surge-for-mac-ponte-nat-choice.png](https://i.yaoyao.io/blog/surge-for-mac-ponte-nat-choice.png)
+因为我选择了通过代理的 NAT 穿透。所以我这里选择一个支持 UDP 中继的代理。这个地方要注意，作为中继代理即需要支持UDP也要支持FULL CONE NAT才行。要不然检测时候会失败。
+
+![https://i.yaoyao.io/blog/surge-for-mac-ponte-select-2-proxy.png](https://i.yaoyao.io/blog/surge-for-mac-ponte-select-2-proxy.png)
 
 为当前设备选择一个名称，例如 MyMacMini。名称不区分大小写，只能包含字母、数字、下划线和连字符。
 
@@ -209,13 +217,15 @@ Surge 会测试当前网络的 NAT 类型。我这里选选择 `通过代理的 
 
 设置完成后。这里会显示就绪状态。使用 iOS 设备就可以使用它了。
 
+![https://i.yaoyao.io/blog/surge-for-mac-ponte-wait.png](https://i.yaoyao.io/blog/surge-for-mac-ponte-wait.png)
+
 ![https://i.yaoyao.io/blog/surge-for-mac-ponte-ready.png](https://i.yaoyao.io/blog/surge-for-mac-ponte-ready.png)
 
 ## 总览
 
 这里显示了我目前开启的服务。
 
-![https://i.yaoyao.io/blog/surge-for-mac-overview-3.png](https://i.yaoyao.io/blog/surge-for-mac-overview-3.png)
+![https://i.yaoyao.io/blog/surge-for-mac-overview-2.png](https://i.yaoyao.io/blog/surge-for-mac-overview-2.png)
 
 ## 常见问题
 
@@ -229,5 +239,7 @@ Surge 会测试当前网络的 NAT 类型。我这里选选择 `通过代理的 
 - [https://nssurge.zendesk.com/hc/zh-cn/articles/4566381481497-为什么-TCP-请求仅能看到-IP-无法看到域名](https://nssurge.zendesk.com/hc/zh-cn/articles/4566381481497-%E4%B8%BA%E4%BB%80%E4%B9%88-TCP-%E8%AF%B7%E6%B1%82%E4%BB%85%E8%83%BD%E7%9C%8B%E5%88%B0-IP-%E6%97%A0%E6%B3%95%E7%9C%8B%E5%88%B0%E5%9F%9F%E5%90%8D)
 - [https://blog.indigo.codes/2020/04/24/home-network-deployment/](https://blog.indigo.codes/2020/04/24/home-network-deployment/)
 - [https://kb.nssurge.com/surge-knowledge-base/v/zh/](https://kb.nssurge.com/surge-knowledge-base/v/zh/)
-- [https://book.surge.ga/surge-ios/modules](https://book.surge.ga/surge-ios/modules)[h](https://github.com/CareyWang/sub-web)
 - h[ttps://github.com/CareyWang/sub-web](https://github.com/CareyWang/sub-web)
+- [https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Surge](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Surge)
+- [https://book.surge.ga/surge-ios/](https://book.surge.ga/surge-ios/)
+- [https://github.com/Rabbit-Spec/Surge](https://github.com/Rabbit-Spec/Surge)
