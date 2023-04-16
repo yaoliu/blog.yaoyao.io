@@ -189,7 +189,7 @@ IP 地址：`10.10.0.2`
 
 我把规则进行分类、使用 `# > 注释内容` 作为注释标明不同类型。并且使每个规则都使用不同的策略。这样有个好处是如果我希望使用HK节点访问Google，不需要在这里重新将规则更换HK策略。而是在策略里对Google策略进行修改即可。
 
-![https://i.yaoyao.io/blog/surge-for-mac-rules-list.png](https://i.yaoyao.io/blog/surge-for-mac-rules-list.png)
+![https://i.yaoyao.io/blog/surge-for-mac-rule-list.png](https://i.yaoyao.io/blog/surge-for-mac-rule-list.png)
 
 ## Surge Ponte
 
