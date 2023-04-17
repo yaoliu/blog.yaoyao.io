@@ -145,7 +145,7 @@ IP 地址：`10.10.0.2`
 
 `Surge for Mac` 默认情况下会将 `配置存储路径` 设置为 `/Users/{用户名}/Library/Application Support/Surge/Profiles` ，但是因为我不希望每次对 `Mac mini` 上的 `Surge` 修改配置文件时需要接显示器鼠标键盘。因为毕竟当成软路由来用，肯定是放在角落里。所以我在 `iCloud` 里创建了 `Surge` 目录，然后将 `配置存储路径` 改为 `iCloud/Surge` 存储。并且设置 `当配置被从外部程序或远端修改后自动重新载入`。这样我在其他苹果设备上对该配置文件修改后。就可以自动生效了。
 
-![https://i.yaoyao.io/blog/surge-for-mac-profile-2.png](https://i.yaoyao.io/blog/surge-for-mac-profile-2.png)
+![https://i.yaoyao.io/blog/surge-for-mac-profile.png](https://i.yaoyao.io/blog/surge-for-mac-profile.png)
 
 `iCloud/Surge` 文件夹也可以由`Surge for iOS` 自动创建。步骤为`iPhone` → `Surge for iOS` → `更多` → `配置同步` → `iCloud 云盘`。默认就会在`iCloud`里创建`Surge`文件夹。
 
