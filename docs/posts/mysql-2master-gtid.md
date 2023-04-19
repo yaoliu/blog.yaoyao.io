@@ -4,7 +4,7 @@ date: "2021-09-01"
 author: 耀耀
 layout: Post # 必须
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
-headerImage: /img/in-post/ismail-inceoglu-on-fire.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
+headerImage: /img/in-post/default.jpeg # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40,57,101, .4)  # 封面图遮罩（可选）
 headerImageCredit: Ismail Inceoglu # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
 headerImageCreditLink: https://www.artstation.com/artwork/18D5XG  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）

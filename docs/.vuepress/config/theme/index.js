@@ -93,7 +93,7 @@ module.exports = gungnirTheme({
       icon: "fa-tag"
     },
     {
-      text: "My Notion",
+      text: "Notion",
       link: "https://notion.yaoyao.io",
       icon: "co-notion"
     },

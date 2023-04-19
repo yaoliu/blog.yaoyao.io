@@ -5,13 +5,13 @@ on:
     branches: [ main ]
     paths-ignore:
       - 'k8s/*'
-      - 'cicd/*'
+      - 'devops/*'
       - 'traefik/*'
   pull_request:
     branches: [ main ]
     paths-ignore:
       - 'k8s/*'
-      - 'cicd/*'
+      - 'devops/*'
 
 jobs:
   push-to-registry:
