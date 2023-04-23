@@ -4,10 +4,10 @@ date: 2023-04-11
 author: 耀耀 # 博客作者（可选，不填的话会使用 `themeConfig.personalInfo.name`）
 layout: Post # 必须
 useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
-headerImage: https://i.yaoyao.site/yaoyaoio/img/in-post/header.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
+headerImage: https://i.yaoyao.io/blog/unsplash-macmini-1.jpg # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
 headerMask: rgba(40,57,101, .4)  # 封面图遮罩（可选）
-headerImageCredit: Jeremy Fenske # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
-headerImageCreditLink: https://www.artstation.com/artwork/nLY0K  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
+headerImageCredit: Ed Orozco # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
+headerImageCreditLink: https://unsplash.com/photos/IITaO-_w58A  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
 catalog: true # 是否启用右侧目录，会覆写 `themeConfig.catalog`（可选，默认：false）
 hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可选，默认：false）
 ---
@@ -16,6 +16,7 @@ hide: false # 是否在首页和标签页博客列表中隐藏这篇博客（可
 ## 前言
 
 自从去年开始，我一直在使用 `Surge for Mac` 和 `Surge for iOS`，我发现它们非常棒。 它们允许我捕获网络流量并根据规则进行路由到不同梯子/机场。还可以在工作中使用它进行抓包。 今年三月，`Surge` 老板宣布了一个名为 `Surge Ponte` 的新功能，类似于 `Tailsacle`。我试用了一下， 发现这个功能在网关上使用会更好。有了 `Surge Ponte`，我现在可以在离家时连接到家庭网络。 为了进行 `Surge 网关` 和 `Surge Ponte` 的实验，我借了一台 `Mac mini`。
+
 
 ## 我的设备
 
@@ -145,7 +146,7 @@ IP 地址：`10.10.0.2`
 
 `Surge for Mac` 默认情况下会将 `配置存储路径` 设置为 `/Users/{用户名}/Library/Application Support/Surge/Profiles` ，但是因为我不希望每次对 `Mac mini` 上的 `Surge` 修改配置文件时需要接显示器鼠标键盘。因为毕竟当成软路由来用，肯定是放在角落里。所以我在 `iCloud` 里创建了 `Surge` 目录，然后将 `配置存储路径` 改为 `iCloud/Surge` 存储。并且设置 `当配置被从外部程序或远端修改后自动重新载入`。这样我在其他苹果设备上对该配置文件修改后。就可以自动生效了。
 
-![https://i.yaoyao.io/blog/surge-for-mac-profile.png](https://i.yaoyao.io/blog/surge-for-mac-profile.png)
+![https://i.yaoyao.io/blog/surge-for-mac-profile-2.png](https://i.yaoyao.io/blog/surge-for-mac-profile-2.png)
 
 `iCloud/Surge` 文件夹也可以由`Surge for iOS` 自动创建。步骤为`iPhone` → `Surge for iOS` → `更多` → `配置同步` → `iCloud 云盘`。默认就会在`iCloud`里创建`Surge`文件夹。
 
@@ -189,7 +190,7 @@ IP 地址：`10.10.0.2`
 
 我把规则进行分类、使用 `# > 注释内容` 作为注释标明不同类型。并且使每个规则都使用不同的策略。这样有个好处是如果我希望使用HK节点访问Google，不需要在这里重新将规则更换HK策略。而是在策略里对Google策略进行修改即可。
 
-![https://i.yaoyao.io/blog/surge-for-mac-rule-list.png](https://i.yaoyao.io/blog/surge-for-mac-rule-list.png)
+![https://i.yaoyao.io/blog/surge-for-mac-rules-list.png](https://i.yaoyao.io/blog/surge-for-mac-rules-list.png)
 
 ## Surge Ponte
 
