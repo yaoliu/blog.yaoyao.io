@@ -27,19 +27,19 @@ module.exports = gungnirTheme({
   // header images on home page
   homeHeaderImages: [
     {
-      path: "https://i.yaoyao.site/bg/1.webp",
+      path: "https://i.yaoyao.io/bg/1.webp",
       mask: "rgba(40, 57, 101, .4)"
     },
     {
-      path: "https://i.yaoyao.site/bg/2.webp",
+      path: "https://i.yaoyao.io/bg/2.webp",
       mask: "rgba(19, 75, 50, .2)"
     },
     {
-      path: "https://i.yaoyao.site/bg/3.webp",
+      path: "https://i.yaoyao.io/bg/3.webp",
       mask: "rgba(196, 176, 131, .1)"
     },
     {
-      path: "https://i.yaoyao.site/bg/4.webp",
+      path: "https://i.yaoyao.io/bg/4.webp",
       mask: "rgba(196, 176, 131, .1)"
     }
   ],

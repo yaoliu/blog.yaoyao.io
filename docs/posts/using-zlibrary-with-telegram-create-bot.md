@@ -23,7 +23,7 @@ headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源
 
 如同所示：
 
-![创建机器人|1000](https://i.yaoyao.site/blog/tg-newbot.png)
+![创建机器人|1000](https://i.yaoyao.io/blog/tg-newbot.png)
 
 ## 与 Zlibrary 绑定
 
@@ -35,11 +35,11 @@ headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源
 
 如图所示：
 
-![登录注册|1000](https://i.yaoyao.site/blog/zlib-dashboard.png)
+![登录注册|1000](https://i.yaoyao.io/blog/zlib-dashboard.png)
 
-![图书详情|1000](https://i.yaoyao.site/blog/zlib-book-desc.png)
+![图书详情|1000](https://i.yaoyao.io/blog/zlib-book-desc.png)
 
-![链接TG|1000](https://i.yaoyao.site/blog/zlib-connect-tg.png)
+![链接TG|1000](https://i.yaoyao.io/blog/zlib-connect-tg.png)
 
 
 
@@ -49,7 +49,7 @@ headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源
 
 如图所示：
 
-![搜索图书|1000](https://i.yaoyao.site/blog/tg-bot-search-book.png)
+![搜索图书|1000](https://i.yaoyao.io/blog/tg-bot-search-book.png)
 
 ## 最后
 

@@ -22,11 +22,11 @@ headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源
 
 我们点击 `Fork` 按钮
 
-![https://i.yaoyao.site/blog/github-fork-linux.png](https://i.yaoyao.site/blog/github-fork-linux.png)
+![https://i.yaoyao.io/blog/github-fork-linux.png](https://i.yaoyao.io/blog/github-fork-linux.png)
 
 点击 `Create fork` 将该仓库复制到我的名下
 
-![https://i.yaoyao.site/blog/giuhub-fork-linux-to-me.png](https://i.yaoyao.site/blog/giuhub-fork-linux-to-me.png)
+![https://i.yaoyao.io/blog/giuhub-fork-linux-to-me.png](https://i.yaoyao.io/blog/giuhub-fork-linux-to-me.png)
 
 ### 克隆仓库
 

@@ -25,7 +25,7 @@ headerImage: /img/in-post/ideun-kim-220908-morning.webp # 博客封面图（必�
 
 如图所示：
 
-![安装 WebDAV|968](https://i.yaoyao.site/blog/nas-webdav-install.png)
+![安装 WebDAV|968](https://i.yaoyao.io/blog/nas-webdav-install.png)
 
 ### 配置 WebDAV Server
 
@@ -33,20 +33,20 @@ headerImage: /img/in-post/ideun-kim-220908-morning.webp # 博客封面图（必�
 
 如图所示：
 
-![打开 WebDAV|868](https://i.yaoyao.site/blog/nas-webdav-open.png)
+![打开 WebDAV|868](https://i.yaoyao.io/blog/nas-webdav-open.png)
 
 修改配置并应用
 
 注：如果什么都不改可以直接点击应用 这个地方我修改了端口
 
-![应用 WebDAV|1076](https://i.yaoyao.site/blog/nas-webdav-apply.png)
+![应用 WebDAV|1076](https://i.yaoyao.io/blog/nas-webdav-apply.png)
 
 ### 创建共享目录
 
 控制面板--> 共享文件夹--> 新增--> obsidian
 
 如图所示：
-![创建共享目录|1067](https://i.yaoyao.site/blog/nas-share-create-obs.png)
+![创建共享目录|1067](https://i.yaoyao.io/blog/nas-share-create-obs.png)
 
 ## 在 Obsidian 上安装 Remotely Save
 
@@ -55,13 +55,13 @@ headerImage: /img/in-post/ideun-kim-220908-morning.webp # 博客封面图（必�
 
 如图所示：
 
-![安装|1200](https://i.yaoyao.site/blog/obs-plugin-remotely-install.png)
+![安装|1200](https://i.yaoyao.io/blog/obs-plugin-remotely-install.png)
 
 ## 在 Obsidian 上配置 Remotely Save
 
 如图所示：
 
-![配置|1200](https://i.yaoyao.site/blog/obs-plugin-remotely-set.png)
+![配置|1200](https://i.yaoyao.io/blog/obs-plugin-remotely-set.png)
 
 ### 配置如下
 
