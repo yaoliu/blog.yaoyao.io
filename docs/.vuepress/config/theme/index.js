@@ -17,7 +17,7 @@ module.exports = gungnirTheme({
     avatar: "/img/avatar.jpeg",
     description: "Have a great day.",
     sns: {
-      github: "yaoliu",
+      github: "yaoyaoio",
       twitter: "yaoyaoio",
       email: "i@yaoyao.io",
       rss: "/rss.xml"
