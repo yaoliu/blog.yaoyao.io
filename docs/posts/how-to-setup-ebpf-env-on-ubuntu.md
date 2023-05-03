@@ -251,7 +251,7 @@ ls -ls /usr/include/bpf/
 
 ## bcc
 
-`**bcc**` 是一组用于 `eBPF` 开发的工具，它包括了一组用于编写和调试 `eBPF` 程序的库和命令行工具。使用 `bcc`，可以更加方便地开发和调试 `eBPF` 程序，提高开发效率和代码质量。
+`bcc` 是一组用于 `eBPF` 开发的工具，它包括了一组用于编写和调试 `eBPF` 程序的库和命令行工具。使用 `bcc`，可以更加方便地开发和调试 `eBPF` 程序，提高开发效率和代码质量。
 
 ### 使用包管理工具安装
 
@@ -277,14 +277,14 @@ sudo apt install cmake
 sudo apt install arping netperf iperf
 sudo apt install bison flex
 sudo apt install libdebuginfod-dev \
-                                 liblzma-dev \
-                                 libluajit-5.1-dev \
-                                 libcurl4-openssl-dev \
-                                 libelf-dev \
-                                 libedit-dev \
-                                 zlib1g-dev \
-                                 libfl-dev \
-                                 build-essential
+                 liblzma-dev \
+                 libluajit-5.1-dev \
+                 libcurl4-openssl-dev \
+                 libelf-dev \
+                 libedit-dev \
+                 zlib1g-dev \
+                 libfl-dev \
+                 build-essential
 ```
 
 如果你的机器没有 Python 环境则需要安装 Python。
@@ -359,7 +359,7 @@ ls -ls /usr/include/bcc/
 
 ## bpftool
 
-`**bpftool**` 是一个用于管理和调试 `eBPF` 代码的命令行工具。它允许你查看和分析系统中运行的 `eBPF` 程序和映射，以及与内核中的 `eBPF` 子系统进行交互。更多内容可以查看 [bpftool Github](https://github.com/libbpf/bpftool)
+`bpftool` 是一个用于管理和调试 `eBPF` 代码的命令行工具。它允许你查看和分析系统中运行的 `eBPF` 程序和映射，以及与内核中的 `eBPF` 子系统进行交互。更多内容可以查看 [bpftool Github](https://github.com/libbpf/bpftool)
 
 使用 `bpftool`，你可以执行以下操作：
 
@@ -558,53 +558,53 @@ sudo ./bpftool v -p
 
 ## linux-tools
 
-`**linux-tools**` 包是 Linux 内核源码中包含的一组工具集，它包括了许多用于性能分析、调试和监测的工具，例如 perf、ftrace、bpftrace 等。这些工具可以帮助开发者深入了解系统内部的行为和性能瓶颈，从而优化程序和系统性能。
+`linux-tools` 包是 Linux 内核源码中包含的一组工具集，它包括了许多用于性能分析、调试和监测的工具，例如 perf、ftrace、bpftrace 等。这些工具可以帮助开发者深入了解系统内部的行为和性能瓶颈，从而优化程序和系统性能。
 
-要查看当前系统中已经安装的 `**linux-tools**` 工具，可以使用以下命令：
+要查看当前系统中已经安装的 `linux-tools` 工具，可以使用以下命令：
 
 ```shell
 dpkg -l | grep linux-tools
 ```
 
-这个命令将列出当前系统中所有已安装的 `**linux-tools**` 包及其版本号。如果系统中没有安装 `**linux-tools**` 包，可以使用包管理器安装，例如在 Ubuntu 系统中可以使用以下命令安装：
+这个命令将列出当前系统中所有已安装的 `linux-tools` 包及其版本号。如果系统中没有安装 `linux-tools` 包，可以使用包管理器安装，例如在 Ubuntu 系统中可以使用以下命令安装：
 
 ```shell
 sudo apt install linux-tools-$(uname -r)
 ```
 
-其中，`**$(uname -r)**` 表示当前正在使用的内核版本号，可以保证安装的 `**linux-tools**` 版本与当前内核版本相匹配。安装完成后，可以再次使用上述命令来检查 `**linux-tools**` 包是否已经安装成功。
+其中，`$(uname -r)` 表示当前正在使用的内核版本号，可以保证安装的 `*linux-tools` 版本与当前内核版本相匹配。安装完成后，可以再次使用上述命令来检查 `linux-tools` 包是否已经安装成功。
 
-需要注意的是，不同版本的 Linux 内核可能会包含不同的 `**linux-tools**` 工具集，且工具名称和版本也可能会有所不同。在使用 `**linux-tools**` 工具时，建议先了解对应版本的工具集和使用方法，以便更好地使用和理解这些工具。
+需要注意的是，不同版本的 Linux 内核可能会包含不同的 `linux-tools` 工具集，且工具名称和版本也可能会有所不同。在使用 ``linux-tools` 工具时，建议先了解对应版本的工具集和使用方法，以便更好地使用和理解这些工具。
 
 ## vmlinux.h
 
-`**vmlinux.h**` 文件是 Linux 内核的一个头文件，通常包含在 Linux 内核头文件包中。如果你想检查系统中是否安装了 `**vmlinux.h**` 文件，可以使用 `find` 命令：
+`vmlinux.h` 文件是 Linux 内核的一个头文件，通常包含在 Linux 内核头文件包中。如果你想检查系统中是否安装了 `vmlinux.h` 文件，可以使用 `find` 命令：
 
 ```shell
 find /usr/include -name vmlinux.h
 ```
 
-这个命令将在 `**/usr/include**` 目录下查找 `**vmlinux.h**` 文件，如果存在，则表示系统中已经安装了 Linux 内核头文件包并且包含了 `**vmlinux.h**` 文件。如果未找到 `**vmlinux.h**` 文件，则需要安装 Linux 内核头文件包或者手动安装相应的头文件。
+这个命令将在 `/usr/include` 目录下查找 `vmlinux.h` 文件，如果存在，则表示系统中已经安装了 Linux 内核头文件包并且包含了 `vmlinux.h` 文件。如果未找到 `vmlinux.h` 文件，则需要安装 Linux 内核头文件包或者手动安装相应的头文件。
 
-另外，需要注意的是，不同的 Linux 发行版可能会有不同的内核版本和配置，因此可能会存在某些版本的内核中不包含 `**vmlinux.h**` 头文件的情况。在这种情况下，你需要手动编译和安装相应的内核头文件，或者从其他渠道获取 `**vmlinux.h**` 文件。
+另外，需要注意的是，不同的 Linux 发行版可能会有不同的内核版本和配置，因此可能会存在某些版本的内核中不包含 `vmlinux.h` 头文件的情况。在这种情况下，你需要手动编译和安装相应的内核头文件，或者从其他渠道获取 `vmlinux.h` 文件。
 
 ## libbfd
 
-如果你想检查是否安装了 `**libbfd**` 库，可以使用以下命令：
+如果你想检查是否安装了 `libbfd` 库，可以使用以下命令：
 
 ```shell
 ldconfig -p | grep libbfd
 ```
 
-这个命令将列出系统中所有已安装的共享库，并过滤出包含关键字 `**libbfd**` 的库。如果输出结果中包含 `**libbfd**`，则表示 `**libbfd**` 库已经安装在系统中。
+这个命令将列出系统中所有已安装的共享库，并过滤出包含关键字 ``libbfd`` 的库。如果输出结果中包含 `libbfd`，则表示 `libbfd` 库已经安装在系统中。
 
-另外，如果你要在程序中使用 `**libbfd**` 库，可以使用以下命令检查是否存在 `**bfd.h**` 头文件：
+另外，如果你要在程序中使用 `libbfd` 库，可以使用以下命令检查是否存在 `bfd.h` 头文件：
 
 ```shell
 find /usr/include -name bfd.h
 ```
 
-这个命令将在 `**/usr/include**` 目录下查找 `**bfd.h**` 文件，如果存在，则表示 `**libbfd**` 库已经安装在系统中并且可用于编译程序。如果未找到 `**bfd.h**` 文件，则需要安装 `**libbfd**` 库或者手动安装相应的头文件。
+这个命令将在 `/usr/include` 目录下查找 `bfd.h` 文件，如果存在，则表示 `libbfd` 库已经安装在系统中并且可用于编译程序。如果未找到 `bfd.h` 文件，则需要安装 `libbfd` 库或者手动安装相应的头文件。
 
 ## Rust
 
@@ -640,23 +640,23 @@ rustc --version
 
 以上步骤完成后，您已成功安装 Rust 。
 
-# FAQ
+## FAQ
 
 ### <asm/**types.h>**
 
 如果在您的环境中找不到 `<asm/types.h>` 头文件，请根据您的内核版本和架构下载相应的内核头文件包并安装
 
-```plain text
-sudo apt-get install linux-headers-5.4.0-74-generic
+```bash
+sudo apt install linux-headers-$(uname -r)
 ```
 
-如果您的内核版本或架构与上述示例不同，请相应地替换版本和架构信息。安装完成后，您应该能够在 `/usr/src/linux-headers-5.4.0-74-generic/include/asm` 目录下找到 `<types.h>` 头文件。如果仍然找不到，请参考相关文档或社区寻求帮助。
+如果您的内核版本或架构与上述示例不同，请相应地替换版本和架构信息。安装完成后，您应该能够在 `/usr/src/linux-headers-5.15.0-60-generic/include/asm` 目录下找到 `<types.h>` 头文件。如果仍然找不到，请参考相关文档或社区寻求帮助。
 
 ```bash
 sudo ln -s /usr/include/asm /usr/include/$(uname -m)-linux-gnu/asm
 ```
 
-### 编译依赖
+## 编译依赖
 
 ### bpftool 依赖问题
 
@@ -675,104 +675,101 @@ sudo ln -s /usr/include/asm /usr/include/$(uname -m)-linux-gnu/asm
 
 `update-alternatives` 命令可以轻松地在系统中安装和管理多个版本的 `clang` 编译器。以下是一个示例，说明如何使用 `update-alternatives` 将 `clang-16` 设置为系统中的默认编译器：
 
-1. 首先，检查系统中是否安装了 `clang-16` 编译器。可以使用以下命令来检查：
+首先，检查系统中是否安装了 `clang-16` 编译器。可以使用以下命令来检查：
 
 ```bash
 clang-16 --version
 ```
+如果 `clang-16` 编译器已经安装在系统中，则该命令应该输出编译器的版本信息。
 
-    如果 `clang-16` 编译器已经安装在系统中，则该命令应该输出编译器的版本信息。
-
-2. 使用 `update-alternatives` 命令来注册 `clang-16` 编译器。可以使用以下命令：
+使用 `update-alternatives` 命令来注册 `clang-16` 编译器。可以使用以下命令：
 
 ```bash
 sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-16 100
 ```
+该命令将在 `/usr/bin` 目录下创建 `clang` 符号链接，并将其链接到 `clang-16` 可执行文件。100 表示此配置的优先级，表示此配置应该是优先级最高的。
 
-    该命令将在 `/usr/bin` 目录下创建 `clang` 符号链接，并将其链接到 `clang-16` 可执行文件。100 表示此配置的优先级，表示此配置应该是优先级最高的。
-
-3. 现在，将 `clang-16` 编译器设置为默认编译器。可以使用以下命令：
+现在，将 `clang-16` 编译器设置为默认编译器。可以使用以下命令：
 
 ```bash
 sudo update-alternatives --set clang /usr/bin/clang-16
 ```
 
-    该命令将 `/usr/bin/clang` 符号链接设置为链接到 `clang-16` 可执行文件，这样系统中的所有程序都将使用 `clang-16` 编译器进行编译。
+该命令将 `/usr/bin/clang` 符号链接设置为链接到 `clang-16` 可执行文件，这样系统中的所有程序都将使用 `clang-16` 编译器进行编译。
 
-4. 可以使用以下命令来验证 `clang` 编译器的版本：
+可以使用以下命令来验证 `clang` 编译器的版本：
 
 ```bash
 clang --version
 ```
-
-    如果一切正常，该命令应该输出 `clang-16` 编译器的版本信息。
+如果一切正常，该命令应该输出 `clang-16` 编译器的版本信息。
 
 使用 `pdate-alternatives` 命令来管理不同版本的 `llvm-config` 工具，以便在需要时进行切换。以下是一个示例，说明如何在系统中安装和管理多个版本的 `llvm-config` 工具：
 
-1. 首先，检查系统中是否安装了 `llvm-config` 工具。可以使用以下命令来检查：
+首先，检查系统中是否安装了 `llvm-config` 工具。可以使用以下命令来检查：
 
 ```bash
 llvm-config --version
 ```
 
-    如果 `llvm-config` 工具已经安装在系统中，则该命令应该输出工具的版本信息。
+如果 `llvm-config` 工具已经安装在系统中，则该命令应该输出工具的版本信息。
 
-2. 使用 `update-alternatives` 命令来注册 `llvm-config` 工具。可以使用以下命令：
+使用 `update-alternatives` 命令来注册 `llvm-config` 工具。可以使用以下命令：
 
 ```bash
 sudo update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm-config-16 100
 ```
 
-    该命令将在 `/usr/bin` 目录下创建 `llvm-config` 符号链接，并将其链接到 `llvm-config-16` 可执行文件。100 表示此配置的优先级，表示此配置应该是优先级最高的。
+该命令将在 `/usr/bin` 目录下创建 `llvm-config` 符号链接，并将其链接到 `llvm-config-16` 可执行文件。100 表示此配置的优先级，表示此配置应该是优先级最高的。
 
-3. 现在，将 `llvm-config-16` 工具设置为默认工具。可以使用以下命令：
+现在，将 `llvm-config-16` 工具设置为默认工具。可以使用以下命令：
 
 ```bash
 sudo update-alternatives --set llvm-config /usr/bin/llvm-config-16
 ```
 
-    该命令将 `/usr/bin/llvm-config` 符号链接设置为链接到 `llvm-config-16` 可执行文件，这样系统中的所有程序都将使用 `llvm-config-16` 工具进行配置。
+该命令将 `/usr/bin/llvm-config` 符号链接设置为链接到 `llvm-config-16` 可执行文件，这样系统中的所有程序都将使用 `llvm-config-16` 工具进行配置。
 
-4. 可以使用以下命令来验证 `llvm-config` 工具的版本：
+可以使用以下命令来验证 `llvm-config` 工具的版本：
 
 ```bash
 llvm-config --version
 ```
 
-    如果一切正常，该命令应该输出 `llvm-config-16` 工具的版本信息。
+如果一切正常，该命令应该输出 `llvm-config-16` 工具的版本信息。
 
 使用 `update-alternatives` 命令来管理不同版本的 `llvm-strip` 工具。以下是一个示例，说明如何在系统中安装和管理多个版本的 `llvm-strip` 工具：
 
-1. 首先，检查系统中是否安装了 `llvm-strip` 工具。可以使用以下命令来检查：
+首先，检查系统中是否安装了 `llvm-strip` 工具。可以使用以下命令来检查：
 
 ```bash
 llvm-strip --version
 ```
 
-    如果 `llvm-strip` 工具已经安装在系统中，则该命令应该输出工具的版本信息。
+如果 `llvm-strip` 工具已经安装在系统中，则该命令应该输出工具的版本信息。
 
-2. 使用 `update-alternatives` 命令来注册 `llvm-strip` 工具。可以使用以下命令：
+使用 `update-alternatives` 命令来注册 `llvm-strip` 工具。可以使用以下命令：
 
 ```bash
 sudo update-alternatives --install /usr/bin/llvm-strip llvm-strip /usr/bin/llvm-strip-16 100
 ```
 
-    该命令将在 `/usr/bin` 目录下创建 `llvm-strip` 符号链接，并将其链接到 `llvm-strip-16` 可执行文件。100 表示此配置的优先级，表示此配置应该是优先级最高的。
+该命令将在 `/usr/bin` 目录下创建 `llvm-strip` 符号链接，并将其链接到 `llvm-strip-16` 可执行文件。100 表示此配置的优先级，表示此配置应该是优先级最高的。
 
-3. 现在，将 `llvm-strip-16` 工具设置为默认工具。可以使用以下命令：
+现在，将 `llvm-strip-16` 工具设置为默认工具。可以使用以下命令：
 
 ```bash
 sudo update-alternatives --set llvm-strip /usr/bin/llvm-strip-16
 ```
 
-    该命令将 `/usr/bin/llvm-strip` 符号链接设置为链接到 `llvm-strip-16` 可执行文件，这样系统中的所有程序都将使用 `llvm-strip-16` 工具进行配置。
+该命令将 `/usr/bin/llvm-strip` 符号链接设置为链接到 `llvm-strip-16` 可执行文件，这样系统中的所有程序都将使用 `llvm-strip-16` 工具进行配置。
 
-4. 可以使用以下命令来验证 `llvm-strip` 工具的版本：
+可以使用以下命令来验证 `llvm-strip` 工具的版本：
 
 ```bash
 llvm-strip --version
 ```
 
-    如果一切正常，该命令应该输出 `llvm-strip-16` 工具的版本信息。
+如果一切正常，该命令应该输出 `llvm-strip-16` 工具的版本信息。
 
 请注意，`update-alternatives` 命令需要使用 `sudo` 权限运行，以便在系统级别创建符号链接。还需要根据您的系统设置相应的路径和权限。此外，如果您的系统中已经安装了多个版本的 LLVM 或者 CLANG  工具，则可以使用相同的方法将它们注册到 `update-alternatives 中，并在需要时进行切换。
