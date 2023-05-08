@@ -3,11 +3,11 @@ title: 如何在 Ubuntu 上配置 eBPF 开发环境
 author: 耀耀
 date: 2023-03-30
 layout: Post
-useHeaderImage: true # 是否在博客中显示封面图（可选，默认：false）
-headerImage: /img/in-post/ideun-kim-220908-morning.webp # 博客封面图（必须，即使上一项选了 false，因为图片也需要在首页显示）
-headerMask: rgba(40,57,101, .4)  # 封面图遮罩（可选）
-headerImageCredit: Ideun Kim # 图片来源，比如图片作者的名字（可选，只在 "useHeaderImage: true" 时有效）
-headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx  # 图片来源的链接（可选，只在 "useHeaderImage: true" 时有效）
+useHeaderImage: true
+headerImage: /img/in-post/ideun-kim-220908-morning.webp
+headerMask: rgba(40,57,101, .4)
+headerImageCredit: Ideun Kim
+headerImageCreditLink: https://www.artstation.com/artwork/8wNkQx
 ---
 
 ## 我的环境
@@ -578,15 +578,23 @@ sudo apt install linux-tools-$(uname -r)
 
 ## vmlinux.h
 
-`vmlinux.h` 文件是 Linux 内核的一个头文件，通常包含在 Linux 内核头文件包中。如果你想检查系统中是否安装了 `vmlinux.h` 文件，可以使用 `find` 命令：
+**`vmlinux.h`** 文件是 Linux 内核的一个头文件，通常包含在 Linux 内核头文件包中。如果你想检查系统中是否安装了 **`vmlinux.h`** 文件，可以使用 `find` 命令：
 
-```shell
+```bash
 find /usr/include -name vmlinux.h
 ```
 
-这个命令将在 `/usr/include` 目录下查找 `vmlinux.h` 文件，如果存在，则表示系统中已经安装了 Linux 内核头文件包并且包含了 `vmlinux.h` 文件。如果未找到 `vmlinux.h` 文件，则需要安装 Linux 内核头文件包或者手动安装相应的头文件。
+这个命令将在 **`/usr/include`** 目录下查找 **`vmlinux.h`** 文件，如果存在，则表示系统中已经安装了 Linux 内核头文件包并且包含了 **`vmlinux.h`** 文件。如果未找到 **`vmlinux.h`** 文件，则需要安装 Linux 内核头文件包或者手动安装相应的头文件。
 
-另外，需要注意的是，不同的 Linux 发行版可能会有不同的内核版本和配置，因此可能会存在某些版本的内核中不包含 `vmlinux.h` 头文件的情况。在这种情况下，你需要手动编译和安装相应的内核头文件，或者从其他渠道获取 `vmlinux.h` 文件。
+另外，需要注意的是，不同的 Linux 发行版可能会有不同的内核版本和配置，因此可能会存在某些版本的内核中不包含 **`vmlinux.h`** 头文件的情况。在这种情况下，你需要手动编译和安装相应的内核头文件，或者从其他渠道获取 **`vmlinux.h`** 文件。
+
+### 生成 vmlinux.h
+
+```bash
+bpftool btf dump file /sys/kernel/btf/vmlinux format c > vmlinux.h
+```
+
+使用 `bpftool` 工具可以生成 `vimlinux.h`
 
 ## libbfd
 
