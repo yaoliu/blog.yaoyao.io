@@ -104,7 +104,7 @@ IP 地址：`10.10.0.2`
 
 如果开启成功。`概览` 界面会显示增强模式已激活。
 
-![https://i.yaoyao.io/blog/surge-for-mac-overview-1.png](https://i.yaoyao.io/blog/surge-for-mac-overview-1.png)
+![https://i.yaoyao.io/blog/surge-for-mac-overview.png](https://i.yaoyao.io/blog/surge-for-mac-overview.png)
 
 ### 手动接管设备
 
@@ -146,7 +146,7 @@ IP 地址：`10.10.0.2`
 
 `Surge for Mac` 默认情况下会将 `配置存储路径` 设置为 `/Users/{用户名}/Library/Application Support/Surge/Profiles` ，但是因为我不希望每次对 `Mac mini` 上的 `Surge` 修改配置文件时需要接显示器鼠标键盘。因为毕竟当成软路由来用，肯定是放在角落里。所以我在 `iCloud` 里创建了 `Surge` 目录，然后将 `配置存储路径` 改为 `iCloud/Surge` 存储。并且设置 `当配置被从外部程序或远端修改后自动重新载入`。这样我在其他苹果设备上对该配置文件修改后。就可以自动生效了。
 
-![https://i.yaoyao.io/blog/surge-for-mac-profile-2.png](https://i.yaoyao.io/blog/surge-for-mac-profile-2.png)
+![https://i.yaoyao.io/blog/surge-for-mac-profile.png](https://i.yaoyao.io/blog/surge-for-mac-profile.png)
 
 `iCloud/Surge` 文件夹也可以由`Surge for iOS` 自动创建。步骤为`iPhone` → `Surge for iOS` → `更多` → `配置同步` → `iCloud 云盘`。默认就会在`iCloud`里创建`Surge`文件夹。
 
@@ -190,7 +190,7 @@ IP 地址：`10.10.0.2`
 
 我把规则进行分类、使用 `# > 注释内容` 作为注释标明不同类型。并且使每个规则都使用不同的策略。这样有个好处是如果我希望使用HK节点访问Google，不需要在这里重新将规则更换HK策略。而是在策略里对Google策略进行修改即可。
 
-![https://i.yaoyao.io/blog/surge-for-mac-rules-list.png](https://i.yaoyao.io/blog/surge-for-mac-rules-list.png)
+![https://i.yaoyao.io/blog/surge-for-mac-rule-list.png](https://i.yaoyao.io/blog/surge-for-mac-rule-list.png)
 
 ## Surge Ponte
 
@@ -226,7 +226,7 @@ Surge 会测试当前网络的 NAT 类型。我这里选择 `通过代理进行 
 
 这里显示了我目前开启的服务。
 
-![https://i.yaoyao.io/blog/surge-for-mac-overview-2.png](https://i.yaoyao.io/blog/surge-for-mac-overview-2.png)
+![https://i.yaoyao.io/blog/surge-for-mac-overview-ponte.png](https://i.yaoyao.io/blog/surge-for-mac-overview-ponte.png)
 
 ## 常见问题
 
