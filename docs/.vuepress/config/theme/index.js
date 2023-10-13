@@ -29,18 +29,6 @@ module.exports = gungnirTheme({
     {
       path: "https://i.yaoyao.io/bg/1.webp",
       mask: "rgba(40, 57, 101, .4)"
-    },
-    {
-      path: "https://i.yaoyao.io/bg/2.webp",
-      mask: "rgba(19, 75, 50, .2)"
-    },
-    {
-      path: "https://i.yaoyao.io/bg/3.webp",
-      mask: "rgba(196, 176, 131, .1)"
-    },
-    {
-      path: "https://i.yaoyao.io/bg/4.webp",
-      mask: "rgba(196, 176, 131, .1)"
     }
   ],
 
@@ -91,11 +79,6 @@ module.exports = gungnirTheme({
       text: "Tags",
       link: "/tags/",
       icon: "fa-tag"
-    },
-    {
-      text: "Notion",
-      link: "https://notion.yaoyao.io",
-      icon: "co-notion"
     },
     {
       text: "About",

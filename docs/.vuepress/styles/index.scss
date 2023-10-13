@@ -8,12 +8,12 @@
 
 .post-item {
   position: relative;
-  margin: 80px auto 100px;
+  margin: 20px auto 20px;
   padding: 0 40px;
 
   &__img {
     display: inline-block;
-    width: 550px;
+    width: 490px;
     height: 340px;
     overflow: hidden;
     position: relative;
@@ -47,7 +47,7 @@
     text-align: left;
 
     .else {
-      left: 580px;
+      left: 520px;
     }
   }
 
@@ -55,16 +55,16 @@
     text-align: right;
 
     .else {
-      right: 580px;
+      right: 520px;
     }
   }
 
   .else {
     position: absolute;
     text-align: left;
-    top: 20px;
-    height: 360px;
-    width: 490px;
+    top: 0;
+    height: 340px;
+    width: 570px;
     border: 1px solid var(--c-border);
     border-radius: 5px;
     overflow-y: hidden;
